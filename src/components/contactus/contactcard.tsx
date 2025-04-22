@@ -16,7 +16,6 @@ interface ContactCardProps {
 const ContactCard: React.FC<ContactCardProps> = ({
 	name,
 	title,
-	image,
 	linkedin,
 	phone,
 	email,
