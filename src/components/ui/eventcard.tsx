@@ -22,26 +22,54 @@ export default function Card({ title, description, image }: CardProps) {
 				</div>
 			</div>
 
-			<div className="changethis absolute top-26 left-29">
+			<div className="rotate-225 absolute top-10 left-9 z-1">
+				<div className="absolute top-25 left-24">
+					<div className="relative">
+						<div className="absolute transform rotate-45 border-2 border-[#ed00da] w-24 h-24 -top-36 -left-36" />
+					</div>
+				</div>
+			</div>
+
+			<div className="rotate-225 absolute top-10 left-9 z-5">
+				<div className="absolute top-[115px] left-[42.99px]">
+					<div className="relative">
+						<div className="absolute transform rotate-90 border-t-2 border-[#ed00da] w-34 h-17 -top-36 -left-36" />
+					</div>
+				</div>
+			</div>
+
+			<div className="absolute top-[223px] left-[137.9px] z-5">
 				<div className="relative">
-					<div className="absolute transform rotate-45 border-2 border-[#ed00da] w-19 h-29 -top-36 -left-36 z-10" />
+					<div className="absolute transform rotate-225 bg-black w-2 h-3 -top-36 -left-36" />
+				</div>
+			</div>
+
+			<div className="absolute top-[126.9px] left-[230px] z-5">
+				<div className="relative">
+					<div className="absolute transform rotate-225 bg-black w-2 h-5 -top-36 -left-36" />
+				</div>
+			</div>
+
+			<div className="absolute top-[126.9px] left-[230px] z-5">
+				<div className="relative">
+					<div className="absolute transform rotate-225 bg-black w-2 h-2 -top-36 -left-36" />
 				</div>
 			</div>
 
 			<div className="w-full h-full relative overflow-hidden border-2 border-[#ed00da] rounded-sm p-3 pb-9">
 				<div className="absolute top-0 left-0">
 					<div className="relative">
-						<div className="absolute transform rotate-45 bg-black w-60 h-60 -top-36 -left-36 z-1" />
+						<div className="absolute transform rotate-45 bg-black w-60 h-60 -top-36 -left-36 z-4" />
 					</div>
 				</div>
 
 				<div className="absolute -top-2 left-0">
 					<div className="relative">
-						<div className="absolute transform rotate-45 border-2 border-[#ed00da]  w-55 h-65 -top-36 -left-36 z-10" />
+						<div className="absolute transform rotate-45 border-2 border-[#ed00da]  w-55 h-65 -top-36 -left-36 z-4" />
 					</div>
 				</div>
 
-				<div className="bg-white h-2/4 w-full relative">{image}</div>
+				<div className="bg-white h-2/4 w-full relative z-3">{image}</div>
 
 				<div className={`bg-black h-1/4 w-full pt-3 ${electrolize.className}`}>
 					<h2 className="text-cyan-200 text-2xl font-medium">{title}</h2>

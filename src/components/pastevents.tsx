@@ -119,7 +119,7 @@ export default function PastEvents() {
 								key={event.key}
 								className={`${cardsToShow === 1 ? "w-full" : "w-full md:w-1/3"} flex-shrink-0 px-3 flex justify-center`}
 							>
-								<div className="py-4 px-2 mb-6">
+								<div className="py-4 pt-13 px-2 mb-6">
 									<Card
 										title={event.title}
 										description={event.description}
