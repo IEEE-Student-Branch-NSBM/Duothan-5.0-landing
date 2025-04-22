@@ -1,6 +1,5 @@
 // components/ContactUs.tsx
 "use client";
-
 import ContactCard from "@/components/contactus/contactcard";
 import {
 	Carousel,
@@ -8,13 +7,18 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "@/components/ui/carousel";
+import localFont from "next/font/local";
 import type React from "react";
 import { useEffect, useState } from "react";
+
+const readyplayerone = localFont({
+	src: "../../fonts/font.otf",
+});
 
 const contactData = [
 	{
 		id: 1,
-		name: "GEETH INDUWARA",
+		name: "JOHN WICK",
 		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
@@ -23,8 +27,8 @@ const contactData = [
 	},
 	{
 		id: 2,
-		name: "JAYASANKA ARIYARATHNE",
-		title: "Vice Chairperson",
+		name: "JOHN WICK",
+		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
@@ -32,8 +36,8 @@ const contactData = [
 	},
 	{
 		id: 3,
-		name: "PASANDI SAMARASINGHE",
-		title: "Secretary",
+		name: "JOHN WICK",
+		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
@@ -41,8 +45,8 @@ const contactData = [
 	},
 	{
 		id: 4,
-		name: "SITHUM SANKAJITH",
-		title: "Treasurer",
+		name: "JOHN WICK",
+		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
@@ -50,7 +54,7 @@ const contactData = [
 	},
 	{
 		id: 5,
-		name: "KUMUDITHA RANASINGHE",
+		name: "JOHN WICK",
 		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
@@ -59,7 +63,7 @@ const contactData = [
 	},
 	{
 		id: 6,
-		name: "RAVINDU RAJAPAKSHA",
+		name: "JOHN WICK",
 		title: "Chairperson",
 		image: "",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
@@ -72,7 +76,7 @@ const ContactUs: React.FC = () => {
 	const [current, setCurrent] = useState(0);
 	const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 	const totalSlides = contactData.length;
-	const groupSize = 3; // Number of cards per group for pagination dots
+	const groupSize = 2; // Number of cards per group for pagination dots
 	const totalGroups = Math.ceil(totalSlides / groupSize);
 
 	// Listen for slide changes via carousel API
@@ -99,10 +103,13 @@ const ContactUs: React.FC = () => {
 					<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 lg:gap-12">
 						{/* Left column */}
 						<div className="w-full lg:w-2/5 xl:w-1/3">
-							<h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-10 text-[#A2EBFF] font-[Electrolize]">
+							<h2
+								className={`text-[45.97px] leading-[100%] text-center lg:text-left tracking-[0.03em] font-normal mb-4 sm:mb-6 lg:mb-10 text-[#A2EBFF] ${readyplayerone.className}`}
+							>
 								CONTACT US
 							</h2>
-							<p className="text-white mb-6 sm:mb-8 lg:mb-10 font-[Electrolize] text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed">
+
+							<p className="text-white mb-6 sm:mb-8 lg:mb-10 font-[Electrolize] text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed text-center lg:text-left">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 								pellentesque, neque ut tempor vulputate, nisi purus varius elit,
 								nec molestie tellus nulla non eros. Vivamus venenatis, nisi id
@@ -111,7 +118,7 @@ const ContactUs: React.FC = () => {
 						</div>
 
 						{/* Right column */}
-						<div className="w-full lg:w-3/5">
+						<div className="w-full sm:text-center lg:w-3/5">
 							<div className="relative">
 								<Carousel
 									opts={{
@@ -127,7 +134,7 @@ const ContactUs: React.FC = () => {
 												key={contact.id}
 												className="basis-full sm:basis-1/2 md:basis-1/2 lg:basis-full xl:basis-1/2"
 											>
-												<div className="p-2 sm:p-3 lg:pl-32 xl:p-5">
+												<div className="p-2 sm:p-3 lg:pl-32 xl:p-5 flex justify-center lg:justify-start">
 													<ContactCard
 														name={contact.name}
 														title={contact.title}
