@@ -10,22 +10,17 @@ const readyplayerone = localFont({ src: "../../public/font.otf" });
 
 export default function AboutUs() {
 	return (
-		<main
-			className="min-h-screen flex flex-col items-center justify-center relative"
-			style={{ backgroundImage: "url('/background.png')" }}
-		>
-			<div className="absolute inset-0 bg-black/50 bg-opacity-0 z-0" />
-
+		<main className="bg-black min-h-screen flex flex-col items-center justify-center relative">
 			<div className="z-10 flex flex-col items-center justify-center w-full px-4 md:px-8 py-12">
 				<p
-					className={`text-3xl md:text-4xl text-center text-[#e957dd] mb-4 ${readyplayerone.className}`}
+					className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-4 ${readyplayerone.className}`}
 				>
 					ABOUT US
 				</p>
 
 				<div className="flex flex-col items-center justify-center pt-6 md:pt-9 max-w-7xl">
 					<p
-						className={`text-xl md:text-2xl text-center text-[#a2ebff] ${readyplayerone.className}`}
+						className={`text-xl md:text-2xl text-center text-[#e957dd] ${readyplayerone.className}`}
 					>
 						IEEE STUDENT BRANCH OF NSBM
 					</p>
@@ -45,7 +40,7 @@ export default function AboutUs() {
 
 				<div className="flex flex-col items-center justify-center pt-10 md:pt-14 max-w-7xl">
 					<p
-						className={`text-xl md:text-2xl text-[#a2ebff] ${readyplayerone.className}`}
+						className={`text-xl md:text-2xl text-[#e957dd] ${readyplayerone.className}`}
 					>
 						DUOTHON
 					</p>
