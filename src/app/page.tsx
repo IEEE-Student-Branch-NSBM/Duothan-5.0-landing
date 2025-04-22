@@ -1,5 +1,10 @@
-import Image from "next/image";
+import AboutUs from "@/components/aboutus";
 
 export default function Home() {
-	return <div>Duothan 5.0</div>;
+	return (
+		<div>
+			<div className="min-h-screen">Hero</div>
+			<AboutUs />
+		</div>
+	);
 }
