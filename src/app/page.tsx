@@ -5,7 +5,9 @@ export default function Home() {
 	return (
 		<div>
 			Duothan 5.0
-			<Contactus />
+			<div className="min-h-screen bg-black bg-no-repeat bg-cover bg-center">
+				<Contactus />
+			</div>
 			<Footer />
 		</div>
 	);
