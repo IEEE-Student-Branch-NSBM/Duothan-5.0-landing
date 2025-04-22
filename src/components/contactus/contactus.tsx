@@ -9,7 +9,7 @@ import {
 	CarouselItem,
 } from "@/components/ui/carousel";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const contactData = [
 	{
@@ -72,16 +72,32 @@ const ContactUs: React.FC = () => {
 	const [current, setCurrent] = useState(0);
 	const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 	const totalSlides = contactData.length;
+	const groupSize = 3; // Number of cards per group for pagination dots
+	const totalGroups = Math.ceil(totalSlides / groupSize);
 
-	// ...existing code...
+	// Listen for slide changes via carousel API
+	useEffect(() => {
+		if (!carouselApi) return;
+
+		const handleSlideChange = () => {
+			setCurrent(carouselApi.selectedScrollSnap());
+		};
+
+		carouselApi.on("select", handleSlideChange);
+		// Set initial slide index
+		setCurrent(carouselApi.selectedScrollSnap());
+
+		return () => {
+			carouselApi.off("select", handleSlideChange);
+		};
+	}, [carouselApi]);
 
 	return (
 		<div className="relative min-h-screen w-full py-6 sm:py-8 lg:py-0">
 			<div className="relative w-full min-h-screen flex items-center overflow-hidden">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-					{/* Updated flex container with better breakpoints */}
 					<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 lg:gap-12">
-						{/* Left column - adjusted widths for different breakpoints */}
+						{/* Left column */}
 						<div className="w-full lg:w-2/5 xl:w-1/3">
 							<h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-10 text-[#A2EBFF] font-[Electrolize]">
 								CONTACT US
@@ -94,7 +110,7 @@ const ContactUs: React.FC = () => {
 							</p>
 						</div>
 
-						{/* Right column - adjusted for better card display */}
+						{/* Right column */}
 						<div className="w-full lg:w-3/5">
 							<div className="relative">
 								<Carousel
@@ -103,11 +119,6 @@ const ContactUs: React.FC = () => {
 										loop: true,
 									}}
 									className="w-full"
-									onSlideChange={(index: number) => {
-										if (carouselApi) {
-											setCurrent(carouselApi.selectedScrollSnap());
-										}
-									}}
 									setApi={setCarouselApi}
 								>
 									<CarouselContent>
@@ -131,7 +142,7 @@ const ContactUs: React.FC = () => {
 									</CarouselContent>
 								</Carousel>
 
-								{/* Navigation controls - improved spacing and sizing */}
+								{/* Navigation controls */}
 								<div className="relative flex items-center justify-center mt-4 sm:mt-6 lg:mt-8 space-x-4">
 									<button
 										type="button"
@@ -156,24 +167,26 @@ const ContactUs: React.FC = () => {
 										</svg>
 									</button>
 
-									{/* Pagination indicators - improved spacing */}
+									{/* Pagination indicators */}
 									<div className="mx-2 sm:mx-4 lg:mx-16">
 										<div className="flex space-x-2 items-center">
-											{[0, 1, 2].map((dotIndex) => {
-												const activeGroup = Math.floor(current / 3);
-												const isActive = dotIndex === activeGroup;
+											{Array.from({ length: totalGroups }).map(
+												(_, dotIndex) => {
+													const activeGroup = Math.floor(current / groupSize);
+													const isActive = dotIndex === activeGroup;
 
-												return (
-													<div
-														key={dotIndex}
-														className={`h-1 rounded-full transition-all duration-300 ${
-															isActive
-																? "w-6 sm:w-8 lg:w-10 bg-[#A2EBFF]"
-																: "w-3 sm:w-4 lg:w-6 bg-[#A2EBFF]"
-														}`}
-													/>
-												);
-											})}
+													return (
+														<div
+															key={dotIndex * groupSize}
+															className={`h-1 rounded-full transition-all duration-300 ${
+																isActive
+																	? "w-6 sm:w-8 lg:w-10 bg-[#A2EBFF]"
+																	: "w-3 sm:w-4 lg:w-6 bg-[#A2EBFF] opacity-50"
+															}`}
+														/>
+													);
+												},
+											)}
 										</div>
 									</div>
 
@@ -208,6 +221,5 @@ const ContactUs: React.FC = () => {
 		</div>
 	);
 };
-// ...existing code...
 
 export default ContactUs;
