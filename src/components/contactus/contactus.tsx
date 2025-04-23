@@ -20,7 +20,7 @@ const contactData = [
 		id: 1,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -29,7 +29,7 @@ const contactData = [
 		id: 2,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -38,7 +38,7 @@ const contactData = [
 		id: 3,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -47,7 +47,7 @@ const contactData = [
 		id: 4,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -56,7 +56,7 @@ const contactData = [
 		id: 5,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -65,7 +65,7 @@ const contactData = [
 		id: 6,
 		name: "JOHN WICK",
 		title: "Chairperson",
-		image: "",
+		image: "/profile.png",
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "email@gmail.com",
@@ -97,7 +97,7 @@ const ContactUs: React.FC = () => {
 	}, [carouselApi]);
 
 	return (
-		<div className="relative min-h-screen w-full py-6 sm:py-8 lg:py-0">
+		<div className="relative bg-black min-h-screen w-full py-6 sm:py-8 lg:py-0">
 			<div className="relative w-full min-h-screen flex items-center overflow-hidden">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 lg:gap-12">
@@ -175,8 +175,8 @@ const ContactUs: React.FC = () => {
 									</button>
 
 									{/* Pagination indicators */}
-									<div className="mx-2 sm:mx-4 lg:mx-16">
-										<div className="flex space-x-2 items-center">
+									<div className="mx-2 sm:mx-4 lg:mx-16 w-full">
+										<div className="flex space-x-2 items-center justify-center">
 											{Array.from({ length: totalGroups }).map(
 												(_, dotIndex) => {
 													const activeGroup = Math.floor(current / groupSize);
@@ -185,7 +185,7 @@ const ContactUs: React.FC = () => {
 													return (
 														<div
 															key={dotIndex * groupSize}
-															className={`h-1 rounded-full transition-all duration-300 ${
+															className={`h-1 rounded-full items-center transition-all duration-300 ${
 																isActive
 																	? "w-6 sm:w-8 lg:w-10 bg-[#A2EBFF]"
 																	: "w-3 sm:w-4 lg:w-6 bg-[#A2EBFF] opacity-50"

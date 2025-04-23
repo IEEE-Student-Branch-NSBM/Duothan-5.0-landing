@@ -21,6 +21,7 @@ interface ContactCardProps {
 const ContactCard: React.FC<ContactCardProps> = ({
 	name,
 	title,
+	image,
 	linkedin,
 	phone,
 	email,
@@ -36,12 +37,9 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
 			<div className="absolute inset-0 flex flex-col items-center justify-center z-10">
 				<div className="w-[260.17px] h-[234px] rounded-[2px] z-10 mr-2 relative ">
-					<Image
-						src="/Union.svg"
-						alt="profile frame"
-						fill
-						className="object-cover "
-					/>
+					<div className="absolute inset-0 overflow-hidden mask-[url('/Union.svg')]">
+						<Image src={image} alt="profile" fill className="object-fit" />
+					</div>
 				</div>
 
 				<div className="mt-3 text-right mr-13">
