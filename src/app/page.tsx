@@ -1,10 +1,10 @@
-import AboutUs from "@/components/aboutus";
+
+import Contactus from "@/components/contactus/contactus";
 
 export default function Home() {
 	return (
 		<div>
-			<div className="min-h-screen">Hero</div>
-			<AboutUs />
+			<Contactus />
 		</div>
 	);
 }
