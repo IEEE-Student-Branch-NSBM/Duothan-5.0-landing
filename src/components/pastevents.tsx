@@ -54,9 +54,11 @@ export default function PastEvents() {
 
 	const handlePrevious = () => {
 		if (isAnimating) return;
+		if (currentIndex <= 0) return;
+
 		setIsAnimating(true);
 		setCurrentIndex((prev) => {
-			const newIndex = prev > 0 ? prev - 1 : events.length - cardsToShow;
+			const newIndex = prev - 1;
 			setTimeout(() => setIsAnimating(false), 500);
 			return newIndex;
 		});
@@ -64,9 +66,11 @@ export default function PastEvents() {
 
 	const handleNext = () => {
 		if (isAnimating) return;
+		if (currentIndex >= events.length - cardsToShow) return;
+
 		setIsAnimating(true);
 		setCurrentIndex((prev) => {
-			const newIndex = prev < events.length - cardsToShow ? prev + 1 : 0;
+			const newIndex = prev + 1;
 			setTimeout(() => setIsAnimating(false), 500);
 			return newIndex;
 		});

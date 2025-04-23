@@ -22,7 +22,7 @@ export default function Card({ title, description }: CardProps) {
 				height={500}
 				className="relative z-0"
 			/>
-			<div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col justify-center px-6">
+			<div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col justify-center pl-3 pr-5">
 				<h3
 					className={`${electrolize.className} text-xl text-[#a2ebff] text-start font-bold mb-2 pt-44`}
 				>
