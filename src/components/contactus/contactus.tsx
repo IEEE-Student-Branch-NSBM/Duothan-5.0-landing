@@ -102,7 +102,7 @@ const ContactUs: React.FC = () => {
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 lg:gap-12">
 						{/* Left column */}
-						<div className="w-full lg:w-2/5 xl:w-1/3">
+						<div className="w-full -mt-5 lg:w-2/5 xl:w-1/3">
 							<h2
 								className={`text-[45.97px] leading-[100%] text-center lg:text-left tracking-[0.03em] font-normal mb-4 sm:mb-6 lg:mb-10 text-[#A2EBFF] ${readyplayerone.className}`}
 							>
@@ -118,7 +118,7 @@ const ContactUs: React.FC = () => {
 						</div>
 
 						{/* Right column */}
-						<div className="w-full sm:text-center lg:w-3/5">
+						<div className="w-full sm:text-center lg:mt-25 lg:w-3/5">
 							<div className="relative">
 								<Carousel
 									opts={{
@@ -150,7 +150,7 @@ const ContactUs: React.FC = () => {
 								</Carousel>
 
 								{/* Navigation controls */}
-								<div className="relative flex items-center justify-center mt-4 sm:mt-6 lg:mt-8 space-x-4">
+								<div className="relative flex items-center justify-center mt-4 sm:mt-4 lg:mt-1 space-x-4">
 									<button
 										type="button"
 										className="text-[#A2EBFF] hover:text-[#A2EBFF] transition-colors center"
@@ -185,10 +185,10 @@ const ContactUs: React.FC = () => {
 													return (
 														<div
 															key={dotIndex * groupSize}
-															className={`h-1 rounded-full items-center transition-all duration-300 ${
+															className={`w-[44px] h-[5px] rounded-[5px] items-center transition-all duration-300 ${
 																isActive
-																	? "w-6 sm:w-8 lg:w-10 bg-[#A2EBFF]"
-																	: "w-3 sm:w-4 lg:w-6 bg-[#A2EBFF] opacity-50"
+																	? "w-8 sm:w-10 lg:w-12 bg-[#A2EBFF]"
+																	: "w-8 sm:w-10 lg:w-12 bg-[#A2EBFF] opacity-30"
 															}`}
 														/>
 													);
