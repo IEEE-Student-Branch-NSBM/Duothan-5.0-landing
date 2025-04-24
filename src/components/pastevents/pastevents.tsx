@@ -1,9 +1,9 @@
 "use client";
+import Card from "@/components/pastevents/eventcard";
 import localFont from "next/font/local";
 import React, { useState } from "react";
-import Card from "./ui/eventcard";
 
-const readyplayerone = localFont({ src: "../../public/font.otf" });
+const readyplayerone = localFont({ src: "../../../public/font.otf" });
 
 const events = [
 	{
@@ -80,9 +80,9 @@ export default function PastEvents() {
 		cardsToShow === 1 ? `-${currentIndex * 100}%` : `-${currentIndex * 33.33}%`;
 
 	return (
-		<div className="min-h-screen bg-black flex flex-col items-center justify-center gap-8 py-16">
+		<div className="h-full px-4 lg:px-0 bg-black flex flex-col items-center  w-full max-w-[1170px] my-20 mx-auto">
 			<p
-				className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-8 pt-20 lg:pt-0 ${readyplayerone.className}`}
+				className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-8 pt-20 lg:py-20 ${readyplayerone.className}`}
 			>
 				OUR PAST EVENTS
 			</p>
@@ -92,7 +92,7 @@ export default function PastEvents() {
 					type="button"
 					onClick={handlePrevious}
 					disabled={isAnimating}
-					className="absolute left-3 lg:-left-2 md:-left-9 top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 disabled:cursor-not-allowed"
+					className="absolute left-3 lg:-left-2  top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 "
 					aria-label="Previous event"
 				>
 					<svg
@@ -121,7 +121,7 @@ export default function PastEvents() {
 						{events.map((event) => (
 							<div
 								key={event.key}
-								className={`${cardsToShow === 1 ? "w-full" : "w-full md:w-1/3"} flex-shrink-0 px-3 flex justify-center`}
+								className={`${cardsToShow === 1 ? "w-full" : "w-full md:w-1/2 lg:w-1/3"} flex-shrink-0 px-3 flex justify-center`}
 							>
 								<div className="py-4 px-2 mb-6">
 									<Card title={event.title} description={event.description} />
@@ -135,7 +135,7 @@ export default function PastEvents() {
 					type="button"
 					onClick={handleNext}
 					disabled={isAnimating}
-					className="absolute right-2 lg:-right-2 md:right-0 top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 disabled:cursor-not-allowed"
+					className="absolute right-2 lg:-right-2  top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 "
 					aria-label="Next event"
 				>
 					<svg
