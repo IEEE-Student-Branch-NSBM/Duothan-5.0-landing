@@ -6,26 +6,26 @@ const electrolize = Electrolize({
 	weight: ["400"],
 });
 
-const readyplayerone = localFont({ src: "../../public/font.otf" });
+const readyplayerone = localFont({ src: "../../../public/font.otf" });
 
 export default function AboutUs() {
 	return (
-		<main className="bg-black min-h-screen flex flex-col items-center justify-center relative">
-			<div className="z-10 flex flex-col items-center justify-center w-full px-4 md:px-8 py-12">
+		<main className="bg-black px-4 lg:px-0 max-h-screen flex flex-col items-center justify-center relative w-full max-w-[1170px] mx-auto">
+			<div className="z-10 flex flex-col items-center justify-center w-full  py-12">
 				<p
 					className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-4 ${readyplayerone.className}`}
 				>
 					ABOUT US
 				</p>
 
-				<div className="flex flex-col items-center justify-center pt-6 md:pt-9 max-w-7xl">
+				<div className="flex flex-col items-center justify-center w-full pt-6 md:pt-9">
 					<p
 						className={`text-xl md:text-2xl text-center text-[#e957dd] ${readyplayerone.className}`}
 					>
 						IEEE STUDENT BRANCH OF NSBM
 					</p>
 					<p
-						className={`text-base md:text-xl text-white text-center w-full md:w-4/5 lg:w-[900px] pt-3 ${electrolize.className}`}
+						className={`text-base md:text-xl text-white text-center w-full  pt-3 ${electrolize.className}`}
 					>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry&#39;s standard dummy
@@ -45,7 +45,7 @@ export default function AboutUs() {
 						DUOTHON
 					</p>
 					<p
-						className={`text-base md:text-xl text-white text-center w-full md:w-4/5 lg:w-[900px] pt-3 ${electrolize.className}`}
+						className={`text-base md:text-xl text-white text-center w-full  pt-3 ${electrolize.className}`}
 					>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry&#39;s standard dummy

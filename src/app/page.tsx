@@ -1,6 +1,6 @@
-import AboutUs from "@/components/aboutus";
+import AboutUs from "@/components/about-us/aboutus";
 import Contactus from "@/components/contactus/contactus";
-import PastEvents from "@/components/pastevents";
+import PastEvents from "@/components/pastevents/pastevents";
 
 export default function Home() {
 	return (

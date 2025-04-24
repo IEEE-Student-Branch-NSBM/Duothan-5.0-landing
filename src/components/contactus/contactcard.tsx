@@ -35,14 +35,14 @@ const ContactCard: React.FC<ContactCardProps> = ({
 				className="object-center rounded-lg z-0"
 			/>
 
-			<div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+			<div className="absolute inset-0 flex flex-col items-center justify-center z-10 ">
 				<div className="w-[260.17px] h-[234px] rounded-[2px] z-10 mr-2 relative ">
 					<div className="absolute inset-0 overflow-hidden mask-[url('/Union.svg')]">
 						<Image src={image} alt="profile" fill className="object-fit" />
 					</div>
 				</div>
 
-				<div className="mt-3 text-right mr-13">
+				<div className="mt-3 text-right pr-13">
 					<h3
 						className={`text-[#A2EBFF] font-normal text-[22px] leading-[100%] tracking-[0.04em] text-right ${readyplayerone.className}`}
 					>
