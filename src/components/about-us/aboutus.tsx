@@ -22,7 +22,7 @@ export default function AboutUs() {
 					<p
 						className={`text-xl md:text-2xl text-center text-[#e957dd] ${readyplayerone.className}`}
 					>
-						IEEE STUDENT BRANCH OF NSBM
+						Web Master (Kumuditha Ayya)
 					</p>
 					<p
 						className={`text-base md:text-xl text-white text-center w-full  pt-3 ${electrolize.className}`}
