@@ -136,9 +136,6 @@ export default function Register() {
 			if (!formData.teamName.trim()) {
 				newErrors.teamName = "Team name is required";
 			}
-			if (!formData.selectedTheme) {
-				newErrors.selectedTheme = "Please select a theme";
-			}
 		} else if (currentIndex === 2) {
 			if (!formData.teamLeaderName.trim()) {
 				newErrors.teamLeaderName = "Team leader name is required";
