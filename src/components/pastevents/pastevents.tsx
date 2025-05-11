@@ -1,7 +1,18 @@
 "use client";
 import Card from "@/components/pastevents/eventcard";
+import Autoplay from "embla-carousel-autoplay";
 import localFont from "next/font/local";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+// Import shadcn components
+import {
+	Carousel,
+	type CarouselApi,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const readyplayerone = localFont({ src: "../../../public/font.otf" });
 
@@ -9,36 +20,39 @@ const events = [
 	{
 		key: 1,
 		title: "Duothon 1.0",
+		image: "/background.png",
 		description:
 			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
 	},
 	{
 		key: 2,
 		title: "Duothon 2.0",
+		image: "/profile.png",
 		description:
 			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
 	},
 	{
 		key: 3,
 		title: "Duothon 3.0",
+		image: "/profile.png",
 		description:
 			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
 	},
 	{
 		key: 4,
 		title: "Duothon 4.0",
+		image: "/profile.png",
 		description:
 			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
 	},
 ];
 
 export default function PastEvents() {
-	const [currentIndex, setCurrentIndex] = useState(0);
+	const [cardsToShow, setCardsToShow] = useState(1);
+	const [api, setApi] = useState<CarouselApi>();
 	const [isAnimating, setIsAnimating] = useState(false);
 
-	const [cardsToShow, setCardsToShow] = useState(1);
-
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleResize = () => {
 			setCardsToShow(window.innerWidth >= 768 ? 3 : 1);
 		};
@@ -53,108 +67,113 @@ export default function PastEvents() {
 	}, []);
 
 	const handlePrevious = () => {
-		if (isAnimating) return;
-		if (currentIndex <= 0) return;
+		if (isAnimating || !api) return;
 
 		setIsAnimating(true);
-		setCurrentIndex((prev) => {
-			const newIndex = prev - 1;
-			setTimeout(() => setIsAnimating(false), 500);
-			return newIndex;
-		});
+		api.scrollPrev();
+		setTimeout(() => setIsAnimating(false), 500);
 	};
 
 	const handleNext = () => {
-		if (isAnimating) return;
-		if (currentIndex >= events.length - cardsToShow) return;
+		if (isAnimating || !api) return;
 
 		setIsAnimating(true);
-		setCurrentIndex((prev) => {
-			const newIndex = prev + 1;
-			setTimeout(() => setIsAnimating(false), 500);
-			return newIndex;
-		});
+		api.scrollNext();
+		setTimeout(() => setIsAnimating(false), 1000);
 	};
 
-	const translateValue =
-		cardsToShow === 1 ? `-${currentIndex * 100}%` : `-${currentIndex * 33.33}%`;
-
 	return (
-		<div className="h-full px-4 lg:px-0 bg-black flex flex-col items-center  w-full max-w-[1170px] my-20 mx-auto">
+		<div className="h-full px-4 lg:px-0 bg-black flex flex-col items-center w-full max-w-[1170px] my-20 mx-auto">
 			<p
 				className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-8 pt-20 lg:py-20 ${readyplayerone.className}`}
 			>
 				OUR PAST EVENTS
 			</p>
 
-			<div className="w-full max-w-7xl relative">
-				<button
-					type="button"
-					onClick={handlePrevious}
-					disabled={isAnimating}
-					className="absolute left-3 lg:-left-2  top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 "
-					aria-label="Previous event"
+			<div className="w-full max-w-7xl">
+				<Carousel
+					opts={{ loop: true }}
+					plugins={[
+						Autoplay({
+							delay: 2500,
+							stopOnMouseEnter: true,
+							stopOnInteraction: false,
+						}),
+					]}
+					className="w-full relative"
+					setApi={setApi}
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<title>Previous Event Arrow</title>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M15 19l-7-7 7-7"
-						/>
-					</svg>
-				</button>
-
-				<div className="overflow-hidden relative">
-					<div
-						className="flex transition-transform ease-in-out duration-500"
-						style={{ transform: `translateX(${translateValue})` }}
-					>
+					<CarouselContent className="-ml-0 ">
 						{events.map((event) => (
-							<div
+							<CarouselItem
 								key={event.key}
-								className={`${cardsToShow === 1 ? "w-full" : "w-full md:w-1/2 lg:w-1/3"} flex-shrink-0 px-3 flex justify-center`}
+								className="basis-full md:basis-1/2 lg:basis-1/3"
 							>
-								<div className="py-4 px-2 mb-6">
-									<Card title={event.title} description={event.description} />
+								<div className="p-0 mb-6 relative flex items-center justify-center">
+									<Card
+										title={event.title}
+										image={event.image}
+										description={event.description}
+									/>
 								</div>
-							</div>
+							</CarouselItem>
 						))}
-					</div>
-				</div>
+					</CarouselContent>
 
-				<button
-					type="button"
-					onClick={handleNext}
-					disabled={isAnimating}
-					className="absolute right-2 lg:-right-2  top-1/2 -translate-y-1/2 z-20 text-[#ed00da] disabled:opacity-50 "
-					aria-label="Next event"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
+					<CarouselPrevious className="hidden" />
+					<CarouselNext className="hidden" />
+
+					{/* Original custom arrow buttons */}
+					<button
+						type="button"
+						onClick={handlePrevious}
+						disabled={isAnimating}
+						className="absolute left-3 lg:-left-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden lg:block "
+						aria-label="Previous event"
 					>
-						<title>Next Event Arrow</title>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M9 5l7 7-7 7"
-						/>
-					</svg>
-				</button>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 36"
+							fill="none"
+						>
+							<title>Previous Slide</title>
+							<path
+								d="M15 5L5 18L15 31"
+								stroke="#ed00da"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+					</button>
+
+					<button
+						type="button"
+						onClick={handleNext}
+						disabled={isAnimating}
+						className="absolute right-2 lg:-right-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden lg:block"
+						aria-label="Next event"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 36"
+							fill="none"
+						>
+							<title>Next Slide</title>
+							<path
+								d="M9 5L19 18L9 31"
+								stroke="#ed00da"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+					</button>
+				</Carousel>
 			</div>
 		</div>
 	);
