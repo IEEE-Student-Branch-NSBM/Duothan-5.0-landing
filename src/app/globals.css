@@ -119,3 +119,60 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+.clip-card {
+	clip-path: polygon(
+		20px 0%,
+		100% 0%,
+		100% 100%,
+		20px 100%,
+		0% calc(100% - 20px),
+		0% 20px
+	);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+/* Add subtle animation for cyberpunk theme */
+@keyframes pulseGlow {
+	0%,
+	100% {
+		opacity: 0.7;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+.step-indicator {
+	position: relative;
+}
+
+.step-indicator::after {
+	content: "";
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: 0.7;
+}
