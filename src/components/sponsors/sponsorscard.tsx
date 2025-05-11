@@ -21,7 +21,7 @@ export default function Card({ img, url }: CardProps) {
 			/>
 
 			{/* Image container */}
-			<div className="relative aspect-[4/2] w-full z-10 bg-transparent">
+			<div className="relative aspect-[8/3] w-full z-10 bg-transparent">
 				<Image
 					src={img}
 					alt="Sponsor logo"
