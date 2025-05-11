@@ -2,7 +2,7 @@
 import Card from "@/components/pastevents/eventcard";
 import Autoplay from "embla-carousel-autoplay";
 import localFont from "next/font/local";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 // Import shadcn components
 import {
@@ -48,13 +48,12 @@ const events = [
 ];
 
 export default function PastEvents() {
-	const [cardsToShow, setCardsToShow] = useState(1);
 	const [api, setApi] = useState<CarouselApi>();
 	const [isAnimating, setIsAnimating] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
-			setCardsToShow(window.innerWidth >= 768 ? 3 : 1);
+			// Handle resizing logic if needed (no state needed for cardsToShow anymore)
 		};
 
 		handleResize();
