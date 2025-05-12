@@ -1,262 +1,288 @@
 "use client";
 
-import { useState } from "react";
-import Card from "./timelinecard";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import TimelineCard from "./timelinecard";
+
+type TimelineItem = {
+	id: number;
+	title: string;
+	description: string;
+	position: "left" | "right";
+	markerPosition: {
+		mobile: number;
+		desktop: number;
+	};
+	customStyles?: {
+		mobile?: React.CSSProperties;
+		desktop?: React.CSSProperties;
+	};
+};
 
 export default function Timeline() {
-	type TimelineItem = {
-		id: number;
-		position: "left1" | "right1" | "left2" | "right2";
-		title: string;
-		description: string;
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth < 640);
+		};
+
+		checkMobile();
+		window.addEventListener("resize", checkMobile);
+		return () => window.removeEventListener("resize", checkMobile);
+	}, []);
+
+	// Define marker positions for mobile and desktop
+	const markerPositions = {
+		mobile: [
+			5, // Top marker
+			180, // First card marker
+			340, // Second card marker
+			500, // Third card marker
+			660, // Fourth card marker
+			780, // Bottom marker
+		],
+		desktop: [
+			0, // Top marker
+			143, // First card marker
+			280, // Second card marker
+			420, // Third card marker
+			560, // Fourth card marker
+			750, // Bottom marker
+		],
 	};
 
 	const [items] = useState<TimelineItem[]>([
 		{
 			id: 1,
-			position: "right1",
 			title: "First Milestone",
 			description: "Description of the first milestone",
+			position: "right",
+			markerPosition: {
+				mobile: markerPositions.mobile[1],
+				desktop: markerPositions.desktop[1],
+			},
+			customStyles: {
+				mobile: {
+					top: "80px",
+				},
+				desktop: {
+					top: "59px",
+					right: "90px",
+				},
+			},
 		},
 		{
 			id: 2,
-			position: "left2",
 			title: "Second Milestone",
-			description: "Description of the second milestone",
+			description: "Description of the second milestone,Description of the ",
+			position: "left",
+			markerPosition: {
+				mobile: markerPositions.mobile[2],
+				desktop: markerPositions.desktop[2],
+			},
+			customStyles: {
+				mobile: {
+					top: "240px",
+				},
+				desktop: {
+					top: "195px",
+					left: "92px",
+				},
+			},
 		},
 		{
 			id: 3,
-			position: "right1",
 			title: "Third Milestone",
 			description: "Description of the third milestone",
+			position: "right",
+			markerPosition: {
+				mobile: markerPositions.mobile[3],
+				desktop: markerPositions.desktop[3],
+			},
+			customStyles: {
+				mobile: {
+					top: "400px",
+				},
+				desktop: {
+					top: "335px",
+					right: "90px",
+				},
+			},
 		},
 		{
 			id: 4,
-			position: "left2",
 			title: "Fourth Milestone",
 			description: "Description of the fourth milestone",
+			position: "left",
+			markerPosition: {
+				mobile: markerPositions.mobile[4],
+				desktop: markerPositions.desktop[4],
+			},
+			customStyles: {
+				mobile: {
+					top: "560px",
+					right: "120px",
+				},
+				desktop: {
+					top: "475px",
+					left: "92px",
+				},
+			},
 		},
 	]);
 
+	// Calculate total height based on the last marker position plus some padding
+	const mobileHeight =
+		markerPositions.mobile[markerPositions.mobile.length - 1] + 15;
+	const desktopHeight =
+		markerPositions.desktop[markerPositions.desktop.length - 1] + 50;
+
+	// Generate unique IDs for reliable keys instead of using array indices
+	const getDesktopMarkerId = (index: number) =>
+		`desktop-marker-${markerPositions.desktop[index]}-${index}`;
+	const getMobileMarkerId = (index: number) =>
+		`mobile-marker-${markerPositions.mobile[index]}-${index}`;
+
 	return (
-		<div className="bg-black px-4 lg:px-0 max-h-1.5dvh flex flex-col items-center justify-center relative w-full max-w-[1170px] mx-auto">
-			<div
-				className="relative max-w-4xl w-full py-16 m-0 bg-none"
-				style={{ height: "800px" }}
-			>
-				{/* SVG Timeline with zigzag pattern */}
+		<div className="bg-black px-4 py-4 relative min-h-screen h-200 flex flex-col items-center justify-center w-full max-w-[1170px] mx-auto">
+			{/* Desktop/Tablet Timeline (image-based) */}
+			<div className="hidden sm:block absolute left-1/2 -translate-x-1/2 w-1/6">
+				<Image
+					src="/timeline.svg"
+					alt="Timeline"
+					width={100}
+					height={800}
+					className="h-190 w-full object-contain"
+					priority
+				/>
+
+				{/* Desktop/Tablet markers */}
+				{markerPositions.desktop.map((position, index) => (
+					<div
+						key={getDesktopMarkerId(index)}
+						className="absolute left-1/2 -translate-x-1/2 w-4 h-4"
+						style={{ top: `${position}px` }}
+					>
+						{/* Add rendering for top and bottom markers */}
+						{(index === 0 || index === markerPositions.desktop.length - 1) && (
+							<div className="absolute w-5 h-5 bg-teal-300 top-2.5 left-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45" />
+						)}
+
+						{/* Existing diamond markers for card positions */}
+						{index > 0 && index < markerPositions.desktop.length - 1 && (
+							<>
+								<div className="absolute w-5 h-5 bg-cyan-600 opacity-40 animate-pulse rotate-45" />
+								<div className="absolute w-4 h-4 bg-teal-300 top-2.5 left-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45" />
+							</>
+						)}
+					</div>
+				))}
+			</div>
+
+			{/* Mobile Timeline (hardcoded zigzag SVG) */}
+			<div className="sm:hidden absolute left-0 w-full px-4">
 				<svg
-					className="absolute left-1/2 transform -translate-x-1/2 h-full w-1/6 top-5 p-0"
-					viewBox="0 0 120 800"
+					width="100%"
+					height={mobileHeight}
+					viewBox={`0 0 100 ${mobileHeight}`}
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					className="overflow-visible"
 					preserveAspectRatio="none"
+					aria-labelledby="timelineTitle"
+					role="img"
 				>
-					<title>Timeline</title>
-					{/* Top diamond */}
-					<rect
-						x="0"
-						y="20"
-						width="20"
-						height="20"
-						fill="#5eead4"
-						transform="rotate(45, 50, 70)"
-					/>
-
-					{/* Bottom diamond */}
-					<rect
-						x="70"
-						y="710"
-						width="20"
-						height="20"
-						fill="#5eead4"
-						transform="rotate(45, 50, 690)"
-					/>
-
-					{/* Zigzag line */}
+					<title id="timelineTitle">Project Timeline Zigzag Path</title>
+					{/* Zigzag path */}
 					<path
-						d="M50,24 L50,140 L10,180 L50,220 L50,270 L90,310 L50,350 L50,400 L10,440 L50,480 L50,530 L90,570 L50,610 L50,720"
+						d="M10,24 L10,140 L0,180 L10,220 L10,300 L0,340 L10,380 L10,460 L0,500 L10,540 L10,620 L0,660 L10,700 L10,780"
 						stroke="#d946ef"
-						strokeWidth="2.5"
+						strokeWidth="1"
 						fill="none"
-					/>
-
-					{/* Glowing diamond markers */}
-					{/* First marker */}
-					<rect
-						x="44"
-						y="170"
-						width="18"
-						height="18"
-						fill="#0891b2"
-						transform="rotate(45, 50, 176)"
-						opacity="0.4"
-					>
-						<animate
-							attributeName="opacity"
-							values="0.4;0.8;0.4"
-							dur="2s"
-							repeatCount="indefinite"
-						/>
-					</rect>
-					<rect
-						x="46"
-						y="172"
-						width="14"
-						height="14"
-						fill="#5eead4"
-						transform="rotate(45, 50, 176)"
-					/>
-
-					{/* Second marker */}
-					<rect
-						x="44"
-						y="300"
-						width="18"
-						height="18"
-						fill="#0891b2"
-						transform="rotate(45, 50, 306)"
-						opacity="0.4"
-					>
-						<animate
-							attributeName="opacity"
-							values="0.4;0.8;0.4"
-							dur="2s"
-							repeatCount="indefinite"
-						/>
-					</rect>
-					<rect
-						x="46"
-						y="302"
-						width="14"
-						height="14"
-						fill="#5eead4"
-						transform="rotate(45, 50, 306)"
-					/>
-
-					{/* Third marker */}
-					<rect
-						x="44"
-						y="430"
-						width="18"
-						height="18"
-						fill="#0891b2"
-						transform="rotate(45, 50, 436)"
-						opacity="0.4"
-					>
-						<animate
-							attributeName="opacity"
-							values="0.4;0.8;0.4"
-							dur="2s"
-							repeatCount="indefinite"
-						/>
-					</rect>
-					<rect
-						x="46"
-						y="432"
-						width="14"
-						height="14"
-						fill="#5eead4"
-						transform="rotate(45, 50, 436)"
-					/>
-
-					{/* Fourth marker */}
-					<rect
-						x="44"
-						y="560"
-						width="18"
-						height="18"
-						fill="#0891b2"
-						transform="rotate(45, 50, 566)"
-						opacity="0.4"
-					>
-						<animate
-							attributeName="opacity"
-							values="0.4;0.8;0.4"
-							dur="2s"
-							repeatCount="indefinite"
-						/>
-					</rect>
-					<rect
-						x="46"
-						y="562"
-						width="14"
-						height="14"
-						fill="#5eead4"
-						transform="rotate(45, 50, 566)"
-					/>
-
-					{/* Horizontal connecting lines */}
-					<line
-						x1="60"
-						y1="180"
-						x2="105"
-						y2="180"
-						stroke="#d946ef"
-						strokeWidth="2"
-					/>
-					<line
-						x1="40"
-						y1="310"
-						x2="0"
-						y2="310"
-						stroke="#d946ef"
-						strokeWidth="2"
-					/>
-					<line
-						x1="60"
-						y1="440"
-						x2="105"
-						y2="440"
-						stroke="#d946ef"
-						strokeWidth="2"
-					/>
-					<line
-						x1="40"
-						y1="570"
-						x2="0"
-						y2="570"
-						stroke="#d946ef"
-						strokeWidth="2"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						className="filter drop-shadow-md"
 					/>
 				</svg>
 
-				{/* Timeline items */}
-				<div className="relative z-10 w-full h-full">
-					{/* First card - top right */}
-					<div className="absolute top-[20px] right-0">
-						<Card
-							position="right1"
-							title={items[0].title}
-							description={items[0].description}
-						/>
-					</div>
+				{/* Mobile markers at zigzag points */}
+				{markerPositions.mobile.map((position, index) => {
+					// Alternate x position for zigzag
+					const xPos = index % 2 === 0 ? "12.5%" : "12.5%";
 
-					{/* Second card - middle left */}
-					<div className="absolute top-[150px] left-0">
-						<Card
-							position="left2"
-							title={items[1].title}
-							description={items[1].description}
-						/>
-					</div>
+					return (
+						<div
+							key={getMobileMarkerId(index)}
+							className="absolute -translate-x-1/2 -translate-y-1/2 w-4 h-4"
+							style={{
+								top: `${position}px`,
+								left: xPos,
+							}}
+						>
+							{/* Top and bottom markers */}
+							{(index === 0 || index === markerPositions.mobile.length - 1) && (
+								<div className="absolute w-5 h-5 bg-teal-300 rotate-45" />
+							)}
 
-					{/* Third card - bottom right */}
-					<div className="absolute top-[280px] right-0">
-						<Card
-							position="right1"
-							title={items[2].title}
-							description={items[2].description}
-						/>
-					</div>
+							{/* Timeline point markers */}
+							{index > 0 && index < markerPositions.mobile.length - 1 && (
+								<>
+									<div className="absolute w-5 h-5 bg-cyan-600 opacity-40 animate-pulse rotate-45" />
+									<div className="absolute w-4 h-4 bg-teal-300 top-2 left-2 -translate-x-1/2 -translate-y-1/2 rotate-45" />
+								</>
+							)}
+						</div>
+					);
+				})}
+			</div>
 
-					{/* Fourth card - bottom left */}
-					<div className="absolute top-[410px] left-0">
-						<Card
-							position="left2"
-							title={items[3].title}
-							description={items[3].description}
+			{/* Timeline cards */}
+			<div className="relative w-full h-full">
+				{items.map((item, index) => (
+					<div
+						key={item.id}
+						className="absolute"
+						style={{
+							...(isMobile
+								? {
+										...item.customStyles?.mobile,
+										left: index % 2 === 0 ? "calc(20% - 3px)" : "auto",
+										right: index % 2 === 0 ? "auto" : "calc(20% - 78px)",
+									}
+								: item.customStyles?.desktop),
+						}}
+					>
+						{/* Connecting line - only visible on desktop/tablet */}
+						<div
+							className="hidden sm:block absolute top-29 w-8 h-0.5 bg-fuchsia-500"
+							style={{
+								transform: "translateY(-18px)",
+								left: item.position === "left" ? "auto" : "-32px",
+								right: item.position === "right" ? "auto" : "-32px",
+							}}
+						/>
+
+						{/* Connecting line - only visible on mobile */}
+						<div
+							className="sm:hidden absolute top-29 h-0.5 bg-fuchsia-500"
+							style={{
+								transform: "translateY(-29px)",
+								width: index % 2 === 0 ? "20px" : "20px",
+								left: index % 2 === 0 ? "-20px" : "auto",
+								right: index % 2 === 0 ? "auto" : "280px",
+							}}
+						/>
+
+						<TimelineCard
+							title={item.title}
+							description={item.description}
+							position={
+								isMobile ? (index % 2 === 0 ? "right" : "left") : item.position
+							}
 						/>
 					</div>
-				</div>
+				))}
 			</div>
 		</div>
 	);
