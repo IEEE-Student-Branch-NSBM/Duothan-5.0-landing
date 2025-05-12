@@ -276,7 +276,7 @@ export default function Timeline() {
 							title={item.title}
 							description={item.description}
 							position={
-								isMobile ? (index % 2 === 0 ? "right" : "left") : item.position
+								isMobile ? (index % 2 === 0 ? "left" : "right") : item.position
 							}
 						/>
 					</div>
