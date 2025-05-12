@@ -132,12 +132,6 @@ export default function Timeline() {
 		},
 	]);
 
-	// Calculate total height based on the last marker position plus some padding
-	const mobileMarkerOffset =
-		markerPositions.mobile[markerPositions.mobile.length - 1] + 15;
-	const desktopMarkerOffset =
-		markerPositions.desktop[markerPositions.desktop.length - 1] + 50;
-
 	// Generate unique IDs for reliable keys instead of using array indices
 	const getDesktopMarkerId = (index: number) =>
 		`desktop-marker-${markerPositions.desktop[index]}-${index}`;
