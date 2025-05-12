@@ -133,8 +133,10 @@ export default function Timeline() {
 	]);
 
 	// Calculate total height based on the last marker position plus some padding
-	markerPositions.mobile[markerPositions.mobile.length - 1] + 15;
-	markerPositions.desktop[markerPositions.desktop.length - 1] + 50;
+	const mobileMarkerOffset =
+		markerPositions.mobile[markerPositions.mobile.length - 1] + 15;
+	const desktopMarkerOffset =
+		markerPositions.desktop[markerPositions.desktop.length - 1] + 50;
 
 	// Generate unique IDs for reliable keys instead of using array indices
 	const getDesktopMarkerId = (index: number) =>
@@ -182,8 +184,6 @@ export default function Timeline() {
 			<div className="sm:hidden absolute left-0 w-full px-4">
 				<svg
 					width="100%"
-					height={mobileHeight}
-					viewBox={`0 0 100 ${mobileHeight}`}
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 					className="overflow-visible"
