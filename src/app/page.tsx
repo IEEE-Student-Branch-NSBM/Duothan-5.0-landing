@@ -8,7 +8,9 @@ export default function Home() {
 			<div className="min-h-screen">Hero</div>
 			<AboutUs />
 			<PastEvents />
-			<Contactus />
+			<div className="relative w-full bg-cover bg-top bg-no-repeat">
+				<Contactus />
+			</div>
 		</div>
 	);
 }
