@@ -38,7 +38,7 @@ export default function Timeline() {
 	]);
 
 	return (
-		<div className="bg-black px-4 lg:px-0 flex flex-col items-center  relative w-full max-w-[1170px] mx-auto mb-10">
+		<div className="bg-non px-4 lg:px-0 flex flex-col items-center  relative w-full max-w-[1170px] mx-auto mb-10">
 			{/* Desktop view: Timeline with centered vertical line and cards on alternating sides */}
 			<div className="hidden md:flex flex-col justify-center relative w-full max-w-[1170px] mx-auto">
 				{/* Center timeline - desktop */}
