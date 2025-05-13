@@ -1,63 +1,52 @@
 "use client";
 
-import { Electrolize } from "next/font/google";
-import Image from "next/image";
-
-const electrolize = Electrolize({
-	subsets: ["latin"],
-	weight: ["400"],
-});
-
-type CardProps = {
+interface CardProps {
 	title: string;
 	description: string;
 	position: "left" | "right";
-};
+}
 
-export default function TimelineCard({
-	title,
-	description,
-	position,
-}: CardProps) {
-	const cardImage =
-		position === "left" ? "/timelinecardleft.svg" : "/timelinecardright.svg";
-
+export default function Card({ title, description, position }: CardProps) {
 	return (
-		<div
-			className={`relative
-       // Mobile size
-      w-[280px] h-[140px]
-      
-      // Desktop size (matches your original SVG dimensions)
-      sm:w-[433px] sm:h-[193px]
-    `}
-		>
-			{/* Card background image */}
-			<Image
-				src={cardImage}
-				alt={`${position} timeline card`}
-				width={433}
-				height={193}
-				className="absolute z-0 w-full h-full object-cover"
-			/>
+		<div className="relative w-full">
+			{position === "left" ? (
+				// Left card for desktop
+				<div className="relative hidden md:block">
+					<img
+						src="/fullcardtimeline.svg"
+						alt="Timeline card"
+						className="w-full h-full object-contain"
+					/>
+					<div className="absolute top-6 -left-2 w-full h-full flex flex-col justify-center pl-8 pr-16">
+						<h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+						<p className="text-gray-300">{description}</p>
+					</div>
+				</div>
+			) : (
+				// Right card for desktop
+				<div className="relative hidden md:block">
+					<img
+						src="/fullcardright.svg"
+						alt="Timeline card"
+						className="w-full h-full object-contain"
+					/>
+					<div className="absolute top-3 left-10 w-full h-full flex flex-col justify-center pr-8 pl-16 inset-0 z-10">
+						<h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+						<p className="text-gray-300">{description}</p>
+					</div>
+				</div>
+			)}
 
-			{/* Content */}
-			<div
-				className={`
-        absolute z-10 w-full h-full flex flex-col justify-between p-2 sm:p-6
-        ${position === "right" ? "items-end sm:items-start" : "items-start"}
-      `}
-			>
-				<div className="flex-1" />
-				<div className={`${position === "right" ? "pr-4 sm:pl-8" : "pl-8"}`}>
-					<h3
-						className={`${electrolize.className} text-lg sm:text-xl text-[#a2ebff] font-bold mb-2`}
-					>
-						{title}
-					</h3>
-					<p className={`text-white text-sm ${electrolize.className}`}>
-						{description}
-					</p>
+			{/* Mobile view card - visible only on small screens */}
+			<div className="relative md:hidden">
+				<img
+					src="/fullcardright.svg"
+					alt="Timeline card"
+					className="w-full h-full object-contain"
+				/>
+				<div className="absolute top-3 -left-1 w-full h-full flex flex-col justify-center pr-8 pl-16 inset-0 z-10">
+					<h3 className="text-white text-lg font-semibold mb-2">{title}</h3>
+					<p className="text-gray-300 text-sm">{description}</p>
 				</div>
 			</div>
 		</div>
