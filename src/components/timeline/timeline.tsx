@@ -31,9 +31,9 @@ export default function Timeline() {
 	]);
 
 	return (
-		<div className="bg-non px-4 lg:px-0 flex flex-col items-center relative w-full max-w-[1170px] mx-auto mb-40">
+		<div>
 			{/* Desktop view */}
-			<div className="hidden lg:flex relative w-full max-w-[1170px] mx-auto">
+			<div className="hidden lg:flex relative w-full max-w-[1170px] mx-auto mb-60 mt-40 ">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
 					<img
 						src="/timelinecompleet.svg"
@@ -78,7 +78,7 @@ export default function Timeline() {
 			</div>
 
 			{/* Tablet view */}
-			<div className="hidden md:flex lg:hidden relative w-full max-w-[768px] mx-auto">
+			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-auto fixed mb-40">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
 					<img
 						src="/timelinecompleet.svg"
@@ -119,27 +119,45 @@ export default function Timeline() {
 			</div>
 
 			{/* Mobile view */}
-			<div className="md:hidden flex items-start relative w-full max-w-[448px] mx-auto">
-				<div className="absolute left-4 top-0 h-146">
+			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto fixed">
+				<div className="absolute left-6 top-0 h-full">
 					<img
 						src="/mobileTimeline.svg"
 						alt="Mobile Timeline"
 						className="h-full object-contain"
 					/>
 				</div>
-				<div className="flex flex-col w-full">
-					{items.map((item, index) => (
-						<div
-							key={item.id}
-							className={`flex justify-start w-3/4 ml-5 ${index === 0 ? "mt-16" : index === 1 ? "mt-4.5" : "mt-4"}`}
-						>
+				<div className="flex flex-col w-full h-full overflow-hidden">
+					<div className="flex flex-col w-full">
+						<div className="flex justify-start w-3/4 ml-8 mt-16">
 							<Card
-								title={item.title}
-								description={item.description}
+								title={items[1].title}
+								description={items[1].description}
 								position="right"
 							/>
 						</div>
-					))}
+						<div className="flex justify-start w-3/4 ml-8 mt-6">
+							<Card
+								title={items[0].title}
+								description={items[0].description}
+								position="right"
+							/>
+						</div>
+						<div className="flex justify-start w-3/4 ml-8 mt-5">
+							<Card
+								title={items[3].title}
+								description={items[3].description}
+								position="right"
+							/>
+						</div>
+						<div className="flex justify-start w-3/4 ml-8 mt-5">
+							<Card
+								title={items[2].title}
+								description={items[2].description}
+								position="right"
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
