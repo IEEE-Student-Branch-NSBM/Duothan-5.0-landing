@@ -50,24 +50,32 @@ const events = [
 export default function PastEvents() {
 	const [api, setApi] = useState<CarouselApi>();
 	const [isAnimating, setIsAnimating] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+	const [viewportSize, setViewportSize] = useState("sm");
 
+	// Detect screen size
 	useEffect(() => {
-		const handleResize = () => {
-			// Handle resizing logic if needed (no state needed for cardsToShow anymore)
+		const checkScreenSize = () => {
+			const width = window.innerWidth;
+			if (width < 768) {
+				setIsMobile(true);
+				setViewportSize("sm");
+			} else if (width >= 768 && width < 1024) {
+				setIsMobile(false);
+				setViewportSize("md");
+			} else {
+				setIsMobile(false);
+				setViewportSize("lg");
+			}
 		};
 
-		handleResize();
-
-		window.addEventListener("resize", handleResize);
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
+		checkScreenSize();
+		window.addEventListener("resize", checkScreenSize);
+		return () => window.removeEventListener("resize", checkScreenSize);
 	}, []);
 
 	const handlePrevious = () => {
 		if (isAnimating || !api) return;
-
 		setIsAnimating(true);
 		api.scrollPrev();
 		setTimeout(() => setIsAnimating(false), 500);
@@ -75,7 +83,6 @@ export default function PastEvents() {
 
 	const handleNext = () => {
 		if (isAnimating || !api) return;
-
 		setIsAnimating(true);
 		api.scrollNext();
 		setTimeout(() => setIsAnimating(false), 1000);
@@ -91,24 +98,39 @@ export default function PastEvents() {
 
 			<div className="w-full max-w-7xl">
 				<Carousel
-					opts={{ loop: true }}
-					plugins={[
-						Autoplay({
-							delay: 2500,
-							stopOnMouseEnter: true,
-							stopOnInteraction: false,
-						}),
-					]}
+					opts={{
+						loop: true,
+						align: "start",
+						slidesToScroll: 1,
+						containScroll: "trimSnaps",
+					}}
+					plugins={
+						isMobile
+							? [
+									Autoplay({
+										delay: 2000,
+										stopOnMouseEnter: true,
+										stopOnInteraction: false,
+									}),
+								]
+							: []
+					}
 					className="w-full relative"
 					setApi={setApi}
 				>
-					<CarouselContent className="-ml-0 ">
+					<CarouselContent className="ml-0">
 						{events.map((event) => (
 							<CarouselItem
 								key={event.key}
-								className="basis-full md:basis-1/2 lg:basis-1/3"
+								className={`pl-0 ${
+									viewportSize === "sm"
+										? "basis-full"
+										: viewportSize === "md"
+											? "basis-1/2"
+											: "basis-1/3"
+								}`}
 							>
-								<div className="p-0 mb-6 relative flex items-center justify-center">
+								<div className="p-2 mb-6 relative flex items-center justify-center">
 									<Card
 										title={event.title}
 										image={event.image}
@@ -122,12 +144,12 @@ export default function PastEvents() {
 					<CarouselPrevious className="hidden" />
 					<CarouselNext className="hidden" />
 
-					{/* Original custom arrow buttons */}
+					{/* Custom arrow buttons */}
 					<button
 						type="button"
 						onClick={handlePrevious}
 						disabled={isAnimating}
-						className="absolute left-3 lg:-left-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden lg:block "
+						className="absolute left-3 lg:-left-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden md:block "
 						aria-label="Previous event"
 					>
 						<svg
@@ -152,7 +174,7 @@ export default function PastEvents() {
 						type="button"
 						onClick={handleNext}
 						disabled={isAnimating}
-						className="absolute right-2 lg:-right-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden lg:block"
+						className="absolute right-2 lg:-right-2 top-1/2 -translate-y-1/2 z-20 disabled:opacity-50 hidden md:block"
 						aria-label="Next event"
 					>
 						<svg
