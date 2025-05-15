@@ -11,6 +11,7 @@
         "duothan-5.0-landing": "file:",
         "embla-carousel-autoplay": "^8.6.0",
         "embla-carousel-react": "^8.6.0",
+        "framer-motion": "^12.11.0",
         "gsap": "^3.13.0",
         "lucide-react": "^0.501.0",
         "motion": "^12.11.0",
