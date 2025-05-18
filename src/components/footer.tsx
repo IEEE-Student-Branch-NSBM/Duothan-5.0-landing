@@ -7,11 +7,11 @@ export default function Footer() {
 		<footer className="bg-black/10 backdrop-blur-md text-white">
 			<div className="max-w-6xl mx-auto px-6 py-6 pt-12 text-center">
 				{/* Logos */}
-				<div className="flex flex-wrap justify-center items-center gap-15 mb-4">
-					<img src="/duo 5.png" alt="Duothan Logo" className="h-10" />
-					<img src="/sb.png" alt="NSBM Logo" className="h-6" />
-					<img src="/cs.png" alt="IEEE CS Logo" className="h-9" />
-					<img src="/wie.png" alt="WIE Logo" className="h-7" />
+				<div className="flex flex-wrap justify-center items-center gap-8 mb-4">
+					<img src="/duo 5.png" alt="Duothan Logo" className="h-12" />
+					<img src="/sb.png" alt="NSBM Logo" className="h-8" />
+					<img src="/cs.png" alt="IEEE CS Logo" className="h-11" />
+					<img src="/wie.png" alt="WIE Logo" className="h-9" />
 				</div>
 
 				{/* Divider Line */}
