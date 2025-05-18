@@ -31,22 +31,21 @@ const sponsorsGroup2: Sponsor[] = [
 
 export default function Sponsors() {
 	return (
-		<section className="bg-black py-20 px-6 md:px-10 lg:px-40 w-full max-w-[1170px] items-center mx-auto my-20">
-			{/* min-h-screen px-4 lg:px-40 bg-black flex flex-col items-center w-full max-w-[1170px] my-20 mx-auto */}
+		<section className="py-8 px-4 sm:py-12 md:py-16 w-full max-w-7xl mx-auto">
 			<h2
-				className={`text-3xl md:text-4xl text-center text-[#a2ebff] mb-16 ${readyplayerone.className}`}
+				className={`text-2xl sm:text-3xl md:text-4xl text-center text-[#a2ebff] mb-8 sm:mb-12 ${readyplayerone.className}`}
 			>
 				OUR SPONSORS
 			</h2>
 
 			{/* First Sponsor Group */}
-			<div className="mb-20">
+			<div className="mb-12 sm:mb-16">
 				<h3
-					className={`text-2xl md:text-3xl text-center text-[#e957dd] mb-10 ${readyplayerone.className}`}
+					className={`text-xl sm:text-2xl md:text-3xl text-center text-[#e957dd] mb-6 sm:mb-8 ${readyplayerone.className}`}
 				>
-					LOREM IPSUM
+					TITLE SPONSORS
 				</h3>
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
+				<div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
 					{sponsorsGroup1.map((sponsor) => (
 						<SCard key={sponsor.id} img={sponsor.img} url={sponsor.url} />
 					))}
@@ -56,11 +55,11 @@ export default function Sponsors() {
 			{/* Second Sponsor Group */}
 			<div>
 				<h3
-					className={`text-2xl md:text-3xl text-center text-[#e957dd] mb-10 ${readyplayerone.className}`}
+					className={`text-xl sm:text-2xl md:text-3xl text-center text-[#e957dd] mb-6 sm:mb-8 ${readyplayerone.className}`}
 				>
-					LOREM IPSUM
+					ASSOCIATE SPONSORS
 				</h3>
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
+				<div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
 					{sponsorsGroup2.map((sponsor) => (
 						<SCard key={sponsor.id} img={sponsor.img} url={sponsor.url} />
 					))}
