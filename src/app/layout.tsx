@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Electrolize, Geist_Mono } from "next/font/google";
+import { Electrolize, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
+import "./countdown.css";
 import Footer from "@/components/footer";
 
 const electrolize = Electrolize({
@@ -12,6 +13,12 @@ const electrolize = Electrolize({
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 	subsets: ["latin"],
+});
+
+const orbitron = Orbitron({
+	subsets: ["latin"],
+	variable: "--font-orbitron",
+	display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +34,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${electrolize.variable} ${geistMono.variable} antialiased`}
+				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}
 			>
 				{children}
 				<Footer />
