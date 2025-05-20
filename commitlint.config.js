@@ -1,6 +1,6 @@
 // export default { extends: ["@commitlint/config-conventional"] };
 
-release / development;
+// release / development;
 module.exports = {
 	extends: ["@commitlint/config-conventional"],
 };
