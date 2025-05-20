@@ -3,6 +3,7 @@ import Contactus from "@/components/contactus/contactus";
 import Countdown from "@/components/countdown/Countdown";
 import PastEvents from "@/components/pastevents/pastevents";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
+import RegistrationBannerMobile from "@/components/register-page/RegistrationBannerMobile";
 import Timeline from "@/components/timeline/timeline";
 
 export default function Home() {
