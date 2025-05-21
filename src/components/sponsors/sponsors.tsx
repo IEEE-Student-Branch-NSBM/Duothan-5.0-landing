@@ -78,7 +78,7 @@ const SPONSORS_GROUP_2: Sponsor[] = [
 	},
 ];
 
-type ViewportSize = "mobile" | "tablet" | "desktop";
+type ViewportSize = "small-mobile" | "mobile" | "tablet" | "desktop";
 
 interface SponsorCardProps {
 	img: string;
@@ -98,6 +98,14 @@ const CARD_SIZES: Record<
 		bgSize: string;
 	}
 > = {
+	"small-mobile": {
+		width: 140,
+		height: 70,
+		padding: "p-1",
+		imageMaxWidth: 120,
+		imageMaxHeight: 50,
+		bgSize: "contain",
+	},
 	mobile: {
 		width: 160,
 		height: 80,
@@ -249,7 +257,12 @@ const CarouselWithProgress = React.memo(
 					opts={{
 						loop: true,
 						align: "start",
-						slidesToScroll: viewportSize === "mobile" ? 2 : 1,
+						slidesToScroll:
+							viewportSize === "small-mobile"
+								? 1
+								: viewportSize === "mobile"
+									? 2
+									: 1,
 					}}
 					className="w-full relative"
 				>
@@ -258,11 +271,13 @@ const CarouselWithProgress = React.memo(
 							<CarouselItem
 								key={`sponsor-${sponsor.id}`}
 								className={
-									viewportSize === "mobile"
-										? "basis-1/2 pl-1"
-										: viewportSize === "tablet"
-											? "basis-1/3"
-											: "basis-full"
+									viewportSize === "small-mobile"
+										? "basis-full pl-1"
+										: viewportSize === "mobile"
+											? "basis-1/2 pl-1"
+											: viewportSize === "tablet"
+												? "basis-1/3"
+												: "basis-full"
 								}
 							>
 								<div className="p-1 flex justify-center">
@@ -292,9 +307,13 @@ const CarouselWithProgress = React.memo(
 
 								return (
 									<div
-										key={segmentId} // Fixed: Using predefined ID instead of index
+										key={segmentId}
 										className={`h-[4px] rounded-full ${
-											viewportSize === "mobile" ? "w-6" : "w-12"
+											viewportSize === "small-mobile"
+												? "w-4"
+												: viewportSize === "mobile"
+													? "w-6"
+													: "w-12"
 										} relative`}
 										style={{
 											backgroundColor: isActive
@@ -331,7 +350,9 @@ const Sponsors = () => {
 
 	const checkScreenSize = useCallback(() => {
 		const width = window.innerWidth;
-		if (width < 768) {
+		if (width < 380) {
+			setViewportSize("small-mobile");
+		} else if (width < 768) {
 			setViewportSize("mobile");
 		} else if (width >= 768 && width < 1024) {
 			setViewportSize("tablet");
@@ -390,16 +411,16 @@ const Sponsors = () => {
 	);
 
 	return (
-		<section className="py-8 px-4 sm:py-12 md:py-16 w-full max-w-7xl mx-auto">
+		<section className="py-6 sm:py-8 md:py-12 px-4 w-full max-w-7xl mx-auto">
 			<h2
-				className={`text-2xl sm:text-3xl md:text-4xl text-center text-[#a2ebff] mb-8 sm:mb-12 ${readyplayerone.className}`}
+				className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#a2ebff] mb-6 sm:mb-8 md:mb-12 ${readyplayerone.className}`}
 			>
 				OUR SPONSORS
 			</h2>
 
-			<div className="mb-12 sm:mb-16">
+			<div className="mb-8 sm:mb-12 md:mb-16">
 				<h3
-					className={`text-xl sm:text-2xl md:text-3xl text-center text-[#e957dd] mb-6 sm:mb-8 ${readyplayerone.className}`}
+					className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-center text-[#e957dd] mb-4 sm:mb-6 md:mb-8 ${readyplayerone.className}`}
 				>
 					TITLE SPONSORS
 				</h3>
@@ -408,7 +429,7 @@ const Sponsors = () => {
 
 			<div>
 				<h3
-					className={`text-xl sm:text-2xl md:text-3xl text-center text-[#e957dd] mb-6 sm:mb-8 ${readyplayerone.className}`}
+					className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-center text-[#e957dd] mb-4 sm:mb-6 md:mb-8 ${readyplayerone.className}`}
 				>
 					ASSOCIATE SPONSORS
 				</h3>
