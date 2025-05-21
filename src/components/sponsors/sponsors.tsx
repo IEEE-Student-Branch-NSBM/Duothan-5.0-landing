@@ -168,9 +168,12 @@ const SponsorCard = React.memo(
 						>
 							<Image
 								src={img}
-								alt={altText}
+								alt={altText || "Sponsor logo"}
 								fill
 								className="object-contain"
+								sizes={`(max-width: 380px) ${imageMaxWidth}px, 
+                       (max-width: 768px) ${imageMaxWidth}px,
+                       ${imageMaxWidth}px`}
 								priority={false}
 								loading="lazy"
 							/>
@@ -186,7 +189,9 @@ const SponsorCard = React.memo(
 				target="_blank"
 				rel="noopener noreferrer nofollow"
 				className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a2ebff] focus-visible:ring-offset-2 rounded-md"
-				aria-label={`Visit ${altText} website`}
+				aria-label={
+					altText ? `Visit ${altText} website` : "Visit sponsor website"
+				}
 			>
 				{cardContent}
 			</Link>
@@ -240,7 +245,6 @@ const CarouselWithProgress = React.memo(
 			};
 		}, [api]);
 
-		// Fixed: Using predefined segment IDs instead of array index
 		const segmentIds = ["segment-1", "segment-2", "segment-3"];
 
 		return (
