@@ -129,21 +129,21 @@ export default function Timeline() {
 				</div>
 				<div className="flex flex-col w-full h-full overflow-hidden">
 					<div className="flex flex-col w-full">
-						<div className="flex justify-start w-3/4 ml-8 mt-16">
+						<div className="flex justify-start w-3/4 ml-8 mt-5.5">
 							<Card
 								title={items[1].title}
 								description={items[1].description}
 								position="right"
 							/>
 						</div>
-						<div className="flex justify-start w-3/4 ml-8 mt-6">
+						<div className="flex justify-start w-3/4 ml-8 mt-5">
 							<Card
 								title={items[0].title}
 								description={items[0].description}
 								position="right"
 							/>
 						</div>
-						<div className="flex justify-start w-3/4 ml-8 mt-5">
+						<div className="flex justify-start w-3/4 ml-8 mt-4">
 							<Card
 								title={items[3].title}
 								description={items[3].description}
