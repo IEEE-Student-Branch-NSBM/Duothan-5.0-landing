@@ -29,8 +29,6 @@ export default function RegistrationBannerDesktop() {
 		// Create grid background
 		createGridBackground();
 
-		// Create cyberpunk particles
-
 		// Scanline animation
 		animateScanlines();
 
@@ -243,7 +241,6 @@ export default function RegistrationBannerDesktop() {
 				ref={bannerRef}
 				className="relative w-full max-w-7xl mx-auto rounded-xl overflow-visible z-10"
 			>
-				{/* Samurai image with enhanced positioning and effects */}
 				<div
 					ref={samuraiRef}
 					className="absolute z-20 left-1 md:left-10 -top-4 md:-top-0 w-[600px] h-[720px]"
@@ -282,30 +279,6 @@ export default function RegistrationBannerDesktop() {
 					{/* Enhanced border effects */}
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-60 blur-md" />
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-30 blur-lg" />
-
-					{/* Digital circuit pattern overlay */}
-					<div className="absolute inset-0 overflow-hidden opacity-20">
-						<svg
-							width="100%"
-							height="100%"
-							viewBox="0 0 300 100"
-							preserveAspectRatio="none"
-						>
-							<title>Digital Circuit overlay</title>
-							<path
-								d="M10,50 L50,50 L60,40 L100,40 L110,50 L200,50 L210,40 L290,40"
-								stroke="#2a9fff"
-								strokeWidth="1"
-								fill="none"
-							/>
-							<path
-								d="M10,60 L30,60 L40,70 L120,70 L130,60 L170,60 L180,70 L290,70"
-								stroke="#E957DD"
-								strokeWidth="1"
-								fill="none"
-							/>
-						</svg>
-					</div>
 
 					<div className="absolute top-3 left-4 text-[10px] text-cyan-400/70 font-mono">
 						<div ref={terminalRef}> initializing system...</div>
@@ -354,50 +327,6 @@ export default function RegistrationBannerDesktop() {
 
 				{/* Enhanced decorative elements connecting samurai to container - smaller */}
 				<div className="absolute top-60 left-44 md:left-56 w-20 h-20 bg-transparent border-l-2 border-t-2 border-pink-500 transform -rotate-45 opacity-60" />
-
-				{/* Additional decorative circuit lines - slightly smaller */}
-				<div className="absolute -bottom-6 right-10 w-36 h-36">
-					<svg width="100%" height="100%" viewBox="0 0 100 100">
-						<title>Decorative overlay</title>
-						<path
-							d="M0,50 L20,50 L30,40 L70,40 L80,50 L100,50"
-							stroke="#E957DD"
-							strokeWidth="1.5"
-							fill="none"
-							strokeDasharray="5,5"
-						/>
-						<path
-							d="M0,60 L30,60 L40,70 L60,70 L70,60 L100,60"
-							stroke="#2a9fff"
-							strokeWidth="1.5"
-							fill="none"
-							strokeDasharray="5,5"
-						/>
-					</svg>
-				</div>
-
-				{/* Digital data stream - smaller dots */}
-				<div className="absolute h-36 w-[1px] top-[30%] right-[10%] overflow-hidden">
-					<div className="h-full w-full relative">
-						{Array.from({ length: 8 }).map((_, i) => (
-							<motion.div
-								key={`data-stream-${i}-${Math.random()}`}
-								className="absolute w-[2px] h-[2px] bg-cyan-400 left-0"
-								style={{ top: `${i * 12}%` }}
-								animate={{
-									top: ["0%", "100%"],
-									opacity: [0, 1, 0],
-								}}
-								transition={{
-									duration: 2,
-									delay: i * 0.2,
-									repeat: Number.POSITIVE_INFINITY,
-									ease: "linear",
-								}}
-							/>
-						))}
-					</div>
-				</div>
 			</div>
 
 			<style jsx global>{`
