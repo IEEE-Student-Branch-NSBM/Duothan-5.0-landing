@@ -16,11 +16,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	overflow-x: auto;
-	overflow-y: hidden;
 	padding: 20px;
-	box-sizing: border-box;
-	white-space: nowrap;
+	overflow-x: auto;
+	background-color: transparent;
 }
 
 .hud-wrapper::-webkit-scrollbar {
@@ -33,24 +31,30 @@ body {
 
 .hud-container {
 	display: flex;
-	gap: 24px;
-	flex-wrap: nowrap;
+	flex-direction: row;
+	gap: 80px;
+	padding: 30px 60px;
+	background: url("/cbg.png") center center no-repeat;
+	background-size: contain;
+	background-color: transparent;
+	border: none;
+	width: 850px;
+	height: 150px;
 	justify-content: center;
 	align-items: center;
+	box-shadow: none;
+	overflow: hidden;
 }
 
 .hud-overlay-box {
-	flex: 0 0 auto;
-	width: 120px;
-	height: 120px;
-	border: 2px solid #ff66ff;
-	border-radius: 10px;
-	background: rgba(255, 255, 255, 0.03);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	box-shadow: 0 0 12px rgba(255, 102, 255, 0.4);
+	justify-content: center;
+	min-width: 80px;
+	min-height: 100px;
+	padding: 10px 05px;
+	background: transparent;
 	transition: transform 0.3s ease;
 }
 
@@ -59,54 +63,192 @@ body {
 }
 
 .hud-value {
-	font-size: 2.8rem;
-	color: #66f7ff;
-	text-shadow: 0 0 10px #66f7ff;
-	margin: 0;
+	font-size: 2.3rem;
+	color: #00d9ff;
+	text-shadow: 0 0 3px #00d9ff;
+	font-weight: 300;
+	opacity: 0.9;
+	margin-bottom: 2px;
+	line-height: 1.1;
 }
 
+.hud-overlay-box.box-days .hud-value {
+	font-weight: 600;
+	opacity: 1;
+	text-shadow: 0 0 6px #00d9ff;
+	font-size: 3.5rem;
+	margin-bottom: 1px;
+}
+
+.hud-overlay-box.box-days .hud-label {
+	font-weight: 900;
+	opacity: 1;
+	margin-top: 0;
+	font-size: 1.2rem;
+}
 .hud-label {
-	font-size: 0.9rem;
-	color: #d0d0d0;
-	text-transform: lowercase;
-	margin-top: 4px;
-	letter-spacing: 1px;
+	font-size: 1rem;
+	color: #00d9ff;
+	text-transform: capitalize;
+	margin-top: 6px;
+	font-weight: 600;
+	opacity: 0.9;
+	margin-top: 0;
 }
 
-@media (max-width: 768px) {
-	.hud-overlay-box {
-		width: 90px;
-		height: 90px;
+@media (max-width: 1024px) {
+	.hud-container {
+		width: 720px;
+		gap: 80px;
+		padding: 25px 50px;
 	}
 
 	.hud-value {
-		font-size: 2rem;
+		font-size: 2.5rem;
+		margin-bottom: 2px;
+		line-height: 1.1;
 	}
 
 	.hud-label {
-		font-size: 0.75rem;
+		font-size: 0.9rem;
+		margin-top: 0;
+		line-height: 1;
 	}
 
-	.hud-container {
-		gap: 16px;
+	.hud-overlay-box.box-days .hud-value {
+		font-size: 3.5rem;
+		margin-bottom: 1px;
+	}
+
+	.hud-overlay-box.box-days .hud-label {
+		font-size: 1rem;
+		margin-top: 0;
+		line-height: 1;
 	}
 }
 
-@media (max-width: 480px) {
-	.hud-overlay-box {
-		width: 80px;
-		height: 80px;
+@media (max-width: 768px) {
+	.hud-container {
+		width: 680px;
+		gap: 80px;
+		padding: 20px 40px;
 	}
 
 	.hud-value {
-		font-size: 1.6rem;
+		font-size: 2.3rem;
+		margin-bottom: 2px;
+		line-height: 1.1;
 	}
 
 	.hud-label {
 		font-size: 0.7rem;
+		margin-top: 0;
+		line-height: 1;
 	}
 
+	.hud-overlay-box.box-days .hud-value {
+		font-size: 3.2rem;
+		margin-bottom: 1px;
+	}
+
+	.hud-overlay-box.box-days .hud-label {
+		font-size: 0.9rem;
+		margin-top: 0;
+		line-height: 1;
+	}
+}
+
+@media (max-width: 600px) {
 	.hud-container {
-		gap: 12px;
+		width: 640px;
+		gap: 40px;
+		padding: 20px;
+	}
+
+	.hud-value {
+		font-size: 1.7rem;
+		margin-bottom: 2px;
+		line-height: 1.1;
+	}
+
+	.hud-label {
+		font-size: 0.75rem;
+		margin-top: 0;
+		line-height: 1;
+	}
+
+	.hud-overlay-box.box-days .hud-value {
+		font-size: 2.1rem;
+		margin-bottom: 1px;
+	}
+
+	.hud-overlay-box.box-days .hud-label {
+		font-size: 0.9rem;
+		margin-top: 0;
+		line-height: 1;
+	}
+}
+
+@media (max-width: 480px) {
+	.hud-container {
+		width: 600px;
+		gap: 25px;
+		padding: 15px;
+		background-size: contain;
+	}
+
+	.hud-overlay-box {
+		min-width: 70px;
+		min-height: 90px;
+	}
+
+	.hud-value {
+		font-size: 1.3rem;
+		margin-bottom: 2px;
+	}
+
+	.hud-label {
+		font-size: 0.5rem;
+		margin-top: 0;
+	}
+
+	.hud-overlay-box.box-days .hud-value {
+		font-size: 1.7rem;
+		margin-bottom: 1px;
+	}
+
+	.hud-overlay-box.box-days .hud-label {
+		font-size: 0.6rem;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 375px) {
+	.hud-container {
+		width: 580px;
+		gap: 15px;
+		padding: 10px;
+	}
+
+	.hud-value {
+		font-size: 1rem;
+		margin-bottom: 2px;
+		line-height: 1.1;
+	}
+
+	.hud-label {
+		font-size: 0.5rem;
+		margin-top: 0;
+		line-height: 1;
+	}
+
+	.hud-overlay-box.box-days .hud-value {
+		font-size: 1.3rem;
+		margin-bottom: 1px;
+	}
+
+	.hud-overlay-box.box-days .hud-label {
+		font-size: 0.6rem;
+		margin-top: 0;
 	}
 }
