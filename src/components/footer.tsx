@@ -12,15 +12,16 @@ export default function Footer() {
 	return (
 		<footer className="bg-black/10 backdrop-blur-md text-white">
 			<div className="max-w-6xl mx-auto px-15 py-6 pt-12 text-center">
-				{/* Logos */}
-								<div className="grid grid-cols-2 gap-6 mb-4 place-items-center sm:flex sm:flex-wrap sm:justify-center sm:items-center sm:gap-8" >
-					<img src="/duo 5.png" alt="Duothan Logo" className="h-12 " />
-					<img src="/sb.png" alt="NSBM Logo" className="h-8 " />
-					<img src="/cs.png" alt="IEEE CS Logo" className="h-11 " />
+			{/* Logos */}
+				<div className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:gap-8 mb-4">
+					<img src="/duo 5.png" alt="Duothan Logo" className="h-12" />
+					<img src="/sb.png" alt="NSBM Logo" className="h-8" />
+					<img src="/cs.png" alt="IEEE CS Logo" className="h-11" />
 					<img src="/wie.png" alt="WIE Logo" className="h-9" />
 				</div>
 
-				{/* Social Icons - Mobile Only */}
+
+			{/* Social Icons - Mobile Only */}
 				<div className="flex justify-center gap-4 text-white text-lg mb-4 mt-8 md:hidden">
 					<a href="https://www.facebook.com/ieeensbm" target="_blank" rel="noopener noreferrer">
 						<div className="bg-white rounded-full w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform">
@@ -42,16 +43,16 @@ export default function Footer() {
 					</a>
 				</div>
 
-				{/* Divider Line */}
+			{/* Divider Line */}
 				<div className="h-px bg-white/20 my-4 w-full" />
 
-				{/* Bottom Section */}
+			{/* Bottom Section */}
 				<div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 gap-4">
 					<p className={electrolize.className}>
 						All rights reserved, Developed by IEEE Computer Society of NSBM
 					</p>
 
-					{/* Social Icons - Desktop Only */}
+			{/* Social Icons - Desktop Only */}
 					<div className="hidden md:flex gap-4 text-lg">
 						<a href="https://www.facebook.com/ieeensbm" target="_blank" rel="noopener noreferrer">
 							<div className="bg-white rounded-full w-5 h-5 flex items-center justify-center hover:scale-110 transition-transform">
