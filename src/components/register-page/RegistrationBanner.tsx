@@ -139,7 +139,7 @@ export default function RegistrationBanner() {
 						src="/samurai.png"
 						alt="Samurai Warrior"
 						fill
-						className="object-contain scale-102"
+						className="object-contain scale-96"
 						sizes="(max-width: 768px) 90vw, 600px"
 						priority
 					/>
@@ -188,7 +188,13 @@ export default function RegistrationBanner() {
 							innovative challenges.
 						</p>
 
-						<RegisterButton />
+						<div
+							className={
+								"w-full relative flex justify-center items-center xl:justify-end"
+							}
+						>
+							<RegisterButton />
+						</div>
 
 						<div className="relative z-20 w-full h-[280px] mt-6 xl:hidden flex justify-center items-center">
 							<div className="relative w-[100px] h-[100px] top-5">
