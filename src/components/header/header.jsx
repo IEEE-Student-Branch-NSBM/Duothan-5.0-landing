@@ -10,20 +10,20 @@ const Header = () => {
 						alt="Neon outer border with glowing effect framing the header area"
 						className="max-w-[1600px] object-cover"
 					/>
-					<div className="w-full flex justify-center items-center absolute">
+					{/* <div className="w-full flex justify-center items-center absolute">
 						<img
 							src="./Vector 455.svg"
 							alt="Blue neon border accentuating the header with a modern digital style"
 							className="max-w-[1600px] object-cover"
 						/>
-					</div>
-					<div className="w-full flex justify-center items-center absolute top-0">
+					</div> */}
+					{/* <div className="w-full flex justify-center items-center absolute top-0">
 						<img
 							src="./Vector 456.svg"
 							alt="Decorative vector graphic adding layered depth to the header background"
 							className="max-w-[1600px] object-cover"
 						/>
-					</div>
+					</div> */}
 					<div className="w-full flex justify-center items-center absolute top-2">
 						<img
 							src="./duo 5.png"
@@ -31,7 +31,7 @@ const Header = () => {
 							className="h-20 md:h-20 object-contain drop-shadow-lg"
 						/>
 					</div>
-					<div className="absolute flex justify-center w-full z-10 top-22">
+					<div className="absolute flex justify-center w-full top-22">
 						<a href="#register">
 							<img
 								src="./reg.svg"
