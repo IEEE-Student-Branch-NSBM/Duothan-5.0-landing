@@ -140,35 +140,35 @@ const Header = () => {
 						alt=""
 						width={1321}
 						height={143}
-						className="w-full max-w-none h-full"
+						className="w-full max-w-none h-full "
 					/>
 				</div>
 
 				{/* layer 2 */}
 				<div
 					ref={layer2Ref}
-					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center"
+					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
 				>
 					<Image
 						src="/assets/header/layer2.svg"
 						alt=""
 						width={1221}
 						height={135}
-						className="w-full max-w-none h-full"
+						className="w-full max-w-none h-full opacity-60 "
 					/>
 				</div>
 
 				{/* layer 3 */}
 				<div
 					ref={layer3Ref}
-					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center"
+					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center brightness-125 flickering"
 				>
 					<Image
 						src="/assets/header/layer3.svg"
 						alt=""
 						width={561}
 						height={88}
-						className="w-full h-full"
+						className="w-full h-full "
 					/>
 				</div>
 				{/* logo */}
