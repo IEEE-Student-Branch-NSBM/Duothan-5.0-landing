@@ -1,11 +1,24 @@
 "use client";
+import localFont from "next/font/local";
 import Image from "next/image";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import type { Contact } from "./ContactData";
 
-const ContactCard: React.FC<Contact> = ({
+const readyplayerone = localFont({
+	src: "../../fonts/font.otf",
+});
+
+interface ContactCardProps {
+	name: string;
+	title: string;
+	image: string;
+	linkedin: string;
+	phone: string;
+	email: string;
+}
+
+const ContactCard: React.FC<ContactCardProps> = ({
 	name,
 	title,
 	image,
@@ -30,7 +43,9 @@ const ContactCard: React.FC<Contact> = ({
 				</div>
 
 				<div className="mt-3 text-right pr-13">
-					<h3 className="text-[#A2EBFF] font-normal text-[22px] leading-[100%] tracking-[0.04em] text-right">
+					<h3
+						className={`text-[#A2EBFF] font-normal text-[22px] leading-[100%] tracking-[0.04em] text-right ${readyplayerone.className}`}
+					>
 						{name}
 					</h3>
 					<p className="text-white text-sm font-[Electrolize]">{title}</p>

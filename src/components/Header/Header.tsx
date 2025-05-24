@@ -2,14 +2,29 @@
 import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useViewportScaling } from "../viewport/useViewportScaling";
 
-const Header = () => {
+interface HeaderProps {
+	/**
+	 * Disable auto-scaling for this component
+	 */
+	disableScaling?: boolean;
+}
+
+const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 	const headerRef = useRef<HTMLDivElement>(null);
 	const layer1Ref = useRef<HTMLDivElement>(null);
 	const layer2Ref = useRef<HTMLDivElement>(null);
 	const layer3Ref = useRef<HTMLDivElement>(null);
 	const logoRef = useRef<HTMLDivElement>(null);
 	const buttonRef = useRef<HTMLDivElement>(null);
+
+	const { scale, scaleStyle } = useViewportScaling({
+		designWidth: 1920,
+		designHeight: 1080,
+		minScale: 0.7,
+		maxScale: 1,
+	});
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
@@ -127,27 +142,28 @@ const Header = () => {
 	return (
 		<div
 			ref={headerRef}
-			className="fixed w-full h-[200px] overflow-hidden z-50"
+			className={`fixed w-full h-[200px] overflow-hidden z-50 ${!disableScaling && scaleStyle ? "-top-3" : ""}`}
+			style={disableScaling ? {} : scaleStyle}
 		>
-			<div className="absolute inset-0">
-				{/* layer 1 */}
+			<div className="relative w-full h-full flex flex-col items-center">
+				{/* Layer 3 - Bottom */}
 				<div
-					ref={layer1Ref}
-					className="absolute -top-0 left-0 w-full h-28 flex items-start justify-center"
+					ref={layer3Ref}
+					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center brightness-125 flickering"
 				>
 					<Image
-						src="/assets/header/layer1.svg"
+						src="/assets/header/layer3.svg"
 						alt=""
-						width={1321}
-						height={143}
-						className="w-full max-w-none h-full "
+						width={561}
+						height={88}
+						className="w-full h-full "
 					/>
 				</div>
 
 				{/* layer 2 */}
 				<div
 					ref={layer2Ref}
-					className="absolute top-0 left-0 w-full h-30 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
+					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
 				>
 					<Image
 						src="/assets/header/layer2.svg"
@@ -158,19 +174,20 @@ const Header = () => {
 					/>
 				</div>
 
-				{/* layer 3 */}
+				{/* layer 1 */}
 				<div
-					ref={layer3Ref}
-					className="absolute top-15 left-0 w-full h-20 flex items-start justify-center brightness-125 flickering"
+					ref={layer1Ref}
+					className="absolute -top-0 left-0 w-full h-38 flex items-start justify-center"
 				>
 					<Image
-						src="/assets/header/layer3.svg"
+						src="/assets/header/layer1.svg"
 						alt=""
-						width={561}
-						height={88}
-						className="w-full h-full "
+						width={1321}
+						height={143}
+						className="w-full max-w-none h-full "
 					/>
 				</div>
+
 				{/* logo */}
 				<div ref={logoRef} className="mb-4">
 					<Image
@@ -178,21 +195,21 @@ const Header = () => {
 						alt="Duothan Logo"
 						width={320}
 						height={120}
-						className="h-15 w-full"
+						className="h-20 w-full"
 					/>
 				</div>
 
 				{/* fake button */}
 				<div
 					ref={buttonRef}
-					className="absolute inset-0 -top-4 flex items-center justify-center text-white text-xs font-mono tracking-widest"
+					className="absolute inset-0 top-12 flex items-center justify-center text-white text-xs font-mono tracking-widest"
 				>
 					<Image
 						src="/assets/header/button.svg"
 						alt=""
 						width={246}
 						height={23}
-						className="w-auto h-4"
+						className="w-auto h-6"
 					/>
 					<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest">
 						{">> REGISTER <<"}

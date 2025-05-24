@@ -337,7 +337,7 @@ const Viewport: React.FC<ViewportProps> = ({
 						ref={(el) => {
 							if (el) sectionRefs.current[index] = el;
 						}}
-						className={`viewport-section h-screen w-full absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+						className={`viewport-section h-screen w-full absolute inset-0 transition-opacity duration-100 ease-in-out ${
 							currentSectionIndex === index
 								? "opacity-100 z-10"
 								: "opacity-0 z-0"
