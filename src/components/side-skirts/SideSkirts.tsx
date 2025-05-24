@@ -66,7 +66,7 @@ const SideSkirts = ({
 			<div
 				className={`relative h-full w-24 md:w-36 ${isVisible ? "slide-in-left" : "opacity-0"}`}
 			>
-				<div className="absolute -left-3 top-0 h-full w-35">
+				<div className="absolute -left-3 top-0 h-full w-25">
 					<Image
 						src="/SideSkirt_0.svg"
 						alt="Left Side Skirt Layer 0"
@@ -77,7 +77,7 @@ const SideSkirts = ({
 						unoptimized={true}
 					/>
 				</div>
-				<div className="absolute -left-1 top-0 h-full w-40">
+				<div className="absolute -left-1 top-0 h-full w-30">
 					<Image
 						src="/SideSkirt_1.svg"
 						alt="Left Side Skirt Layer 1"
@@ -88,7 +88,7 @@ const SideSkirts = ({
 						unoptimized={true}
 					/>
 				</div>
-				<div className="absolute -left-1 top-0 h-full w-42">
+				<div className="absolute -left-1 top-0 h-full w-32">
 					<Image
 						src="/SideSkirt_2.svg"
 						alt="Left Side Skirt Layer 2"
@@ -139,7 +139,7 @@ const SideSkirts = ({
 			<div
 				className={`relative h-full w-24 md:w-36 ${isVisible ? "slide-in-right" : "opacity-0"}`}
 			>
-				<div className="absolute -right-3 top-0 h-full w-35 transform scale-x-[-1]">
+				<div className="absolute -right-3 top-0 h-full w-25 transform scale-x-[-1]">
 					<Image
 						src="/SideSkirt_0.svg"
 						alt="Right Side Skirt Layer 0"
@@ -150,7 +150,7 @@ const SideSkirts = ({
 						unoptimized={true}
 					/>
 				</div>
-				<div className="absolute -right-1 top-0 h-full w-40 transform scale-x-[-1]">
+				<div className="absolute -right-1 top-0 h-full w-30 transform scale-x-[-1]">
 					<Image
 						src="/SideSkirt_1.svg"
 						alt="Right Side Skirt Layer 1"
@@ -161,7 +161,7 @@ const SideSkirts = ({
 						unoptimized={true}
 					/>
 				</div>
-				<div className="absolute -right-1 top-0 h-full w-42 transform scale-x-[-1]">
+				<div className="absolute -right-1 top-0 h-full w-32 transform scale-x-[-1]">
 					<Image
 						src="/SideSkirt_2.svg"
 						alt="Right Side Skirt Layer 2"

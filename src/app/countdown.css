@@ -15,7 +15,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
+	/* min-height: vh; */
 	overflow-x: auto;
 	overflow-y: hidden;
 	padding: 20px;
