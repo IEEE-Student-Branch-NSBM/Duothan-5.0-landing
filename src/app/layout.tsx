@@ -34,10 +34,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar overflow-x-hidden`}
+				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar `}
 			>
 				{children}
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);

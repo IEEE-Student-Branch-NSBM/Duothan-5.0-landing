@@ -3,7 +3,11 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const DownTag = () => {
+interface DownTagProps {
+	text?: string;
+}
+
+const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 	const dockRef = useRef(null);
 
 	useEffect(() => {
@@ -59,9 +63,7 @@ const DownTag = () => {
 					className="absolute bottom-1/6 left-1/2 transform -translate-x-1/2 z-10"
 				>
 					<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)]">
-						<h2 className="text-2xl font-bold bg-clip-text">
-							{"View Text Goes Here"}
-						</h2>
+						<h2 className="text-2xl font-bold bg-clip-text">{text}</h2>
 					</div>
 				</div>
 			</div>

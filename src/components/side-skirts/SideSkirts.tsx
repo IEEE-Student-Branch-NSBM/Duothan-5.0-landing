@@ -173,7 +173,7 @@ const SideSkirts = ({
 					/>
 				</div>
 				{/* Decorative element for right side */}
-				<div className="absolute right-2 top-0 h-full w-10">
+				{/* <div className="absolute right-2 top-0 h-full w-10">
 					<Image
 						src="/SideSkirt_Decorative.svg"
 						alt="Right Side Decorative Element"
@@ -183,7 +183,7 @@ const SideSkirts = ({
 						priority
 						unoptimized={true}
 					/>
-				</div>
+				</div> */}
 				{/* Time element for right side */}
 				<div className="absolute right-5 left-0 mx-auto h-full w-10 flex justify-center items-center">
 					<Image
