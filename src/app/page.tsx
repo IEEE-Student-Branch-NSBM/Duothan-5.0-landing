@@ -1,6 +1,6 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
+import Contactus from "@/components/ContactUs/ContactUs";
 import Header from "@/components/Header/Header";
-import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
 
 import Sponsors from "@/components/Sponsors/Sponsors";
