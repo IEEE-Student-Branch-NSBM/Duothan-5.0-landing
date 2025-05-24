@@ -151,7 +151,7 @@ const HudBackground: React.FC = () => {
 
 			{/* Digital circuit lines - horizontal (reduced number and opacity) */}
 			{Array.from({ length: 6 }).map((_, i) => {
-				const hLineId = `h-line-${10 + i * 15}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+				const hLineId = `h-line-${10 + i * 15}`;
 				return (
 					<motion.div
 						key={hLineId}
@@ -171,7 +171,7 @@ const HudBackground: React.FC = () => {
 
 			{/* Digital circuit lines - vertical (reduced number and opacity) */}
 			{Array.from({ length: 5 }).map((_, i) => {
-				const vLineId = `v-line-${15 + i * 17}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+				const vLineId = `v-line-${15 + i * 17}`;
 				return (
 					<motion.div
 						key={vLineId}
@@ -301,10 +301,7 @@ const HudBackground: React.FC = () => {
 			{/* Binary data abstractions - more subtle */}
 			<div className="absolute top-[30%] left-[3%] opacity-10 font-mono text-xs tracking-widest leading-relaxed text-cyan-500/30">
 				{["0 1 0 1 1", "1 0 1 0 0", "1 1 0 1 0"].map((code) => (
-					<div
-						key={`code-${code}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`}
-						className="whitespace-nowrap"
-					>
+					<div key={`binary-code-${code}`} className="whitespace-nowrap">
 						{code}
 					</div>
 				))}
@@ -323,10 +320,7 @@ const HudBackground: React.FC = () => {
 			{/* HEX data abstractions - more subtle */}
 			<div className="absolute bottom-[15%] right-[4%] opacity-10 font-mono text-xs tracking-wide text-blue-500/30">
 				{["a3 f8 42", "2c e7 91", "d5 7f 19"].map((hex) => (
-					<div
-						key={`hex-${hex}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`}
-						className="whitespace-nowrap"
-					>
+					<div key={`hex-code-${hex}`} className="whitespace-nowrap">
 						{hex}
 					</div>
 				))}

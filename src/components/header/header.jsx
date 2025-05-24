@@ -26,9 +26,9 @@ const Header = () => {
 					</div> */}
 					<div className="w-full flex justify-center items-center absolute top-2">
 						<img
-							src="./duo 5.png"
+							src="./duo 5.svg"
 							alt="Duothan 5.0 logo centered in the header, featuring bold stylized text and a futuristic design, conveying excitement and innovation"
-							className="h-20 md:h-20 object-contain drop-shadow-lg"
+							className="h-20 md:h-15 object-contain drop-shadow-lg animate-pulse "
 						/>
 					</div>
 					<div className="absolute flex justify-center w-full top-22">
