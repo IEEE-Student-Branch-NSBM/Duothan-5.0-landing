@@ -58,9 +58,9 @@ export default function Home() {
 			<HudBackground />
 
 			{/* Debug panel for viewport scaling - hidden by default, press 'D' to show */}
-			{process.env.NODE_ENV !== "production" && (
+			{/* {process.env.NODE_ENV !== "production" && (
 				<ViewportDebugPanel hidden={true} />
-			)}
+			)} */}
 
 			{/* Viewport component with all sections */}
 			<Viewport onSectionChange={handleSectionChange}>
