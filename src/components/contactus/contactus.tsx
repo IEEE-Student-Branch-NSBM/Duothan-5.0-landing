@@ -97,7 +97,7 @@ const ContactUs: React.FC = () => {
 	}, [carouselApi]);
 
 	return (
-		<div className="relative bg-transparent px-4 lg:px-0 h-full flex items-center w-full max-w-[1170px] mx-auto py-20">
+		<div className="scale-60 relative bg-transparent px-4 lg:px-0 h-full flex items-center w-full max-w-[1170px] mx-auto py-20">
 			<div className="relative w-full max-h-screen  overflow-hidden">
 				<div className="flex flex-col lg:flex-row  justify-between ">
 					{/* Left column */}

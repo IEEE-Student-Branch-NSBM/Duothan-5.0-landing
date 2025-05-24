@@ -348,8 +348,8 @@ const Viewport: React.FC<ViewportProps> = ({
 				))}
 			</div>
 
-			{/* Navigation dots */}
-			<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-3">
+			{/* Navigation dots - hidden on mobile, visible on sm and above */}
+			<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3">
 				{Array.from({ length: children.length }).map((_, index) => (
 					<button
 						key={`nav-dot-${index}-${Math.random().toString(36).substring(2, 7)}`}
