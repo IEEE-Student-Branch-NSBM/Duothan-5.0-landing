@@ -12,7 +12,7 @@ import Timeline from "@/components/timeline/timeline";
 import HudBackground from "@/components/background/HudBackground";
 import DownTag from "@/components/down-tag/page";
 import Viewport from "@/components/viewport/Viewport";
-import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
+// import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
 import ViewportSection from "@/components/viewport/ViewportSection";
 import { useEffect, useState } from "react";
 
