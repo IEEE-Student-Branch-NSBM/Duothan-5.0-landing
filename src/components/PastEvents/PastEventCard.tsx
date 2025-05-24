@@ -1,13 +1,11 @@
 import Image from "next/image";
-import React from "react";
+import type { PastEvent } from "./PastEventData";
 
-type CardProps = {
-	title: string;
-	image: string;
-	description: string;
-};
-
-export default function Card({ title, image, description }: CardProps) {
+export default function PastEventCard({
+	title,
+	image,
+	description,
+}: PastEvent) {
 	return (
 		<div className="relative w-[300px] h-[388.7px]">
 			<Image
@@ -26,16 +24,12 @@ export default function Card({ title, image, description }: CardProps) {
 				<div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col justify-center pl-3 pr-5">
 					<p
 						className={
-							"font-[Electrolize] text-[25px] text-[#a2ebff] text-start font-bold  pt-40 pb-1"
+							"text-[25px] text-[#a2ebff] text-start font-bold  pt-40 pb-1"
 						}
 					>
 						{title}
 					</p>
-					<p
-						className={
-							"text-white text-[14px] text-sm md:text-xs font-[Electrolize]"
-						}
-					>
+					<p className={"text-white text-[14px] text-sm md:text-xs"}>
 						{description}
 					</p>
 				</div>
