@@ -21,26 +21,26 @@ const HudBackground: React.FC = () => {
 	// ];
 
 	// Generate random positions for circuit node elements
-	const [nodes, setNodes] = useState<
-		Array<{
-			x: number;
-			y: number;
-			size: number;
-			delay: number;
-			duration: number;
-		}>
-	>([]);
+	// const [nodes, setNodes] = useState<
+	// 	Array<{
+	// 		x: number;
+	// 		y: number;
+	// 		size: number;
+	// 		delay: number;
+	// 		duration: number;
+	// 	}>
+	// >([]);
 
-	useEffect(() => {
-		const generatedNodes = Array.from({ length: 30 }, () => ({
-			x: Math.random() * 100,
-			y: Math.random() * 100,
-			size: 1 + Math.random() * 5,
-			delay: Math.random() * 5,
-			duration: 2 + Math.random() * 4,
-		}));
-		setNodes(generatedNodes);
-	}, []);
+	// useEffect(() => {
+	// 	const generatedNodes = Array.from({ length: 30 }, () => ({
+	// 		x: Math.random() * 100,
+	// 		y: Math.random() * 100,
+	// 		size: 1 + Math.random() * 5,
+	// 		delay: Math.random() * 5,
+	// 		duration: 2 + Math.random() * 4,
+	// 	}));
+	// 	setNodes(generatedNodes);
+	// }, []);
 
 	return (
 		<div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#051020]">
