@@ -266,7 +266,6 @@ const CarouselWithProgress = React.memo(
 
 		const segmentIds = ["segment-1", "segment-2"];
 
-		// Determine card size multiplier based on number of sponsors and viewport
 		const getCardSizeMultiplier = () => {
 			if (viewportSize === "desktop") {
 				if (sponsors.length === 2) return 1.5;
@@ -279,7 +278,6 @@ const CarouselWithProgress = React.memo(
 
 		const shouldAutoplay = !(viewportSize === "mobile" && sponsors.length <= 2);
 
-		// Hide progress bar in tablet view when there are exactly 3 cards
 		const shouldShowProgress =
 			viewportSize !== "desktop" &&
 			sponsors.length > 2 &&
@@ -499,6 +497,9 @@ const Sponsors = () => {
 					ASSOCIATE SPONSORS
 				</h3>
 				{renderSponsors(SPONSORS_GROUP_2, false)}
+			</div>
+			<div className="text-center text-xs text-gray-400 mt-2">
+				Subaru Company is our official knowledge partner
 			</div>
 		</section>
 	);
