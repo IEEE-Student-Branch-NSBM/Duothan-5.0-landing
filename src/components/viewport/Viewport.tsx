@@ -10,9 +10,9 @@ import React, {
 } from "react";
 
 // Define a unique ID generator for stable keys
-const generateUniqueId = (): string => {
-	return Math.random().toString(36).substring(2, 15);
-};
+// const generateUniqueId = (): string => {
+// 	return Math.random().toString(36).substring(2, 15);
+// };
 
 // interface SectionData {
 // 	content: ReactNode;
