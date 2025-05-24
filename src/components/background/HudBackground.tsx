@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import type React from "react";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const HudBackground: React.FC = () => {
 	// Pre-generated binary and hex codes to avoid hydration errors
