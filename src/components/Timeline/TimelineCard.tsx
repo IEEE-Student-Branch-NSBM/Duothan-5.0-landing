@@ -1,12 +1,6 @@
-"use client";
+import type { Timeline } from "./TimelineData";
 
-interface CardProps {
-	title: string;
-	description: string;
-	position: "left" | "right";
-}
-
-export default function Card({ title, description, position }: CardProps) {
+export default function Card({ title, description, position }: Timeline) {
 	return (
 		<div className="relative w-full">
 			{position === "left" ? (

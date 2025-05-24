@@ -3,7 +3,7 @@ import { Electrolize, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import "./countdown.css";
 
-// import Footer from "@/components/footer";
+import Footer from "@/components/footer";
 
 const electrolize = Electrolize({
 	variable: "--font-geist-sans",
@@ -38,7 +38,7 @@ export default function RootLayout({
 				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar `}
 			>
 				{children}
-				{/* <Footer /> */}
+				<Footer />
 			</body>
 		</html>
 	);

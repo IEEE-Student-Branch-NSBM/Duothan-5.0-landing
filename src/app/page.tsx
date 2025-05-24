@@ -4,10 +4,10 @@ import Contactus from "@/components/ContactUs/ContactUs";
 import Header from "@/components/Header/Header";
 import PastEvents from "@/components/PastEvents/PastEvents";
 import Sponsors from "@/components/Sponsors/Sponsors";
+import Timeline from "@/components/Timeline/Timeline";
 import CountdownTimer from "@/components/countdown/countdown";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
-import Timeline from "@/components/timeline/timeline";
 
 import HudBackground from "@/components/background/HudBackground";
 import DownTag from "@/components/down-tag/page";
