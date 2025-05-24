@@ -4,6 +4,7 @@ import "./globals.css";
 import "./countdown.css";
 
 // import Footer from "@/components/footer";
+import Header from "@/components/Header/Header";
 
 const electrolize = Electrolize({
 	variable: "--font-geist-sans",
@@ -37,6 +38,9 @@ export default function RootLayout({
 			<body
 				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar `}
 			>
+				<div className="fixed top-0 left-0 right-0 z-50">
+					<Header />
+				</div>
 				{children}
 				{/* <Footer /> */}
 			</body>
