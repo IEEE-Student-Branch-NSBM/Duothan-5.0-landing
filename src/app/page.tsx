@@ -9,14 +9,13 @@ import Sponsors from "@/components/sponsors/sponsors";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import Timeline from "@/components/timeline/timeline";
 
-
 export default function Home() {
 	return (
 		<div>
-      <Header />
+			<Header />
 			<div className="min-h-screen text-center py-10">
 				Hero
-				<CountdownTimer targetDate="2025-05-30T00:00:00" />
+				<countdownTimer targetDate="2025-05-30T00:00:00" />
 			</div>
 			<AboutUs />
 			<Sponsors />
