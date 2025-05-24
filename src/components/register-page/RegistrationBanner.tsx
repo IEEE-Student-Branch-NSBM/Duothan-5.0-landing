@@ -133,20 +133,20 @@ export default function RegistrationBanner() {
 				{/* Desktop Samurai Image */}
 				<div
 					ref={samuraiRef}
-					className="absolute z-20 left-1 md:left-10 -top-4 md:-top-0 w-[600px] h-[710px] hidden md:block justify-center items-center"
+					className="absolute z-20 left-1 xl:left-10 -top-4 xl:-top-0 w-[600px] h-[710px] hidden xl:block justify-center items-center"
 				>
 					<Image
 						src="/samurai.png"
 						alt="Samurai Warrior"
 						fill
-						className="object-contain scale-102"
+						className="object-contain scale-96"
 						sizes="(max-width: 768px) 90vw, 600px"
 						priority
 					/>
 					<div className="absolute inset-0 bg-gradient-to-t from-transparent to-transparent mix-blend-overlay" />
 				</div>
 
-				<div className="flex flex-col md:flex-row items-center p-5 md:p-12 pb-14 rounded-xl border-2 border-[#E957DD] bg-transparent shadow-2xl relative overflow-visible mt-60 backdrop-blur-[2px]">
+				<div className="flex flex-col xl:flex-row items-center p-5 xl:p-12 pb-14 rounded-xl border-2 border-[#E957DD] bg-transparent shadow-2xl relative overflow-visible mt-60 backdrop-blur-[2px]">
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-60 blur-md" />
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-30 blur-lg" />
 
@@ -154,10 +154,10 @@ export default function RegistrationBanner() {
 						<div ref={terminalRef}> initializing system...</div>
 					</div>
 
-					<div className="w-full md:w-3/5 md:ml-auto flex flex-col mt-4 md:mt-0 md:pr-8 max-w-3xl">
+					<div className="w-full xl:w-3/5 xl:ml-auto flex flex-col mt-4 xl:mt-0 xl:pr-8 max-w-3xl">
 						<h2
 							ref={titleRef}
-							className={`text-2xl md:text-4xl font-bold mb-6 text-center md:text-right text-cyan-400 tracking-wide w-full leading-tight relative ${glitchActive ? "glitch-text" : ""}`}
+							className={`text-2xl xl:text-4xl font-bold mb-6 text-center xl:text-right text-cyan-400 tracking-wide w-full leading-tight relative ${glitchActive ? "glitch-text" : ""}`}
 							style={{
 								textShadow: "0 0 15px rgba(0, 255, 240, 0.5)",
 							}}
@@ -179,7 +179,7 @@ export default function RegistrationBanner() {
 
 						<p
 							ref={descRef}
-							className="text-gray-200 text-center md:text-right mb-8 text-xs max-w-3xl mx-auto md:ml-auto md:mr-0 w-full leading-relaxed"
+							className="text-gray-200 text-center xl:text-right mb-8 text-xs max-w-3xl mx-auto xl:ml-auto xl:mr-0 w-full leading-relaxed"
 						>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 							pellentesque, neque ut tempor vulputate, nisi purus varius elit.{" "}
@@ -188,9 +188,15 @@ export default function RegistrationBanner() {
 							innovative challenges.
 						</p>
 
-						<RegisterButton />
+						<div
+							className={
+								"w-full relative flex justify-center items-center xl:justify-end"
+							}
+						>
+							<RegisterButton />
+						</div>
 
-						<div className="relative z-20 w-full h-[280px] mt-6 md:hidden flex justify-center items-center">
+						<div className="relative z-20 w-full h-[280px] mt-6 xl:hidden flex justify-center items-center">
 							<div className="relative w-[100px] h-[100px] top-5">
 								<Image
 									src="/samurai.png"
