@@ -10,6 +10,7 @@ import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
 
 import HudBackground from "@/components/background/HudBackground";
+import DownTag from "@/components/down-tag/page";
 
 export default function Home() {
 	const targetDate = "2025-05-30T00:00:00";
@@ -20,6 +21,7 @@ export default function Home() {
 				<Header />
 			</div>
 			<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
+			<DownTag />
 			{/* Hero Section */}
 			<div className="min-h-screen text-center py-10">
 				Hero
