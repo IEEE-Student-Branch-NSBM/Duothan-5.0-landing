@@ -9,6 +9,8 @@ import SideSkirts from "@/components/side-skirts/SideSkirts";
 import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
 
+import HudBackground from "@/components/background/HudBackground";
+
 export default function Home() {
 	const targetDate = "2025-05-30T00:00:00";
 
@@ -31,6 +33,7 @@ export default function Home() {
 			<div className="relative w-full bg-cover bg-top bg-no-repeat">
 				<Contactus />
 			</div>
+			<HudBackground />
 		</div>
 	);
 }
