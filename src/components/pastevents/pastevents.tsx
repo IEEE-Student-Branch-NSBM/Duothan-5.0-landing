@@ -14,7 +14,7 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const readyplayerone = localFont({ src: "../../../public/font.otf" });
+// const readyplayerone = localFont({ src: "../../../public/font.otf" });
 
 const events = [
 	{

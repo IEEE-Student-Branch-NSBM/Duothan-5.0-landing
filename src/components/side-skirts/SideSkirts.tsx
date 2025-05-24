@@ -31,7 +31,7 @@ const SideSkirts = ({
 		hours: Number.parseInt(rightText) || 0,
 	});
 
-	const { scale, scaleStyle } = useViewportScaling({
+	const { scaleStyle } = useViewportScaling({
 		designWidth: 1920,
 		designHeight: 1080,
 		minScale: 0.7,
