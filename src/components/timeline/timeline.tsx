@@ -8,7 +8,7 @@ export default function Timeline() {
 			id: 1,
 			position: "left",
 			title: "First Milestone",
-			description: "Description of the first milestoneDescription",
+			description: "Description of the first milestoneDescription ",
 		},
 		{
 			id: 2,
@@ -34,7 +34,7 @@ export default function Timeline() {
 		<div>
 			{/* Desktop view */}
 			<div className="hidden lg:flex relative w-full max-w-[1170px] mx-auto mb-60 mt-40 ">
-				<div className="absolute left-1/2 transform -translate-x-1/2">
+				<div className="absolute left-[49%] transform -translate-x-1/2">
 					<img
 						src="/timelinecompleet.svg"
 						alt="Timeline"
@@ -48,7 +48,7 @@ export default function Timeline() {
 							.map((item, index) => (
 								<div
 									key={item.id}
-									className={`flex justify-start w-full ml-5 ${index === 0 ? "mt-47" : "mt-14"}`}
+									className={`flex justify-start w-full ${index === 0 ? "mt-[32.5%]" : "mt-[10%]"}`}
 								>
 									<Card
 										title={item.title}
@@ -78,7 +78,7 @@ export default function Timeline() {
 			</div>
 
 			{/* Tablet view */}
-			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-auto fixed mb-40">
+			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-aut mb-40">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
 					<img
 						src="/timelinecompleet.svg"
@@ -119,7 +119,7 @@ export default function Timeline() {
 			</div>
 
 			{/* Mobile view */}
-			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto fixed">
+			<div className="md:hidden flex relative w-[410px] h-[584px] mx-auto ml-3">
 				<div className="absolute left-6 top-0 h-full">
 					<img
 						src="/mobileTimeline.svg"
@@ -128,35 +128,33 @@ export default function Timeline() {
 					/>
 				</div>
 				<div className="flex flex-col w-full h-full overflow-hidden">
-					<div className="flex flex-col w-full">
-						<div className="flex justify-start w-3/4 ml-8 mt-5.5">
-							<Card
-								title={items[1].title}
-								description={items[1].description}
-								position="right"
-							/>
-						</div>
-						<div className="flex justify-start w-3/4 ml-8 mt-5">
-							<Card
-								title={items[0].title}
-								description={items[0].description}
-								position="right"
-							/>
-						</div>
-						<div className="flex justify-start w-3/4 ml-8 mt-4">
-							<Card
-								title={items[3].title}
-								description={items[3].description}
-								position="right"
-							/>
-						</div>
-						<div className="flex justify-start w-3/4 ml-8 mt-5">
-							<Card
-								title={items[2].title}
-								description={items[2].description}
-								position="right"
-							/>
-						</div>
+					<div className="flex justify-start w-3/4 ml-8 mt-4">
+						<Card
+							title={items[1].title}
+							description={items[1].description}
+							position="right"
+						/>
+					</div>
+					<div className="flex justify-start w-3/4 ml-8 mt-2">
+						<Card
+							title={items[0].title}
+							description={items[0].description}
+							position="right"
+						/>
+					</div>
+					<div className="flex justify-start w-3/4 ml-8 mt-1.5">
+						<Card
+							title={items[3].title}
+							description={items[3].description}
+							position="right"
+						/>
+					</div>
+					<div className="flex justify-start w-3/4 ml-8 mt-2">
+						<Card
+							title={items[2].title}
+							description={items[2].description}
+							position="right"
+						/>
 					</div>
 				</div>
 			</div>
