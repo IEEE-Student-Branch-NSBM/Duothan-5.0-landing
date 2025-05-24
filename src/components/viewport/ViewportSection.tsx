@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { useViewportScaling } from "./useViewportScaling";
 
 interface ViewportSectionProps {
@@ -43,17 +43,29 @@ const ViewportSection: React.FC<ViewportSectionProps> = ({
 	});
 
 	// Check if this section contains a footer
-	const hasFooter = React.Children.toArray(children).some(
-		(child) => React.isValidElement(child) && child.type.name === "Footer",
-	);
+	const hasFooter = React.Children.toArray(children).some((child) => {
+		if (React.isValidElement(child)) {
+			const element = child as ReactElement;
+			// Check for function components that might be the Footer
+			return (
+				typeof element.type === "function" &&
+				// If the function has a name property (most do)
+				"name" in element.type &&
+				element.type.name === "Footer"
+			);
+		}
+		return false;
+	});
 
 	return (
 		<section
 			id={id}
-			className={`relative ${hasFooter ? "md:min-h-screen" : "min-h-screen"} w-full flex flex-col items-center justify-center px-4 md:px-10 ${className}`}
+			className={`relative min-h-screen w-full flex flex-col items-center justify-center px-4 md:px-10 ${className} ${
+				hasFooter ? "has-footer" : ""
+			}`}
 		>
 			<div
-				className={`w-full max-w-7xl mx-auto flex flex-col items-center ${hasFooter ? "md:justify-center" : "justify-center"}`}
+				className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center"
 				style={disableScaling ? {} : scaleStyle}
 			>
 				{children}
