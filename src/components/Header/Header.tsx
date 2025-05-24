@@ -170,7 +170,7 @@ const Header = () => {
 				</div>
 			</div>
 
-			<div className="relative z-10 flex flex-col items-center justify-start h-full text-center px-4 py-2">
+			<div className="relative z-10 flex flex-col items-center justify-start h-full text-center px-4 py-1">
 				{/* logo */}
 				<div ref={logoRef} className="mb-4">
 					<Image
@@ -191,8 +191,8 @@ const Header = () => {
 						height={23}
 						className="w-auto h-8"
 					/>
-					<span className="absolute inset-0 flex items-center justify-center text-white text-xs font-mono tracking-widest">
-						REG_DUOT_5.0
+					<span className="absolute inset-0 flex items-center justify-center text-white text-medium tracking-widest">
+						Register
 					</span>
 				</div>
 			</div>
