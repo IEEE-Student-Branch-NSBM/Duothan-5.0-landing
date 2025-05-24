@@ -61,10 +61,7 @@ export default function Home() {
 			{/* Viewport component with all sections */}
 			<Viewport onSectionChange={handleSectionChange}>
 				{/* Hero Section */}
-				<ViewportSection
-					id={sections[0].id}
-					className="flex flex-col items-center justify-center text-center"
-				>
+				<ViewportSection id={sections[0].id}>
 					<CountdownTimer targetDate={targetDate} />
 				</ViewportSection>
 

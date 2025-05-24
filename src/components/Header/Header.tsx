@@ -133,7 +133,7 @@ const Header = () => {
 				{/* layer 1 */}
 				<div
 					ref={layer1Ref}
-					className="absolute -top-0 left-0 w-full h-38 flex items-start justify-center"
+					className="absolute -top-0 left-0 w-full h-28 flex items-start justify-center"
 				>
 					<Image
 						src="/assets/header/layer1.svg"
@@ -147,7 +147,7 @@ const Header = () => {
 				{/* layer 2 */}
 				<div
 					ref={layer2Ref}
-					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
+					className="absolute top-0 left-0 w-full h-30 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
 				>
 					<Image
 						src="/assets/header/layer2.svg"
@@ -161,7 +161,7 @@ const Header = () => {
 				{/* layer 3 */}
 				<div
 					ref={layer3Ref}
-					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center brightness-125 flickering"
+					className="absolute top-15 left-0 w-full h-20 flex items-start justify-center brightness-125 flickering"
 				>
 					<Image
 						src="/assets/header/layer3.svg"
@@ -178,21 +178,21 @@ const Header = () => {
 						alt="Duothan Logo"
 						width={320}
 						height={120}
-						className="h-20 w-full"
+						className="h-15 w-full"
 					/>
 				</div>
 
 				{/* fake button */}
 				<div
 					ref={buttonRef}
-					className="absolute inset-0 top-12 flex items-center justify-center text-white text-xs font-mono tracking-widest"
+					className="absolute inset-0 -top-4 flex items-center justify-center text-white text-xs font-mono tracking-widest"
 				>
 					<Image
 						src="/assets/header/button.svg"
 						alt=""
 						width={246}
 						height={23}
-						className="w-auto h-6"
+						className="w-auto h-4"
 					/>
 					<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest">
 						{">> REGISTER <<"}

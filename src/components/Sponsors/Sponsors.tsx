@@ -17,7 +17,7 @@ interface SponsorCardProps {
 const SponsorCard = React.memo(
 	({ img, url, altText = "Sponsor logo" }: SponsorCardProps) => {
 		const cardContent = (
-			<div className="relative mx-auto transition-all duration-300 hover:scale-105 flex items-center justify-center w-60 h-32">
+			<div className="relative mx-auto transition-all duration-300 hover:scale-105 flex items-center justify-center w-50 h-32">
 				<div
 					className="absolute inset-0 bg-no-repeat bg-center bg-contain"
 					style={{
@@ -25,7 +25,7 @@ const SponsorCard = React.memo(
 					}}
 					aria-hidden="true"
 				/>
-				<div className="relative z-10 w-full h-full flex items-center justify-center p-4">
+				<div className="relative z-10 w-full h-full flex items-center justify-center p-2">
 					<div className="w-full h-full flex items-center justify-center">
 						<div className="max-w-52 max-h-24 w-1/2 h-1/2 relative">
 							<Image
@@ -116,20 +116,14 @@ const SponsorSlider = ({ sponsors }: SponsorSliderProps) => {
 
 const Sponsors = () => {
 	return (
-		<section className="py-12 px-4 w-full max-w-7xl mx-auto">
-			<h2 className="text-4xl text-center text-[#a2ebff] mb-12">
-				OUR SPONSORS
-			</h2>
-
-			<div className="mb-16">
-				<h3 className="text-3xl text-center text-[#e957dd] mb-8">
-					TITLE SPONSORS
-				</h3>
+		<section className="w-full max-w-7xl mx-auto">
+			<div className="mb-5">
+				<h3 className="text-xl text-center text-[#e957dd]">TITLE SPONSORS</h3>
 				<SponsorSlider sponsors={TitleSponsors} />
 			</div>
 
 			<div>
-				<h3 className="text-3xl text-center text-[#e957dd] mb-8">
+				<h3 className="text-xl text-center text-[#e957dd]">
 					ASSOCIATE SPONSORS
 				</h3>
 				<SponsorSlider sponsors={AssociateSponsors} />
