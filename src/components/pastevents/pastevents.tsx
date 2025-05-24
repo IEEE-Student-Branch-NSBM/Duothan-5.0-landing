@@ -1,7 +1,7 @@
 "use client";
 import Card from "@/components/pastevents/eventcard";
 import Autoplay from "embla-carousel-autoplay";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import React, { useState, useEffect } from "react";
 
 // Import shadcn components
