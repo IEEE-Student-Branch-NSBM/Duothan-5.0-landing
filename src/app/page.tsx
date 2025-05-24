@@ -1,7 +1,4 @@
 "use client";
-"use client";
-
-// filepath: /home/zerone/Documents/Duothan-5.0-landing/src/app/page.tsx
 import AboutUs from "@/components/AboutUs/AboutUs";
 import Contactus from "@/components/ContactUs/ContactUs";
 import Header from "@/components/Header/Header";
