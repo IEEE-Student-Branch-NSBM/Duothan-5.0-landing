@@ -47,21 +47,17 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 	return (
 		<div className="hud-wrapper">
 			<div className="hud-container">
-				<div className="hud-overlay-box">
-					<div className="hud-value">{format(timeLeft.days)}</div>
-					<div className="hud-label">days</div>
-				</div>
-				<div className="hud-overlay-box">
+				<div className="hud-overlay-box box-hours">
 					<div className="hud-value">{format(timeLeft.hours)}</div>
-					<div className="hud-label">hours</div>
+					<div className="hud-label">Hours</div>
 				</div>
-				<div className="hud-overlay-box">
+				<div className="hud-overlay-box box-days">
+					<div className="hud-value">{format(timeLeft.days)}</div>
+					<div className="hud-label">Days</div>
+				</div>
+				<div className="hud-overlay-box box-minutes">
 					<div className="hud-value">{format(timeLeft.minutes)}</div>
-					<div className="hud-label">min</div>
-				</div>
-				<div className="hud-overlay-box">
-					<div className="hud-value">{format(timeLeft.seconds)}</div>
-					<div className="hud-label">sec</div>
+					<div className="hud-label">Mins</div>
 				</div>
 			</div>
 		</div>
