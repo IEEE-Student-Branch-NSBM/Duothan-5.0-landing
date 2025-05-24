@@ -3,13 +3,13 @@
 
 // filepath: /home/zerone/Documents/Duothan-5.0-landing/src/app/page.tsx
 import AboutUs from "@/components/AboutUs/AboutUs";
+import Contactus from "@/components/ContactUs/ContactUs";
 import Header from "@/components/Header/Header";
-import Contactus from "@/components/contactus/contactus";
+import Sponsors from "@/components/Sponsors/Sponsors";
 import CountdownTimer from "@/components/countdown/countdown";
 import PastEvents from "@/components/pastevents/pastevents";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
-import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
 
 import HudBackground from "@/components/background/HudBackground";
