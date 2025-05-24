@@ -33,8 +33,8 @@ export default function Timeline() {
 	return (
 		<div>
 			{/* Desktop view */}
-			<div className="hidden lg:flex relative w-full max-w-[1170px] mx-auto mb-60 mt-40 ">
-				<div className="absolute left-1/2 transform -translate-x-1/2">
+			<div className="hidden scale-70 lg:flex relative w-full max-w-[1170px] ">
+				<div className="absolute -top-7 left-1/2 transform -translate-x-1/2">
 					<img
 						src="/timelinecompleet.svg"
 						alt="Timeline"
@@ -48,7 +48,7 @@ export default function Timeline() {
 							.map((item, index) => (
 								<div
 									key={item.id}
-									className={`flex justify-start w-full ml-5 ${index === 0 ? "mt-47" : "mt-14"}`}
+									className={`flex justify-start w-full ml-5 ${index === 0 ? "mt-43" : "mt-20"}`}
 								>
 									<Card
 										title={item.title}
@@ -64,7 +64,7 @@ export default function Timeline() {
 							.map((item, index) => (
 								<div
 									key={item.id}
-									className={`flex justify-start w-full ml-auto ${index === 0 ? "mt-13" : "mt-12"}`}
+									className={`flex justify-start w-full ml-auto ${index === 0 ? "mt-10 mb-4" : "mt-12"}`}
 								>
 									<Card
 										title={item.title}
@@ -129,7 +129,7 @@ export default function Timeline() {
 				</div>
 				<div className="flex flex-col w-full h-full overflow-hidden">
 					<div className="flex flex-col w-full">
-						<div className="flex justify-start w-3/4 ml-8 mt-5.5">
+						<div className="flex justify-start w-3/4 ml-8 mt-5">
 							<Card
 								title={items[1].title}
 								description={items[1].description}
