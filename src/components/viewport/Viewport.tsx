@@ -14,10 +14,10 @@ const generateUniqueId = (): string => {
 	return Math.random().toString(36).substring(2, 15);
 };
 
-interface SectionData {
-	content: ReactNode;
-	id: string;
-}
+// interface SectionData {
+// 	content: ReactNode;
+// 	id: string;
+// }
 
 interface ViewportProps {
 	children: ReactNode[];
@@ -31,11 +31,11 @@ const Viewport: React.FC<ViewportProps> = ({
 	initialSection = 0,
 }) => {
 	// Generate stable IDs for each section
-	const sectionIds = useRef<string[]>(
-		Array(children.length)
-			.fill(0)
-			.map(() => generateUniqueId()),
-	);
+	// const sectionIds = useRef<string[]>(
+	// 	Array(children.length)
+	// 		.fill(0)
+	// 		.map(() => generateUniqueId()),
+	// );
 	const [currentSectionIndex, setCurrentSectionIndex] =
 		useState(initialSection);
 	const sectionRefs = useRef<HTMLDivElement[]>([]);
