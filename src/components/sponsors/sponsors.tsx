@@ -85,9 +85,10 @@ interface SponsorCardProps {
 	url?: string;
 	altText?: string;
 	viewportSize: ViewportSize;
+	cardSizeMultiplier?: number;
 }
 
-const CARD_SIZES: Record<
+const BASE_CARD_SIZES: Record<
 	ViewportSize,
 	{
 		width: number;
@@ -132,10 +133,28 @@ const CARD_SIZES: Record<
 	},
 };
 
+const getAdjustedCardSizes = (viewportSize: ViewportSize, multiplier = 1) => {
+	const baseSize = BASE_CARD_SIZES[viewportSize];
+	return {
+		width: baseSize.width * multiplier,
+		height: baseSize.height * multiplier,
+		padding: baseSize.padding,
+		imageMaxWidth: baseSize.imageMaxWidth * multiplier,
+		imageMaxHeight: baseSize.imageMaxHeight * multiplier,
+		bgSize: baseSize.bgSize,
+	};
+};
+
 const SponsorCard = React.memo(
-	({ img, url, altText = "Sponsor logo", viewportSize }: SponsorCardProps) => {
+	({
+		img,
+		url,
+		altText = "Sponsor logo",
+		viewportSize,
+		cardSizeMultiplier = 1,
+	}: SponsorCardProps) => {
 		const { width, height, padding, imageMaxWidth, imageMaxHeight, bgSize } =
-			CARD_SIZES[viewportSize];
+			getAdjustedCardSizes(viewportSize, cardSizeMultiplier);
 
 		const cardContent = (
 			<div
@@ -217,7 +236,7 @@ const CarouselWithProgress = React.memo(
 
 		const calculateSegmentProgress = useCallback(
 			(current: number, segmentIndex: number, total: number) => {
-				const segmentSize = Math.ceil(total / 3);
+				const segmentSize = Math.ceil(total / 2);
 				const segmentStart = segmentIndex * segmentSize;
 				const segmentEnd = (segmentIndex + 1) * segmentSize;
 
@@ -245,7 +264,26 @@ const CarouselWithProgress = React.memo(
 			};
 		}, [api]);
 
-		const segmentIds = ["segment-1", "segment-2", "segment-3"];
+		const segmentIds = ["segment-1", "segment-2"];
+
+		// Determine card size multiplier based on number of sponsors and viewport
+		const getCardSizeMultiplier = () => {
+			if (viewportSize === "desktop") {
+				if (sponsors.length === 2) return 1.5;
+				if (sponsors.length === 3) return 1.2;
+			} else if (viewportSize === "tablet") {
+				if (sponsors.length === 2) return 1.3;
+			}
+			return 1;
+		};
+
+		const shouldAutoplay = !(viewportSize === "mobile" && sponsors.length <= 2);
+
+		// Hide progress bar in tablet view when there are exactly 3 cards
+		const shouldShowProgress =
+			viewportSize !== "desktop" &&
+			sponsors.length > 2 &&
+			!(viewportSize === "tablet" && sponsors.length === 3);
 
 		return (
 			<div className="w-full">
@@ -256,6 +294,7 @@ const CarouselWithProgress = React.memo(
 							delay: delay * 1000,
 							stopOnMouseEnter: true,
 							stopOnInteraction: false,
+							playOnInit: shouldAutoplay,
 						}),
 					]}
 					opts={{
@@ -265,7 +304,9 @@ const CarouselWithProgress = React.memo(
 							viewportSize === "small-mobile"
 								? 1
 								: viewportSize === "mobile"
-									? 2
+									? sponsors.length <= 2
+										? 1
+										: 2
 									: 1,
 					}}
 					className="w-full relative"
@@ -278,9 +319,13 @@ const CarouselWithProgress = React.memo(
 									viewportSize === "small-mobile"
 										? "basis-full pl-1"
 										: viewportSize === "mobile"
-											? "basis-1/2 pl-1"
+											? sponsors.length <= 2
+												? "basis-1/2 pl-1"
+												: "basis-1/2 pl-1"
 											: viewportSize === "tablet"
-												? "basis-1/3"
+												? sponsors.length <= 2
+													? "basis-1/2 pl-1"
+													: "basis-1/3"
 												: "basis-full"
 								}
 							>
@@ -290,16 +335,17 @@ const CarouselWithProgress = React.memo(
 										url={sponsor.url}
 										altText={sponsor.altText}
 										viewportSize={viewportSize}
+										cardSizeMultiplier={getCardSizeMultiplier()}
 									/>
 								</div>
 							</CarouselItem>
 						))}
 					</CarouselContent>
 
-					{viewportSize !== "desktop" && (
+					{shouldShowProgress && (
 						<div className="mt-4 flex justify-center gap-1 px-4">
 							{segmentIds.map((segmentId, index) => {
-								const segmentSize = Math.ceil(count / 3);
+								const segmentSize = Math.ceil(count / 2);
 								const isActive =
 									current >= index * segmentSize &&
 									current < (index + 1) * segmentSize;
@@ -383,7 +429,15 @@ const Sponsors = () => {
 
 			if (viewportSize === "desktop") {
 				return (
-					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto max-w-6xl">
+					<div
+						className={`grid ${
+							sponsors.length === 2
+								? "grid-cols-2"
+								: sponsors.length === 3
+									? "grid-cols-3"
+									: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+						} gap-4 mx-auto max-w-6xl`}
+					>
 						{sponsors.map((sponsor) => (
 							<div
 								key={`desktop-sponsor-${sponsor.id}`}
@@ -394,6 +448,13 @@ const Sponsors = () => {
 									url={sponsor.url}
 									altText={sponsor.altText}
 									viewportSize={viewportSize}
+									cardSizeMultiplier={
+										sponsors.length === 2
+											? 1.5
+											: sponsors.length === 3
+												? 1.2
+												: 1
+									}
 								/>
 							</div>
 						))}
