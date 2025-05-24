@@ -1,7 +1,7 @@
+import Header from "@/components/Header/Header";
 import AboutUs from "@/components/about-us/aboutus";
 import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
-import Header from "@/components/header/header";
 
 import PastEvents from "@/components/pastevents/pastevents";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
