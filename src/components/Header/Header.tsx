@@ -125,52 +125,52 @@ const Header = () => {
 	}, []);
 
 	return (
-		<div
-			ref={headerRef}
-			className="fixed w-full h-[200px] overflow-hidden z-50"
-		>
+		<div ref={headerRef} className="relative w-full h-[300px] overflow-hidden">
 			<div className="absolute inset-0">
 				{/* layer 1 */}
 				<div
 					ref={layer1Ref}
-					className="absolute -top-0 left-0 w-full h-38 flex items-start justify-center"
+					className="absolute top-0 left-0 w-full h-full flex items-start justify-center"
 				>
 					<Image
 						src="/assets/header/layer1.svg"
 						alt=""
 						width={1321}
 						height={143}
-						className="w-full max-w-none h-full "
+						className="w-full max-w-none h-full"
 					/>
 				</div>
 
 				{/* layer 2 */}
 				<div
 					ref={layer2Ref}
-					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
+					className="absolute top-0 left-0 w-full h-40 flex items-start justify-center"
 				>
 					<Image
 						src="/assets/header/layer2.svg"
 						alt=""
 						width={1221}
 						height={135}
-						className="w-full max-w-none h-full opacity-60 "
+						className="w-full max-w-none h-full"
 					/>
 				</div>
 
 				{/* layer 3 */}
 				<div
 					ref={layer3Ref}
-					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center brightness-125 flickering"
+					className="absolute top-20 left-0 w-full h-25 flex items-start justify-center"
 				>
 					<Image
 						src="/assets/header/layer3.svg"
 						alt=""
 						width={561}
 						height={88}
-						className="w-full h-full "
+						className="w-full h-full"
 					/>
 				</div>
+			</div>
+
+			<div className="relative z-10 flex flex-col items-center justify-start h-full text-center px-4 py-1">
 				{/* logo */}
 				<div ref={logoRef} className="mb-4">
 					<Image
@@ -178,24 +178,21 @@ const Header = () => {
 						alt="Duothan Logo"
 						width={320}
 						height={120}
-						className="h-20 w-full"
+						className="h-30 w-auto"
 					/>
 				</div>
 
 				{/* fake button */}
-				<div
-					ref={buttonRef}
-					className="absolute inset-0 top-12 flex items-center justify-center text-white text-xs font-mono tracking-widest"
-				>
+				<div ref={buttonRef} className="relative">
 					<Image
 						src="/assets/header/button.svg"
 						alt=""
 						width={246}
 						height={23}
-						className="w-auto h-6"
+						className="w-auto h-8"
 					/>
-					<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest">
-						{">> REGISTER <<"}
+					<span className="absolute inset-0 flex items-center justify-center text-white text-medium tracking-widest">
+						Register
 					</span>
 				</div>
 			</div>
