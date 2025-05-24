@@ -1,5 +1,5 @@
+import AboutUs from "@/components/AboutUs/AboutUs";
 import Header from "@/components/Header/Header";
-import AboutUs from "@/components/about-us/aboutus";
 import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
 
