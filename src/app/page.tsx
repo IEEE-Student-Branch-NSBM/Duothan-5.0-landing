@@ -1,6 +1,6 @@
 "use client";
 import AboutUs from "@/components/AboutUs/AboutUs";
-import Header from "@/components/Header/Header";
+// import Header from "@/components/Header/Header";
 import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
 import PastEvents from "@/components/pastevents/pastevents";

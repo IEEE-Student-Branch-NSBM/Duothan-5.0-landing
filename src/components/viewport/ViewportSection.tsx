@@ -35,7 +35,7 @@ const ViewportSection: React.FC<ViewportSectionProps> = ({
 	designHeight = 1080,
 	disableScaling = false,
 }) => {
-	const { scale, scaleStyle } = useViewportScaling({
+	const { scaleStyle } = useViewportScaling({
 		designWidth,
 		designHeight,
 		minScale: 0.7,

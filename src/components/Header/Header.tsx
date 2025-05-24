@@ -19,7 +19,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 	const logoRef = useRef<HTMLDivElement>(null);
 	const buttonRef = useRef<HTMLDivElement>(null);
 
-	const { scale, scaleStyle } = useViewportScaling({
+	const { scaleStyle } = useViewportScaling({
 		designWidth: 1920,
 		designHeight: 1080,
 		minScale: 0.7,

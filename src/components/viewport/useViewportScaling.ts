@@ -31,7 +31,7 @@ interface ViewportScalingOptions {
 
 export function useViewportScaling({
 	designWidth = 1920,
-	designHeight = 1080,
+	// designHeight = 1080,
 	minScale = 0.7,
 	maxScale = 1,
 	debug = false,
