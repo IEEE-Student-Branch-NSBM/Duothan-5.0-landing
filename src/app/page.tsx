@@ -3,10 +3,10 @@ import Header from "@/components/Header/Header";
 import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
 
+import Sponsors from "@/components/Sponsors/Sponsors";
 import PastEvents from "@/components/pastevents/pastevents";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
-import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
 
 import HudBackground from "@/components/background/HudBackground";
