@@ -37,7 +37,7 @@ const ContactUs: React.FC = () => {
 							CONTACT US
 						</h2>
 
-						<p className="text-white mb-6 sm:mb-8 lg:mb-10 font-[Electrolize] text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed text-center lg:text-left">
+						<p className="text-white mb-6 sm:mb-8 lg:mb-10 text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed text-center lg:text-left">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 							pellentesque, neque ut tempor vulputate, nisi purus varius elit,
 							nec molestie tellus nulla non eros. Vivamus venenatis, nisi id
