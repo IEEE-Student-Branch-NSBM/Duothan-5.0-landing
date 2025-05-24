@@ -5,20 +5,20 @@ import { useEffect, useState } from "react";
 
 const HudBackground: React.FC = () => {
 	// Pre-generated binary and hex codes to avoid hydration errors
-	const binaryCodes = [
-		"0 1 0 1 1 1 1 0 1 1 1 1",
-		"1 0 1 0 0 1 0 1 1 0 0 1",
-		"1 1 0 1 0 1 0 0 1 1 0 1",
-		"0 1 1 0 1 0 1 1 0 1 0 0",
-		"1 0 0 1 1 0 1 0 1 0 1 1",
-	];
+	// const binaryCodes = [
+	// 	"0 1 0 1 1 1 1 0 1 1 1 1",
+	// 	"1 0 1 0 0 1 0 1 1 0 0 1",
+	// 	"1 1 0 1 0 1 0 0 1 1 0 1",
+	// 	"0 1 1 0 1 0 1 1 0 1 0 0",
+	// 	"1 0 0 1 1 0 1 0 1 0 1 1",
+	// ];
 
-	const hexCodes = [
-		"a3 f8 42 c1 6e d9 3b 75",
-		"2c e7 91 4d 0f 5a 8b 3e",
-		"d5 7f 19 e4 b2 6a c3 80",
-		"47 9c f1 e2 5d 8a 3b c6",
-	];
+	// const hexCodes = [
+	// 	"a3 f8 42 c1 6e d9 3b 75",
+	// 	"2c e7 91 4d 0f 5a 8b 3e",
+	// 	"d5 7f 19 e4 b2 6a c3 80",
+	// 	"47 9c f1 e2 5d 8a 3b c6",
+	// ];
 
 	// Generate random positions for circuit node elements
 	const [nodes, setNodes] = useState<
