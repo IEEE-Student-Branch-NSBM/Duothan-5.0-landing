@@ -2,20 +2,25 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-const SideSkirts = () => {
+interface SideSkirtProps {
+	showSideSkirts?: boolean;
+}
+
+const SideSkirts = ({ showSideSkirts = true }: SideSkirtProps) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
-		// Set a small delay before showing the side skirts for a better effect
-		const timer = setTimeout(() => {
-			setIsVisible(true);
-		}, 300);
-
-		return () => clearTimeout(timer);
-	}, []);
+		if (showSideSkirts) {
+			const timer = setTimeout(() => {
+				setIsVisible(true);
+			}, 300);
+			return () => clearTimeout(timer);
+		}
+		setIsVisible(false);
+	}, [showSideSkirts]);
 
 	return (
-		<div className="fixed inset-0 pointer-events-none z-10 flex justify-between items-stretch w-full h-full overflow-hidden">
+		<div className="fixed inset-0 pointer-events-none z-10 hidden sm:flex justify-between items-stretch w-full h-full overflow-hidden">
 			{/* Left side skirts */}
 			<div
 				className={`relative h-full w-24 md:w-36 ${isVisible ? "slide-in-left" : "opacity-0"}`}
