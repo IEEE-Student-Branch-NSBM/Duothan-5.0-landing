@@ -17,8 +17,10 @@ export default function Card({ title, description, position }: CardProps) {
 						alt="Timeline card"
 						className="w-full h-full object-contain"
 					/>
-					<div className="absolute top-6 -left-2 w-full h-full flex flex-col justify-center pl-8 pr-16">
-						<h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+					<div className="absolute top-0  w-full h-full flex flex-col justify-center pl-8 pr-16">
+						<h3 className="text-white text-xl font-bold mt-9 mb-[2%]">
+							{title}
+						</h3>
 						<p className="text-gray-300">{description}</p>
 					</div>
 				</div>
@@ -30,8 +32,8 @@ export default function Card({ title, description, position }: CardProps) {
 						alt="Timeline card"
 						className="w-full h-full object-contain"
 					/>
-					<div className="absolute top-3 left-10 w-full h-full flex flex-col justify-center pr-8 pl-16 inset-0 z-10">
-						<h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+					<div className="absolute w-full h-full flex flex-col justify-center pr-8 pl-[20%] inset-0 z-10">
+						<h3 className="text-white text-xl font-bold mb-[2%]">{title}</h3>
 						<p className="text-gray-300">{description}</p>
 					</div>
 				</div>
