@@ -4,10 +4,26 @@ import React, { useEffect, useState } from "react";
 
 interface SideSkirtProps {
 	showSideSkirts?: boolean;
+	leftText?: string;
+	leftLabel?: string;
+	rightText?: string;
+	rightLabel?: string;
+	targetDate?: string;
 }
 
-const SideSkirts = ({ showSideSkirts = true }: SideSkirtProps) => {
+const SideSkirts = ({
+	showSideSkirts = true,
+	leftText = "12",
+	leftLabel = "Days",
+	rightText = "10",
+	rightLabel = "Hours",
+	targetDate,
+}: SideSkirtProps) => {
 	const [isVisible, setIsVisible] = useState(false);
+	const [timeLeft, setTimeLeft] = useState({
+		days: Number.parseInt(leftText) || 0,
+		hours: Number.parseInt(rightText) || 0,
+	});
 
 	useEffect(() => {
 		if (showSideSkirts) {
@@ -19,9 +35,34 @@ const SideSkirts = ({ showSideSkirts = true }: SideSkirtProps) => {
 		setIsVisible(false);
 	}, [showSideSkirts]);
 
+	useEffect(() => {
+		if (!targetDate) return;
+
+		const updateCountdown = () => {
+			const now = new Date().getTime();
+			const target = new Date(targetDate).getTime();
+			const distance = target - now;
+
+			if (distance < 0) {
+				setTimeLeft({ days: 0, hours: 0 });
+				return;
+			}
+
+			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			const hours = Math.floor(
+				(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+			);
+
+			setTimeLeft({ days, hours });
+		};
+
+		updateCountdown();
+		const interval = setInterval(updateCountdown, 1000);
+		return () => clearInterval(interval);
+	}, [targetDate]);
+
 	return (
 		<div className="fixed inset-0 pointer-events-none z-10 hidden sm:flex justify-between items-stretch w-full h-full overflow-hidden">
-			{/* Left side skirts */}
 			<div
 				className={`relative h-full w-24 md:w-36 ${isVisible ? "slide-in-left" : "opacity-0"}`}
 			>
@@ -83,10 +124,12 @@ const SideSkirts = ({ showSideSkirts = true }: SideSkirtProps) => {
 					/>
 					<div className="absolute flex flex-col items-center justify-center gap-5">
 						<div className="flex text-cyan-400 text-xl font-bold [text-shadow:0_0_8px_rgba(77,210,255,0.6)] rotate-90">
-							12
+							{targetDate
+								? timeLeft.days.toString().padStart(2, "0")
+								: leftText}
 						</div>
 						<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)] rotate-90">
-							Days
+							{leftLabel}
 						</div>
 					</div>
 				</div>
@@ -154,10 +197,12 @@ const SideSkirts = ({ showSideSkirts = true }: SideSkirtProps) => {
 					/>
 					<div className="absolute flex flex-col items-center justify-center gap-5 transform scale-x-[-1] scale-y-[-1]">
 						<div className="text-cyan-400 text-xl font-bold [text-shadow:0_0_8px_rgba(77,210,255,0.6)] rotate-90">
-							10
+							{targetDate
+								? timeLeft.hours.toString().padStart(2, "0")
+								: rightText}
 						</div>
 						<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)] rotate-90">
-							Hours
+							{rightLabel}
 						</div>
 					</div>
 				</div>

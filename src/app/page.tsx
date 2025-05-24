@@ -10,14 +10,16 @@ import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
 
 export default function Home() {
+	const targetDate = "2025-05-30T00:00:00";
+
 	return (
 		<div className="relative no-scrollbar">
-			<SideSkirts />
+			<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
 			<Header />
 			{/* Hero Section */}
 			<div className="min-h-screen text-center py-10">
 				Hero
-				<CountdownTimer targetDate="2025-05-30T00:00:00" />
+				<CountdownTimer targetDate={targetDate} />
 			</div>
 			<AboutUs />
 			<Sponsors />
