@@ -150,7 +150,7 @@ const HudBackground: React.FC = () => {
       </div> */}
 
 			{/* Digital circuit lines - horizontal (reduced number and opacity) */}
-			{Array.from({ length: 6 }).map((_, i) => {
+			{/* {Array.from({ length: 6 }).map((_, i) => {
 				const hLineId = `h-line-${10 + i * 15}`;
 				return (
 					<motion.div
@@ -167,10 +167,10 @@ const HudBackground: React.FC = () => {
 						}}
 					/>
 				);
-			})}
+			})} */}
 
 			{/* Digital circuit lines - vertical (reduced number and opacity) */}
-			{Array.from({ length: 5 }).map((_, i) => {
+			{/* {Array.from({ length: 5 }).map((_, i) => {
 				const vLineId = `v-line-${15 + i * 17}`;
 				return (
 					<motion.div
@@ -187,7 +187,7 @@ const HudBackground: React.FC = () => {
 						}}
 					/>
 				);
-			})}
+			})} */}
 
 			{/* Circuit nodes/connection points with glowing effect */}
 			{/* {nodes.map((node, i) => (
@@ -223,6 +223,14 @@ const HudBackground: React.FC = () => {
 				}}
 			/>
 
+			<div className="absolute inset-0 flex items-center justify-center">
+				<img
+					src="/onlylogo.svg"
+					alt="Duothan Logo"
+					className="w-1/3 h-auto opacity-2"
+				/>
+			</div>
+
 			{/* Horizontal scan line effect - uncommented but very subtle */}
 			{/* <motion.div
         className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent"
@@ -239,7 +247,7 @@ const HudBackground: React.FC = () => {
       /> */}
 
 			{/* Digital data flow effects - more subtle */}
-			<div className="absolute top-0 bottom-0 right-[35%] w-[1px]">
+			{/* <div className="absolute top-0 bottom-0 right-[35%] w-[1px]">
 				<motion.div
 					className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent bg-[length:100%_200%]"
 					animate={{ backgroundPosition: ["0 0", "0 100%"] }}
@@ -250,9 +258,9 @@ const HudBackground: React.FC = () => {
 						delay: 2,
 					}}
 				/>
-			</div>
+			</div> */}
 
-			<div className="absolute top-0 bottom-0 left-[20%] w-[1px]">
+			{/* <div className="absolute top-0 bottom-0 left-[20%] w-[1px]">
 				<motion.div
 					className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-400/20 to-transparent bg-[length:100%_200%]"
 					animate={{ backgroundPosition: ["0 0", "0 100%"] }}
@@ -262,7 +270,7 @@ const HudBackground: React.FC = () => {
 						ease: "linear",
 					}}
 				/>
-			</div>
+			</div> */}
 
 			{/* Center circular glow */}
 			{/* <motion.div 

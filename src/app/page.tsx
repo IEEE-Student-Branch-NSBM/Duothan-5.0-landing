@@ -16,8 +16,10 @@ export default function Home() {
 
 	return (
 		<div className="relative no-scrollbar">
+			<div className="fixed top-0 left-0 right-0 z-50">
+				<Header />
+			</div>
 			<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
-			<Header />
 			{/* Hero Section */}
 			<div className="min-h-screen text-center py-10">
 				Hero
