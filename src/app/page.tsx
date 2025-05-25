@@ -1,5 +1,6 @@
 "use client";
 import AboutUs from "@/components/AboutUs/AboutUs";
+import HeroSection from "@/components/Hero/HeroSection";
 import HudBackground from "@/components/background/HudBackground";
 // import Header from "@/components/Header/Header";
 import Contactus from "@/components/contactus/contactus";
@@ -73,6 +74,7 @@ export default function Home() {
 				{/* Hero Section */}
 				<ViewportSection id={sections[0].id}>
 					<CountdownTimer targetDate={targetDate} />
+					{/* <HeroSection /> */}
 				</ViewportSection>
 
 				{/* About Us Section */}
