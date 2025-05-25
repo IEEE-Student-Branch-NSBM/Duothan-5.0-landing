@@ -27,6 +27,8 @@ interface PrizeCardProps {
 const PrizeCard: React.FC<PrizeCardProps> = ({
 	place,
 	amount,
+	// imageUrl parameter is defined but not used in the component
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	imageUrl,
 	variant,
 }) => {
@@ -39,7 +41,7 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
 		const match = place.match(/(\d+)([a-zA-Z]+)/);
 		if (!match) return place;
 
-		const [_, number, suffix] = match;
+		const [/* full match */ , number, suffix] = match;
 		return (
 			<>
 				<span className="font-sans font-bold pr-1">{number}</span>
@@ -174,7 +176,7 @@ const MobileCarousel = () => {
 		const match = place.match(/(\d+)([a-zA-Z]+)/);
 		if (!match) return place;
 
-		const [_, number, suffix] = match;
+		const [/* full match */ , number, suffix] = match;
 		return (
 			<>
 				<span className="font-sans">{number}</span>
