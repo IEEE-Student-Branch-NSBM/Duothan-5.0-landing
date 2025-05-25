@@ -17,7 +17,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 	const layer1Ref = useRef<HTMLDivElement>(null);
 	// const layer2Ref = useRef<HTMLDivElement>(null);
 	const logoRef = useRef<HTMLDivElement>(null);
-	const buttonRef = useRef<HTMLDivElement>(null);
+	const buttonRef = useRef<HTMLButtonElement>(null);
 
 	const { scaleStyle } = useViewportScaling({
 		designWidth: 390, // Mobile design width
@@ -159,21 +159,28 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 				</div>
 
 				{/* Register Button - Mobile optimized */}
-				<div
+				<button
+					type="button"
 					ref={buttonRef}
-					className="absolute top-12 left-0 w-full flex items-center justify-center text-white text-xs font-mono tracking-widest"
+					onClick={() => {
+						const registrationSection = document.getElementById("registration");
+						if (registrationSection) {
+							registrationSection.scrollIntoView({ behavior: "smooth" });
+						}
+					}}
+					className="absolute top-12 left-0 w-full flex items-center justify-center text-cyan-400 text-xs font-mono tracking-widest transition-all duration-300 hover:text-pink-500 group cursor-pointer"
 				>
 					<Image
 						src="/assets/header/button.svg"
 						alt=""
 						width={180}
 						height={20}
-						className="w-auto h-4"
+						className="w-auto h-4 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(236,39,180,0.8)]"
 					/>
-					<span className="absolute inset-0 flex items-center justify-center text-white text-[10px] tracking-widest">
-						{">> REGISTER <<"}
+					<span className="absolute inset-0 flex items-center justify-center text-cyan-400 text-[10px] tracking-widest transition-all duration-300 group-hover:text-pink-500">
+						{">> REGISTER NOW <<"}
 					</span>
-				</div>
+				</button>
 			</div>
 		</div>
 	);

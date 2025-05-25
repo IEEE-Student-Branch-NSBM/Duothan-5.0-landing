@@ -183,7 +183,6 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 								className="w-full h-full "
 							/>
 						</div>
-
 						{/* layer 2 */}
 						<div
 							ref={layer2Ref}
@@ -197,7 +196,6 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 								className="w-full max-w-none h-full opacity-60 "
 							/>
 						</div>
-
 						{/* layer 1 - Desktop version */}
 						<div
 							ref={layer1Ref}
@@ -211,7 +209,6 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 								className="w-full max-w-none h-full "
 							/>
 						</div>
-
 						{/* logo - Desktop */}
 						<div ref={logoRef} className="mb-4">
 							<Image
@@ -221,23 +218,26 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 								height={120}
 								className="h-20 w-full"
 							/>
-						</div>
-
-						{/* fake button - Desktop */}
+						</div>{" "}
 						<div
 							ref={buttonRef}
-							className="absolute inset-0 top-12 flex items-center justify-center text-white text-xs font-mono tracking-widest"
+							className="absolute top-28 left-1/2 transform -translate-x-1/2"
 						>
-							<Image
-								src="/assets/header/button.svg"
-								alt=""
-								width={246}
-								height={23}
-								className="w-auto h-6"
-							/>
-							<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest">
-								{">> REGISTER <<"}
-							</span>
+							<button
+								type="button"
+								className="relative group flex items-center justify-center text-white text-xs font-mono tracking-widest hover:scale-105 transition-all duration-300"
+							>
+								<Image
+									src="/assets/header/button.svg"
+									alt=""
+									width={246}
+									height={23}
+									className="w-auto h-6 group-hover:drop-shadow-[0_0_25px_rgba(0,255,247,0.6)] transition-all duration-300"
+								/>
+								<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest pointer-events-none">
+									{">> REGISTER <<"}
+								</span>
+							</button>
 						</div>
 					</div>
 				</div>
