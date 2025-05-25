@@ -102,17 +102,11 @@ export default function Home() {
 				{/* Contact Section */}
 				<ViewportSection id={sections[6].id} className="">
 					<Contactus />
-					<Footer />
 				</ViewportSection>
-
-				{/* Contact Section */}
-				{/* <ViewportSection
-					id={sections[7].id}
-					className=""
-				>
-					<Footer />
-				</ViewportSection> */}
 			</Viewport>
+
+			{/* Only show footer when viewport reaches contact section with animation */}
+			{activeSectionName === "Contact" && <Footer />}
 		</div>
 	);
 }

@@ -14,6 +14,17 @@ const electrolize = Electrolize({ subsets: ["latin"], weight: "400" });
 export default function Footer() {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
+
+	// Animation effect when footer appears
+	useEffect(() => {
+		// Set a short delay to trigger the animation
+		const timer = setTimeout(() => {
+			setIsVisible(true);
+		}, 100);
+
+		return () => clearTimeout(timer);
+	}, []);
 
 	// Detect if we're on mobile
 	useEffect(() => {
@@ -84,26 +95,32 @@ export default function Footer() {
 	);
 
 	return (
-		<footer className="bg-black/10 backdrop-blur-md text-white absolute bottom-0 left-0 right-0 -mt-[100px] md:-mt-0">
+		<footer
+			className={`fixed bg-black/10 backdrop-blur-md text-white bottom-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
+				isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+			}`}
+		>
 			<div className="max-w-6xl mx-auto px-15 py-6 text-center">
 				{/* Mobile Toggle Button */}
-				<button
-					type="button"
-					className="md:hidden cursor-pointer flex items-center justify-center pb-2 bg-transparent border-none"
-					onClick={() => setIsExpanded(!isExpanded)}
-					onKeyDown={(e) => {
-						if (e.key === "Enter" || e.key === " ") {
-							setIsExpanded(!isExpanded);
-						}
-					}}
-					aria-label={isExpanded ? "Collapse footer" : "Expand footer"}
-				>
-					{isExpanded ? (
-						<FaChevronDown className="text-white" />
-					) : (
-						<FaChevronUp className="text-white" />
-					)}
-				</button>
+				<div className="flex justify-center w-full md:hidden">
+					<button
+						type="button"
+						className="cursor-pointer flex items-center justify-center pb-2 bg-transparent border-none"
+						onClick={() => setIsExpanded(!isExpanded)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								setIsExpanded(!isExpanded);
+							}
+						}}
+						aria-label={isExpanded ? "Collapse footer" : "Expand footer"}
+					>
+						{isExpanded ? (
+							<FaChevronDown className="text-[#66f7ff] hover:text-[#4ad8e0] transition-colors" />
+						) : (
+							<FaChevronUp className="text-[#66f7ff] hover:text-[#4ad8e0] transition-colors" />
+						)}
+					</button>
+				</div>
 
 				{/* Conditional Rendering for Mobile */}
 				<div
