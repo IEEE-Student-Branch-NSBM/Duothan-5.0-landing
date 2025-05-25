@@ -99,16 +99,16 @@ export default function AboutUs() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<div className="flex justify-center mt-4 gap-2">
+						<div className="flex justify-center mt-4 gap-2 md:gap-4 items-center">
 							{aboutSections.map((section, index) => (
 								<button
 									type="button"
 									key={section.id}
 									onClick={() => api?.scrollTo(index)}
-									className={`w-2 h-2 rounded-full transition-all ${
+									className={`w-8 sm:w-10 lg:w-12 h-[5px] rounded-[5px] transition-all duration-300 ${
 										current === index
-											? "bg-[#e957dd] scale-125"
-											: "bg-gray-400 opacity-70"
+											? "bg-[#A2EBFF]"
+											: "bg-[#A2EBFF] opacity-30"
 									}`}
 									aria-label={`Go to slide ${index + 1}`}
 								/>
