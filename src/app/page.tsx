@@ -8,6 +8,7 @@ import DownTag from "@/components/down-tag/page";
 // import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
 import Footer from "@/components/footer";
 import PastEvents from "@/components/pastevents/pastevents";
+import PrizePool from "@/components/prizepool/page";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
 import Sponsors from "@/components/sponsors/sponsors";
@@ -24,6 +25,7 @@ export default function Home() {
 		{ name: "CountDown", id: "hero-section" },
 		{ name: "About Us", id: "about-us" },
 		{ name: "Sponsors", id: "sponsors" },
+		{ name: "Prizes", id: "prizes" },
 		{ name: "Registration", id: "registration" },
 		{ name: "Past Events", id: "past-events" },
 		{ name: "Timeline", id: "timeline" },
@@ -84,23 +86,27 @@ export default function Home() {
 					<Sponsors />
 				</ViewportSection>
 
-				{/* Registration Section */}
 				<ViewportSection id={sections[3].id}>
+					<PrizePool />
+				</ViewportSection>
+
+				{/* Registration Section */}
+				<ViewportSection id={sections[4].id}>
 					<RegistrationBanner />
 				</ViewportSection>
 
 				{/* Past Events Section */}
-				<ViewportSection id={sections[4].id}>
+				<ViewportSection id={sections[5].id}>
 					<PastEvents />
 				</ViewportSection>
 
 				{/* Timeline Section */}
-				<ViewportSection id={sections[5].id}>
+				<ViewportSection id={sections[6].id}>
 					<Timeline />
 				</ViewportSection>
 
 				{/* Contact Section */}
-				<ViewportSection id={sections[6].id} className="">
+				<ViewportSection id={sections[7].id} className="">
 					<Contactus />
 				</ViewportSection>
 			</Viewport>

@@ -43,14 +43,14 @@ body {
 	flex: 0 0 auto;
 	width: 120px;
 	height: 120px;
-	border: 2px solid #ff66ff;
-	border-radius: 10px;
+	border: 1px solid #ff66ff77;
+	/* border-radius: 10px; */
 	background: rgba(255, 255, 255, 0.03);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 0 0 12px rgba(255, 102, 255, 0.4);
+	/* box-shadow: 0 0 12px rgba(255, 102, 255, 0.4); */
 	transition: transform 0.3s ease;
 }
 

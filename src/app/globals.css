@@ -13,6 +13,26 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 	}
+
+	/* Custom text shadow for prize cards */
+	.text-shadow-lg {
+		text-shadow: 0 0 8px rgba(25, 211, 255, 0.8);
+	}
+
+	/* Enhanced pulse animation for first place */
+	@keyframes enhanced-pulse {
+		0%,
+		100% {
+			filter: drop-shadow(0 0 15px rgba(25, 211, 255, 0.8));
+		}
+		50% {
+			filter: drop-shadow(0 0 25px rgba(25, 211, 255, 1));
+		}
+	}
+
+	.animate-enhanced-pulse {
+		animation: enhanced-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
 }
 
 /* HUD Background Animations */
