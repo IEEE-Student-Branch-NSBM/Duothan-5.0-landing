@@ -118,11 +118,11 @@ export default function AboutUs() {
 				) : (
 					// Desktop view without carousel
 					<>
-						<div className="flex flex-col items-center justify-center w-full pt-6 md:pt-9">
-							<p className="text-xl md:text-xl text-center text-[#e957dd]">
+						<div className="flex flex-col items-center justify-center w-full pt-6">
+							<p className="text-xl md:text-3xl text-center text-[#e957dd]">
 								IEEE STUDENT BRANCH OF NSBM
 							</p>
-							<p className="text-base md:text-m text-white text-center w-full pt-3 px-5 md:px-20">
+							<p className="text-base md:text-lg text-white text-center w-full pt-3 px-5 md:px-20">
 								Lorem Ipsum is simply dummy text of the printing and typesetting
 								industry. Lorem Ipsum has been the industry&#39;s standard dummy
 								text ever since the 1500s, when an unknown printer took a galley
@@ -135,8 +135,8 @@ export default function AboutUs() {
 						</div>
 
 						<div className="flex flex-col items-center justify-center pt-5 md:pt-8 max-w-7xl">
-							<p className="text-l md:text-2xl text-[#e957dd]">DUOTHON</p>
-							<p className="text-base md:text-m text-white text-center w-full pt-3 px-5 md:px-20">
+							<p className="text-l md:text-3xl text-[#e957dd]">DUOTHON</p>
+							<p className="text-base md:text-lg text-white text-center w-full pt-3 px-5 md:px-20">
 								Lorem Ipsum is simply dummy text of the printing and typesetting
 								industry. Lorem Ipsum has been the industry&#39;s standard dummy
 								text ever since the 1500s, when an unknown printer took a galley

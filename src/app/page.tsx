@@ -1,16 +1,17 @@
 "use client";
 import AboutUs from "@/components/AboutUs/AboutUs";
-import Contactus from "@/components/ContactUs/ContactUs";
-import Header from "@/components/Header/Header";
-import PastEvents from "@/components/PastEvents/PastEvents";
-import Sponsors from "@/components/Sponsors/Sponsors";
-import Timeline from "@/components/Timeline/Timeline";
+import HudBackground from "@/components/background/HudBackground";
+// import Header from "@/components/Header/Header";
+import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
+import DownTag from "@/components/down-tag/page";
+// import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
+import Footer from "@/components/footer";
+import PastEvents from "@/components/pastevents/pastevents";
 import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
-
-import HudBackground from "@/components/background/HudBackground";
-import DownTag from "@/components/down-tag/page";
+import Sponsors from "@/components/sponsors/sponsors";
+import Timeline from "@/components/timeline/timeline";
 import Viewport from "@/components/viewport/Viewport";
 import ViewportSection from "@/components/viewport/ViewportSection";
 import { useEffect, useState } from "react";
@@ -20,13 +21,14 @@ export default function Home() {
 
 	// Define sections for the viewport
 	const sections = [
-		{ name: "Hero", id: "hero-section" },
+		{ name: "CountDown", id: "hero-section" },
 		{ name: "About Us", id: "about-us" },
 		{ name: "Sponsors", id: "sponsors" },
 		{ name: "Registration", id: "registration" },
 		{ name: "Past Events", id: "past-events" },
 		{ name: "Timeline", id: "timeline" },
 		{ name: "Contact", id: "contact" },
+		{ name: "Footer", id: "footer" },
 	];
 
 	const [activeSectionName, setActiveSectionName] = useState(sections[0].name);
@@ -44,6 +46,9 @@ export default function Home() {
 		}, 0);
 	};
 
+	// Check if current section is Contact to hide UI elements
+	const isContactSection = activeSectionName === "Contact";
+
 	if (!mounted) {
 		return null; // Avoid hydration issues
 	}
@@ -51,12 +56,17 @@ export default function Home() {
 	return (
 		<div className="relative no-scrollbar">
 			{/* Fixed elements that stay on screen during scrolling */}
-			<div className="fixed top-0 left-0 right-0 z-50">
-				<Header />
-			</div>
-			<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
-			<DownTag text={activeSectionName} />
+
+			{!isContactSection && (
+				<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
+			)}
+			{!isContactSection && <DownTag text={activeSectionName} />}
 			<HudBackground />
+
+			{/* Debug panel for viewport scaling - hidden by default, press 'D' to show */}
+			{/* {process.env.NODE_ENV !== "production" && (
+				<ViewportDebugPanel hidden={true} />
+			)} */}
 
 			{/* Viewport component with all sections */}
 			<Viewport onSectionChange={handleSectionChange}>
@@ -91,12 +101,18 @@ export default function Home() {
 				</ViewportSection>
 
 				{/* Contact Section */}
-				<ViewportSection
-					id={sections[6].id}
-					className="w-full bg-cover bg-top bg-no-repeat"
-				>
+				<ViewportSection id={sections[6].id} className="">
 					<Contactus />
+					<Footer />
 				</ViewportSection>
+
+				{/* Contact Section */}
+				{/* <ViewportSection
+					id={sections[7].id}
+					className=""
+				>
+					<Footer />
+				</ViewportSection> */}
 			</Viewport>
 		</div>
 	);

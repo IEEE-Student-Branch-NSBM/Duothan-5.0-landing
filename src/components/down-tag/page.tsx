@@ -60,9 +60,9 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 				{/* Dock title */}
 				<div
 					ref={dockRef}
-					className="absolute bottom-1/6 left-1/2 transform -translate-x-1/2 z-10"
+					className="absolute bottom-10 left-0 right-0 transform z-10"
 				>
-					<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)]">
+					<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)] text-center">
 						<h2 className="text-2xl font-bold bg-clip-text">{text}</h2>
 					</div>
 				</div>

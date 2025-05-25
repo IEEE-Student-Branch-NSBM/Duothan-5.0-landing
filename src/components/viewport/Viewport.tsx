@@ -56,18 +56,29 @@ const Viewport: React.FC<ViewportProps> = ({
 	useEffect(() => {
 		if (sectionRefs.current[currentSectionIndex]) {
 			const section = sectionRefs.current[currentSectionIndex];
+
+			// Make sure section is visible first
+			gsap.set(section, { zIndex: 10 });
+
+			// Animate the children with a fade in effect (no vertical movement)
 			gsap.fromTo(
 				section.children,
-				{ opacity: 0, y: 50 },
+				{ opacity: 0 },
 				{
 					opacity: 1,
-					y: 0,
 					stagger: 0.1,
 					duration: 0.6,
 					ease: "power2.out",
-					delay: 0.3,
+					delay: 0.5, // Slightly longer delay to let section opacity transition finish
 				},
 			);
+
+			// Hide previous section children
+			sectionRefs.current.forEach((sec, idx) => {
+				if (idx !== currentSectionIndex && sec) {
+					gsap.set(sec, { zIndex: 0 });
+				}
+			});
 		}
 	}, [currentSectionIndex]);
 
@@ -320,24 +331,25 @@ const Viewport: React.FC<ViewportProps> = ({
 			onTouchMove={handleTouchMove}
 			onTouchEnd={handleTouchEnd}
 		>
-			<div
-				className="viewport-container transition-transform duration-1000 ease-in-out h-full"
-				style={{ transform: `translateY(-${currentSectionIndex * 100}%)` }}
-			>
+			<div className="viewport-container h-full relative">
 				{React.Children.map(children, (child, index) => (
 					<div
 						ref={(el) => {
 							if (el) sectionRefs.current[index] = el;
 						}}
-						className="viewport-section h-screen w-full"
+						className={`viewport-section h-screen w-full absolute inset-0 transition-opacity duration-100 ease-in-out ${
+							currentSectionIndex === index
+								? "opacity-100 z-10"
+								: "opacity-0 z-0"
+						}`}
 					>
 						{child}
 					</div>
 				))}
 			</div>
 
-			{/* Navigation dots */}
-			<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-3">
+			{/* Navigation dots - hidden on mobile, visible on sm and above */}
+			<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3">
 				{Array.from({ length: children.length }).map((_, index) => (
 					<button
 						key={`nav-dot-${index}-${Math.random().toString(36).substring(2, 7)}`}

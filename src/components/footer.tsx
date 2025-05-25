@@ -21,7 +21,7 @@ export default function Footer() {
 				</div>
 
 				{/* Social Icons - Mobile Only */}
-				<div className="flex justify-center gap-4 text-white text-lg mb-4 mt-8 md:hidden">
+				<div className="flex justify-center gap-4 th text-white text-lg mb-4 mt-8 md:hidden">
 					<a
 						href="https://www.facebook.com/ieeensbm"
 						target="_blank"
