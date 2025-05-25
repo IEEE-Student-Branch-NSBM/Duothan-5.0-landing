@@ -1,11 +1,13 @@
 "use client";
 import AboutUs from "@/components/AboutUs/AboutUs";
+// import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
+import Header from "@/components/Header/Header";
+import HeroSection from "@/components/Hero/HeroSection";
 import HudBackground from "@/components/background/HudBackground";
 // import Header from "@/components/Header/Header";
 import Contactus from "@/components/contactus/contactus";
 import CountdownTimer from "@/components/countdown/countdown";
 import DownTag from "@/components/down-tag/page";
-// import ViewportDebugPanel from "@/components/viewport/ViewportDebugPanel";
 import Footer from "@/components/footer";
 import PastEvents from "@/components/pastevents/pastevents";
 import PrizePool from "@/components/prizepool/page";
@@ -22,7 +24,8 @@ export default function Home() {
 
 	// Define sections for the viewport
 	const sections = [
-		{ name: "CountDown", id: "hero-section" },
+		{ name: "HERO", id: "hero" },
+		{ name: "CountDown", id: "countdown" },
 		{ name: "About Us", id: "about-us" },
 		{ name: "Sponsors", id: "sponsors" },
 		{ name: "Prizes", id: "prizes" },
@@ -49,6 +52,8 @@ export default function Home() {
 
 	// Check if current section is Contact to hide UI elements
 	const isContactSection = activeSectionName === "Contact";
+	// Check if current section is Hero to hide UI elements
+	const isHeroSection = activeSectionName === "HERO";
 
 	if (!mounted) {
 		return null; // Avoid hydration issues
@@ -58,55 +63,70 @@ export default function Home() {
 		<div className="relative no-scrollbar">
 			{/* Fixed elements that stay on screen during scrolling */}
 
-			{!isContactSection && (
+			{!isContactSection && !isHeroSection && (
 				<SideSkirts leftLabel="Days" rightLabel="Hrs" targetDate={targetDate} />
 			)}
-			{!isContactSection && <DownTag text={activeSectionName} />}
+			{!isContactSection && !isHeroSection && (
+				<DownTag text={activeSectionName} />
+			)}
 			<HudBackground />
 
 			{/* Debug panel for viewport scaling - hidden by default, press 'D' to show */}
 			{/* {process.env.NODE_ENV !== "production" && (
 				<ViewportDebugPanel hidden={true} />
 			)} */}
-
+			{!isContactSection && !isHeroSection && (
+				<div className="fixed top-0 left-0 right-0 z-50">
+					<Header />
+				</div>
+			)}
 			{/* Viewport component with all sections */}
 			<Viewport onSectionChange={handleSectionChange}>
 				{/* Hero Section */}
-				<ViewportSection id={sections[0].id}>
+
+				<ViewportSection
+					id={sections[0].id}
+					className="relative"
+					disableScaling={true}
+				>
+					<HeroSection />
+				</ViewportSection>
+
+				<ViewportSection id={sections[1].id}>
 					<CountdownTimer targetDate={targetDate} />
 				</ViewportSection>
 
 				{/* About Us Section */}
-				<ViewportSection id={sections[1].id}>
+				<ViewportSection id={sections[2].id}>
 					<AboutUs />
 				</ViewportSection>
 
 				{/* Sponsors Section */}
-				<ViewportSection id={sections[2].id}>
+				<ViewportSection id={sections[3].id}>
 					<Sponsors />
 				</ViewportSection>
 
-				<ViewportSection id={sections[3].id}>
+				<ViewportSection id={sections[4].id}>
 					<PrizePool />
 				</ViewportSection>
 
 				{/* Registration Section */}
-				<ViewportSection id={sections[4].id}>
+				<ViewportSection id={sections[5].id}>
 					<RegistrationBanner />
 				</ViewportSection>
 
 				{/* Past Events Section */}
-				<ViewportSection id={sections[5].id}>
+				<ViewportSection id={sections[6].id}>
 					<PastEvents />
 				</ViewportSection>
 
 				{/* Timeline Section */}
-				<ViewportSection id={sections[6].id}>
+				<ViewportSection id={sections[7].id}>
 					<Timeline />
 				</ViewportSection>
 
 				{/* Contact Section */}
-				<ViewportSection id={sections[7].id} className="">
+				<ViewportSection id={sections[8].id} className="">
 					<Contactus />
 				</ViewportSection>
 			</Viewport>
