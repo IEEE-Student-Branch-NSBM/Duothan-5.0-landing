@@ -28,7 +28,6 @@ export default function Home() {
 		{ name: "Past Events", id: "past-events" },
 		{ name: "Timeline", id: "timeline" },
 		{ name: "Contact", id: "contact" },
-		{ name: "Footer", id: "footer" },
 	];
 
 	const [activeSectionName, setActiveSectionName] = useState(sections[0].name);

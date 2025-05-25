@@ -12,12 +12,19 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 
 	useEffect(() => {
 		if (dockRef.current) {
-			// Optional animation for dock effect
+			// Updated animation to prevent disappearing text
 			gsap.from(dockRef.current, {
-				y: 50,
+				y: 30,
 				opacity: 0,
 				duration: 1,
 				ease: "power3.out",
+			});
+
+			// Add a persistent state to ensure visibility
+			gsap.to(dockRef.current, {
+				opacity: 1,
+				duration: 0.5,
+				delay: 0.8,
 			});
 		}
 	}, []);
@@ -57,12 +64,12 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 					/>
 				</div>
 
-				{/* Dock title */}
+				{/* Dock title with improved positioning and visibility */}
 				<div
 					ref={dockRef}
-					className="absolute bottom-10 left-0 right-0 transform z-10"
+					className="absolute bottom-10 left-0 right-0 transform z-10 pointer-events-none"
 				>
-					<div className="text-cyan-400 text-xs [text-shadow:0_0_8px_rgba(77,210,255,0.6)] text-center">
+					<div className="text-cyan-400 [text-shadow:0_0_8px_rgba(77,210,255,0.8)] text-center">
 						<h2 className="text-2xl font-bold bg-clip-text">{text}</h2>
 					</div>
 				</div>
