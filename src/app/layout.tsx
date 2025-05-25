@@ -4,7 +4,7 @@ import "./globals.css";
 import "./countdown.css";
 
 // import Footer from "@/components/footer";
-import Header from "@/components/Header/Header";
+// import Header from "@/components/Header/Header";
 
 const electrolize = Electrolize({
 	variable: "--font-geist-sans",

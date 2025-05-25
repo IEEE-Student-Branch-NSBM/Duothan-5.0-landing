@@ -13,8 +13,9 @@ const HeroSection = () => {
 		});
 
 		const isMobile = window.innerWidth < 768;
-		const xOffset = isMobile ? 100 : 200;
-		const yOffset = isMobile ? 50 : 100;
+		// These variables are defined but not currently used
+		// const xOffset = isMobile ? 100 : 200;
+		// const yOffset = isMobile ? 50 : 100;
 
 		// Add glitch effect function
 		const addGlitchEffect = (selector: string) => {
