@@ -358,7 +358,7 @@ const Viewport: React.FC<ViewportProps> = ({
 						className={`w-3 h-3 rounded-full transition-all duration-300 ${
 							currentSectionIndex === index
 								? "bg-cyan-400 scale-125 shadow-[0_0_8px_rgba(77,210,255,0.6)]"
-								: "bg-gray-600 hover:bg-gray-400"
+								: "bg-cyan-600/20 hover:bg-cyan-200"
 						}`}
 						aria-label={`Go to section ${index + 1}`}
 					/>
