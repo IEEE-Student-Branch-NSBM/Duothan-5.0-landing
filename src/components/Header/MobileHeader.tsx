@@ -15,7 +15,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 	const headerRef = useRef<HTMLDivElement>(null);
 	const layer0Ref = useRef<HTMLDivElement>(null);
 	const layer1Ref = useRef<HTMLDivElement>(null);
-	const layer2Ref = useRef<HTMLDivElement>(null);
+	// const layer2Ref = useRef<HTMLDivElement>(null);
 	const logoRef = useRef<HTMLDivElement>(null);
 	const buttonRef = useRef<HTMLDivElement>(null);
 
