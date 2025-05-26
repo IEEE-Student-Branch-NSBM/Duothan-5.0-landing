@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+2:I[4635,["177","static/chunks/app/layout-5868883abba06d82.js"],"default"]
+3:I[7555,[],""]
+4:I[1295,[],""]
+5:I[894,[],"ClientPageRoot"]
+6:I[4326,["479","static/chunks/795d4814-303d1164005420bd.js","711","static/chunks/8e1d74a4-51c7be66d11ccb2f.js","592","static/chunks/c15bf2b0-d67976aba37a88f8.js","63","static/chunks/63-f8a924c12e04e2fd.js","664","static/chunks/664-d32ecba75d098928.js","974","static/chunks/app/page-1709e03226643efb.js"],"default"]
+9:I[9665,[],"MetadataBoundary"]
+b:I[9665,[],"OutletBoundary"]
+e:I[4911,[],"AsyncMetadataOutlet"]
+10:I[3063,["63","static/chunks/63-f8a924c12e04e2fd.js","209","static/chunks/app/loading-e7cb6cc463cc1622.js"],"Image"]
+11:I[9665,[],"ViewportBoundary"]
+13:I[6614,[],""]
+:HL["/Duothan-5.0-landing/_next/static/media/04ff47e1ca568747-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Duothan-5.0-landing/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Duothan-5.0-landing/_next/static/media/df7e40e9577388b8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Duothan-5.0-landing/_next/static/css/0c97982745ebee33.css","style"]
+:HL["/Duothan-5.0-landing/_next/static/media/a0d50f097198462b-s.p.otf","font",{"crossOrigin":"","type":"font/otf"}]
+:HL["/Duothan-5.0-landing/_next/static/css/73ebf2b5e13a1217.css","style"]
+0:{"P":null,"b":"nm0ck1KfZAOjjKOXQGBNi","p":"/Duothan-5.0-landing","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Duothan-5.0-landing/_next/static/css/0c97982745ebee33.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_730e37 __variable_e042d8 __variable_30c2c4 antialiased no-scrollbar ","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L5",null,{"Component":"$6","searchParams":{},"params":{},"promises":["$@7","$@8"]}],["$","$L9",null,{"children":"$La"}],[["$","link","0",{"rel":"stylesheet","href":"/Duothan-5.0-landing/_next/static/css/73ebf2b5e13a1217.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$Lb",null,{"children":["$Lc","$Ld",["$","$Le",null,{"promise":"$@f"}]]}]]}],{},null,false]},[["$","div","l",{"className":"fixed inset-0 bg-black flex items-center justify-center z-50","children":["$","div",null,{"className":"animate-pulse","children":["$","$L10",null,{"src":"/onlylogo.svg","alt":"Duothan Logo","width":150,"height":150,"style":{"filter":"brightness(0) saturate(100%)"},"className":"invert animate-pulse"}]}]}],[],[]],false],["$","$1","h",{"children":[null,["$","$1","NvblxQ6VQjrr53dT1qj_l",{"children":[["$","$L11",null,{"children":"$L12"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$13","$undefined"],"s":false,"S":true}
+14:"$Sreact.suspense"
+15:I[4911,[],"AsyncMetadata"]
+7:{}
+8:{}
+a:["$","$14",null,{"fallback":null,"children":["$","$L15",null,{"promise":"$@16"}]}]
+d:null
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+c:null
+16:{"metadata":[["$","title","0",{"children":"Duothan 5.0"}],["$","meta","1",{"name":"description","content":"by NSBM IEEE Student Branch"}],["$","link","2",{"rel":"icon","href":"/Duothan-5.0-landing/favicon.ico","type":"image/x-icon","sizes":"16x16"}]],"error":null,"digest":"$undefined"}
+f:{"metadata":"$16:metadata","error":null,"digest":"$undefined"}
