@@ -136,12 +136,13 @@ export default function AboutUs() {
 						<div className="flex flex-col items-center justify-center pt-5 md:pt-8 max-w-7xl">
 							<p className="text-l md:text-3xl text-[#e957dd]">DUOTHON</p>
 							<p className="text-base md:text-lg text-white text-center w-full pt-3 px-5 md:px-20">
-								After four successful editions, we're back and bigger, bolder,
-								and more inspiring than ever,The IEEE Student Branch of NSBM, in
-								collaboration with the IEEE Computer Society of NSBM and the
-								IEEE Women in Engineering Affinity Group of NSBM, proudly
-								presents Duothan 5.0, a national-level hackathon designed to
-								challenge and empower undergraduates from across Sri Lanka.
+								After four successful editions, we&apos;re back and bigger,
+								bolder, and more inspiring than ever,The IEEE Student Branch of
+								NSBM, in collaboration with the IEEE Computer Society of NSBM
+								and the IEEE Women in Engineering Affinity Group of NSBM,
+								proudly presents Duothan 5.0, a national-level hackathon
+								designed to challenge and empower undergraduates from across Sri
+								Lanka.
 							</p>
 						</div>
 					</>
