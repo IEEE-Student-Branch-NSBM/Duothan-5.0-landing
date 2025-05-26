@@ -13,12 +13,28 @@ export default function SimpleLoading({
 
 	// List of critical images that need to be loaded before showing the main content
 	const criticalImages = [
+		"/assets/header/logo.svg",
 		"/backdrop_hero.svg",
 		"/onlylogo.svg",
 		"/hero_samurai_1.svg",
 		"/hero_samurai_2.svg",
 		"/hero_samurai_3.svg",
 		"/duo 5.svg",
+		"/header_mobile_0.svg",
+		"/header_mobile_1.svg",
+		"/header_mobile_2.svg",
+		"/assets/header/layer3.svg",
+		"/assets/header/layer2.svg",
+		"/assets/header/layer1.svg",
+		"/assets/header/button.svg",
+		"/SideSkirt_0.svg",
+		"/SideSkirt_1.svg",
+		"/SideSkirt_2.svg",
+		"/SideSkirt_Decorative.svg",
+		"/SideSkirt_Time.svg",
+		"/down_tag_1.svg",
+		"/down_tag_2.svg",
+		"/down_tag_3.svg",
 	];
 
 	useEffect(() => {
