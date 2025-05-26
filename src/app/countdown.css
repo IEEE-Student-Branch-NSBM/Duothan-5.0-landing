@@ -160,8 +160,8 @@ body {
 
 @media (max-width: 480px) {
 	.hud-overlay-box {
-		width: 80px;
-		height: 80px;
+		width: 90px;
+		height: 90px;
 	}
 
 	.counter-display {
@@ -174,7 +174,7 @@ body {
 	}
 
 	.digit {
-		font-size: 1.75rem;
+		font-size: 1.60rem;
 	}
 
 	.hud-label {
