@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Electrolize, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import "./countdown.css";
-import ClientLayout from "@/components/ClientLayout/ClientLayout";
-import SimpleLoading from "@/components/Loading/SimpleLoading";
+import LoadingProvider from "@/components/Loading/LoadingProvider";
 
 // import Footer from "@/components/footer";
 // import Header from "@/components/Header/Header";
@@ -40,9 +39,7 @@ export default function RootLayout({
 			<body
 				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar `}
 			>
-				{/* Direct loading component */}
-				<SimpleLoading />
-				<ClientLayout>{children}</ClientLayout>
+				<LoadingProvider>{children}</LoadingProvider>
 				{/* <Footer /> */}
 			</body>
 		</html>

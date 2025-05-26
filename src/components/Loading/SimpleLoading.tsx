@@ -3,10 +3,13 @@
 // import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function SimpleLoading() {
+export default function SimpleLoading({
+	onComplete,
+}: { onComplete?: () => void }) {
 	const [loading, setLoading] = useState(true);
 	const [loadedImages, setLoadedImages] = useState(new Set());
 	const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+	const [hasError, setHasError] = useState(false);
 
 	// List of critical images that need to be loaded before showing the main content
 	const criticalImages = [
@@ -15,16 +18,16 @@ export default function SimpleLoading() {
 		"/hero_samurai_1.svg",
 		"/hero_samurai_2.svg",
 		"/hero_samurai_3.svg",
-		"/duo 5.svg", // Loading screen logo
+		"/duo 5.svg",
 	];
 
 	useEffect(() => {
 		let loadingComplete = false;
 		const imagePromises: Promise<void>[] = [];
+		const startTime = Date.now();
 
-		// Preload all critical images
 		for (const src of criticalImages) {
-			const promise = new Promise<void>((resolve) => {
+			const promise = new Promise<void>((resolve, reject) => {
 				const img = new window.Image();
 				img.src = src;
 
@@ -40,9 +43,9 @@ export default function SimpleLoading() {
 				};
 
 				img.onerror = () => {
-					console.warn(`Failed to load image: ${src}`);
-					// Still resolve to not block loading for missing images
-					resolve();
+					// console.error(`Failed to load image: ${src}`);
+					setHasError(true);
+					reject(new Error(`Failed to load image: ${src}`));
 				};
 			});
 
@@ -50,37 +53,46 @@ export default function SimpleLoading() {
 		}
 
 		// Wait for all images to load
-		Promise.all(imagePromises).then(() => {
-			if (!loadingComplete) {
-				setAllImagesLoaded(true);
+		Promise.all(imagePromises)
+			.then(() => {
+				if (!loadingComplete) {
+					setAllImagesLoaded(true);
+					const minLoadingTime = 2000;
+					const elapsedTime = Date.now() - startTime;
+					const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
 
-				// Add a minimum loading time of 1.5 seconds for UX
-				const minLoadingTime = 1500;
-				const startTime = Date.now();
-				const elapsedTime = Date.now() - startTime;
-				const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+					setTimeout(() => {
+						if (!loadingComplete) {
+							loadingComplete = true;
+							setLoading(false);
+							if (onComplete) onComplete();
+						}
+					}, remainingTime);
+				}
+			})
+			.catch(() => {
+				// Don't hide loading screen on error - stay on error state
+				console.log("Image loading failed");
+			});
 
-				setTimeout(() => {
-					if (!loadingComplete) {
-						setLoading(false);
-					}
-				}, remainingTime);
-			}
-		});
-
-		// Fallback timeout - maximum 8 seconds
+		// Remove the fallback timeout or make it much longer
+		// Only use timeout for true emergencies (network issues, etc.)
 		const fallbackTimer = setTimeout(() => {
 			if (!loadingComplete) {
-				console.warn("Loading timeout reached, showing content anyway");
+				console.warn(
+					"Loading timeout reached after 30 seconds. Some images may not have loaded properly.",
+				);
+				loadingComplete = true;
 				setLoading(false);
+				if (onComplete) onComplete();
 			}
-		}, 8000);
+		}, 30000); // Increased to 30 seconds
 
 		return () => {
 			loadingComplete = true;
 			clearTimeout(fallbackTimer);
 		};
-	}, []);
+	}, [onComplete]);
 
 	if (!loading) return null;
 
@@ -105,7 +117,7 @@ export default function SimpleLoading() {
 				/>
 				{/* Foreground logo */}
 				<img
-					src="/duo 5.svg"
+					src="/assets/header/logo.svg"
 					alt="Duothan Logo"
 					className="absolute z-10 w-[270px] h-[270px] sm:w-[360px] sm:h-[360px] md:w-[450px] md:h-[450px]"
 				/>
@@ -113,31 +125,50 @@ export default function SimpleLoading() {
 
 			{/* Loading Progress */}
 			<div className="mt-8 w-full max-w-md">
-				<div className="text-center mb-4">
-					<p className="text-cyan-400 text-sm">
-						Get Ready, Player... {Math.round(progress)}%
-					</p>
-					<p className="text-cyan-400 text-xs opacity-60 mt-1">
-						{loadedImages.size} of {criticalImages.length} images loaded
-					</p>
-				</div>
+				{hasError ? (
+					// Error State
+					<div className="text-center">
+						<p className="text-red-400 text-sm mb-4">
+							An error occurred while loading assets, please refresh
+						</p>
+						<button
+							type="button"
+							onClick={() => window.location.reload()}
+							className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded text-sm transition-colors"
+						>
+							Refresh Page
+						</button>
+					</div>
+				) : (
+					// Normal Loading State
+					<>
+						<div className="text-center mb-4">
+							<p className="text-cyan-400 text-sm">
+								Get Ready, Player... {Math.round(progress)}%
+							</p>
+							<p className="text-cyan-400 text-xs opacity-60 mt-1">
+								{loadedImages.size} of {criticalImages.length} images loaded
+							</p>
+						</div>
 
-				{/* Progress Bar */}
-				<div className="w-full bg-gray-800 rounded-full h-2 mb-4">
-					<div
-						className="bg-cyan-400 h-2 rounded-full transition-all duration-300 ease-out"
-						style={{ width: `${progress}%` }}
-					/>
-				</div>
+						{/* Progress Bar */}
+						<div className="w-full bg-gray-800 rounded-full h-2 mb-4">
+							<div
+								className="bg-cyan-400 h-2 rounded-full transition-all duration-300 ease-out"
+								style={{ width: `${progress}%` }}
+							/>
+						</div>
 
-				{/* Status Text */}
-				<div className="text-center">
-					<p className="text-gray-400 text-xs">
-						{allImagesLoaded
-							? "Preparing experience..."
-							: "Loading critical assets..."}
-					</p>
-				</div>
+						{/* Status Text */}
+						<div className="text-center">
+							<p className="text-gray-400 text-xs">
+								{allImagesLoaded
+									? "Preparing experience..."
+									: "Loading critical assets..."}
+							</p>
+						</div>
+					</>
+				)}
 			</div>
 
 			<style jsx global>{`
