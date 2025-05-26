@@ -22,28 +22,28 @@ const events = [
 		title: "Duothon 1.0",
 		image: "/background.png",
 		description:
-			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
+			"Duothan 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting to the COVID-19 pandemic, we organized it as a fully virtual event. But even with the challenges, the energy and enthusiasm were unreal.",
 	},
 	{
 		key: 2,
 		title: "Duothon 2.0",
 		image: "/profile.png",
 		description:
-			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
+			"By 2022, we were finally able to bring Duothan to life on campus, and it was such an exciting shift. After having our very first edition virtually, Duothan 2.0 took place physically at NSBM, following all the health and safety guidelines from local authorities.",
 	},
 	{
 		key: 3,
 		title: "Duothon 3.0",
 		image: "/profile.png",
 		description:
-			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
+			"Duothan 3.0 was successfully held as a physical event in the year 2023, and it is also open for all the universities. Duothan 3.0 was arranged as a Buildathon. Participants had to rebuild a half-built application according to the given guidelines. They could use any programming language they prefer.",
 	},
 	{
 		key: 4,
 		title: "Duothon 4.0",
 		image: "/profile.png",
 		description:
-			"Duothon 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting, Duothon 1.0 was our very first step into the world of competitive coding at first step into the world of competitive coding at",
+			"Duothan 4.0, organized by the IEEE Student Branch of NSBM, was successfully held as an exciting and competitive buildathon that brought together undergraduates from across Sri Lanka.",
 	},
 ];
 
