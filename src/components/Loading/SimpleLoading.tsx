@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function SimpleLoading() {
@@ -24,7 +24,7 @@ export default function SimpleLoading() {
 
 		// Preload all critical images
 		for (const src of criticalImages) {
-			const promise = new Promise<void>((resolve, reject) => {
+			const promise = new Promise<void>((resolve) => {
 				const img = new window.Image();
 				img.src = src;
 
