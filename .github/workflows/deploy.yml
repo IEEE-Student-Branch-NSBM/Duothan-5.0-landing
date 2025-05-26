@@ -7,7 +7,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -39,11 +39,36 @@ jobs:
     - name: Add .nojekyll file
       run: touch ./out/.nojekyll
       
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./out
+    - name: Configure Git
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
         
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      run: |
+        # Create and switch to a new temporary branch
+        git checkout --orphan gh-pages-temp
+        
+        # Remove all files from git tracking
+        git rm -rf --cached .
+        
+        # Clean the working directory
+        rm -rf * .github .husky .gitignore
+        
+        # Copy the built files from out directory
+        cp -r out/* .
+        
+        # Create .nojekyll file to prevent Jekyll processing
+        touch .nojekyll
+        
+        # Stage all files
+        git add .
+        
+        # Commit changes
+        git commit -m "Deploy to GitHub Pages"
+        
+        # Force push to gh-pages branch
+        git push -f origin gh-pages-temp:gh-pages
+        
+        # Clean up: switch back to main branch
+        git checkout main
