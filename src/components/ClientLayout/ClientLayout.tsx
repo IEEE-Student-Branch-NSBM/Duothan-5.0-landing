@@ -1,6 +1,5 @@
 "use client";
 
-import Loading from "@/components/Loading/Loading";
 import { useEffect, useState } from "react";
 
 export default function ClientLayout({
