@@ -348,25 +348,27 @@ const Viewport: React.FC<ViewportProps> = ({
 				))}
 			</div>
 
-			{/* Navigation dots - hidden on mobile, visible on sm and above */}
-			<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3">
-				{Array.from({ length: children.length }).map((_, index) => (
-					<button
-						key={`nav-dot-${index}-${Math.random().toString(36).substring(2, 7)}`}
-						type="button"
-						onClick={() => goToSection(index)}
-						className={`w-3 h-3 rounded-full transition-all duration-300 ${
-							currentSectionIndex === index
-								? "bg-cyan-400 scale-125 shadow-[0_0_8px_rgba(77,210,255,0.6)]"
-								: "bg-cyan-600/20 hover:bg-cyan-200"
-						}`}
-						aria-label={`Go to section ${index + 1}`}
-					/>
-				))}
-			</div>
+			{/* Navigation dots - hidden on mobile and first section, visible on sm and above */}
+			{currentSectionIndex !== 0 && (
+				<div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3">
+					{Array.from({ length: children.length }).map((_, index) => (
+						<button
+							key={`nav-dot-${index}-${Math.random().toString(36).substring(2, 7)}`}
+							type="button"
+							onClick={() => goToSection(index)}
+							className={`w-3 h-3 rounded-full transition-all duration-300 ${
+								currentSectionIndex === index
+									? "bg-cyan-400 scale-125 shadow-[0_0_8px_rgba(77,210,255,0.6)]"
+									: "bg-cyan-600/20 hover:bg-cyan-200"
+							}`}
+							aria-label={`Go to section ${index + 1}`}
+						/>
+					))}
+				</div>
+			)}
 
-			{/* Scroll indicator for the first section */}
-			{currentSectionIndex === 0 && (
+			{/* Scroll indicator - removed from first section */}
+			{false && currentSectionIndex === 0 && (
 				<div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

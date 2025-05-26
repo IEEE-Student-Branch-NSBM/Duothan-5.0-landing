@@ -44,11 +44,11 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
 				<div className="mt-3 text-right pr-13">
 					<h3
-						className={`text-[#A2EBFF] font-normal text-[22px] leading-[100%] tracking-[0.04em] text-right ${readyplayerone.className}`}
+						className={`text-[#A2EBFF] font-normal text-[17px] leading-[100%] tracking-[0.04em] text-right ${readyplayerone.className}`}
 					>
 						{name}
 					</h3>
-					<p className="text-white text-sm font-[Electrolize]">{title}</p>
+					<p className="text-white text-[15px] font-[Electrolize]">{title}</p>
 					<div className="flex justify-center ml-55 mt-1 space-x-2">
 						<a
 							href={`tel:${phone}`}
