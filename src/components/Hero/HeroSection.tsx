@@ -23,16 +23,16 @@ const HeroSection = () => {
 				.timeline()
 				.to(selector, {
 					filter: "hue-rotate(90deg) saturate(2) brightness(1.5)",
-					x: "random(-8, 8)",
-					y: "random(-5, 5)",
+					x: "random(-6, 6)",
+					y: "random(-4, 4)",
 					scale: "random(0.98, 1.02)",
 					duration: 0.04,
 					ease: "none",
 				})
 				.to(selector, {
 					filter: "hue-rotate(180deg) saturate(0.5) brightness(0.8)",
-					x: "random(-5, 5)",
-					y: "random(-3, 3)",
+					x: "random(-4, 4)",
+					y: "random(-2, 2)",
 					scale: "random(0.99, 1.01)",
 					duration: 0.03,
 					ease: "none",
@@ -162,7 +162,7 @@ const HeroSection = () => {
 
 		// Continuous bounce animation for scroll indicator
 		gsap.to(".scroll-indicator", {
-			y: 10,
+			y: 8,
 			duration: 1.5,
 			repeat: -1,
 			yoyo: true,
@@ -191,12 +191,12 @@ const HeroSection = () => {
 	return (
 		<div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden relative">
 			{/* Display Recommendation Disclaimer */}
-			<div className="absolute top-4 left-4 z-40 bg-black/30 backdrop-blur-sm rounded-lg px-3 py-2 border border-cyan-400/20">
+			<div className="absolute top-3 left-3 z-40 bg-black/30 backdrop-blur-sm rounded-lg px-2 py-1 border border-cyan-400/20">
 				<p
-					className="text-cyan-400 text-xs opacity-80"
+					className="text-cyan-400 text-[10px] opacity-80"
 					style={{
 						fontFamily: "'Orbitron', monospace",
-						textShadow: "0 0 3px rgba(102, 247, 255, 0.4)",
+						textShadow: "0 0 2px rgba(102, 247, 255, 0.4)",
 					}}
 				>
 					Recommended: 1080p display with 100% scaling
@@ -222,12 +222,12 @@ const HeroSection = () => {
 			{/* Scroll Down Indicator */}
 			<button
 				type="button"
-				className="absolute bottom-8 z-30 scroll-indicator cursor-pointer transform translate-y-4 flex flex-col items-center bg-transparent border-0"
+				className="absolute bottom-6 z-30 scroll-indicator cursor-pointer transform translate-y-4 flex flex-col items-center bg-transparent border-0"
 				onClick={handleScrollDown}
 				aria-label="Scroll down to next section"
 			>
 				<span
-					className="text-white text-sm md:text-base mb-2 opacity-80"
+					className="text-white text-xs md:text-sm mb-1 opacity-80"
 					style={{
 						fontFamily: "'Orbitron', monospace",
 						textShadow: "0 0 5px rgba(255, 255, 255, 0.5)",
@@ -236,7 +236,7 @@ const HeroSection = () => {
 					SCROLL DOWN
 				</span>
 				<FaChevronDown
-					className="text-cyan-400 text-2xl md:text-3xl"
+					className="text-cyan-400 text-xl md:text-2xl"
 					style={{
 						filter: "drop-shadow(0 0 8px rgba(102, 247, 255, 0.6))",
 					}}
@@ -245,11 +245,11 @@ const HeroSection = () => {
 
 			<div
 				className="absolute z-10 duothan-logo transition-all duration-300 opacity-50 
-				w-[300px] h-[300px] 
-				sm:w-[400px] sm:h-[400px] 
-				md:w-[500px] md:h-[500px] 
-				lg:w-[600px] lg:h-[600px] 
-				xl:w-[700px] xl:h-[700px]
+				w-[240px] h-[240px] 
+				sm:w-[320px] sm:h-[320px] 
+				md:w-[400px] md:h-[400px] 
+				lg:w-[480px] lg:h-[480px] 
+				xl:w-[560px] xl:h-[560px]
 				left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
 			>
 				<Image
@@ -284,39 +284,39 @@ const HeroSection = () => {
 				src="/hero_samurai_3.svg"
 				alt="Samurai"
 				className="absolute bottom-10 z-20 samurai-4 transition-all duration-300 
-					w-[400px] h-[400px] 
-					sm:w-[480px] sm:h-[480px] 
-					md:w-[540px] md:h-[540px] 
-					lg:w-[600px] lg:h-[600px] 
-					xl:w-[680px] xl:h-[680px]"
-				width={680}
-				height={680}
+					w-[320px] h-[320px] 
+					sm:w-[380px] sm:h-[380px] 
+					md:w-[430px] md:h-[430px] 
+					lg:w-[480px] lg:h-[480px] 
+					xl:w-[540px] xl:h-[540px]"
+				width={540}
+				height={540}
 				priority
 			/>
 			<Image
 				src="/hero_samurai_2.svg"
 				alt="Samurai"
 				className="absolute bottom-25 z-20 brightness-60 scale-x-[-1] samurai-2 transition-all duration-300 
-					w-[200px] h-[200px] 
-					sm:w-[220px] sm:h-[220px] 
-					md:w-[240px] md:h-[240px] 
-					lg:w-[260px] lg:h-[260px] 
-					xl:w-[280px] xl:h-[280px]"
-				width={280}
-				height={280}
+					w-[160px] h-[160px] 
+					sm:w-[180px] sm:h-[180px] 
+					md:w-[190px] md:h-[190px] 
+					lg:w-[210px] lg:h-[210px] 
+					xl:w-[220px] xl:h-[220px]"
+				width={220}
+				height={220}
 				priority
 			/>
 			<Image
 				src="/hero_samurai_1.svg"
 				alt="Samurai"
 				className="greyscale brightness-20 absolute bottom-30 z-20 samurai-3 transition-all duration-300 
-					w-[80px] h-[80px] 
-					sm:w-[90px] sm:h-[90px] 
-					md:w-[100px] md:h-[100px] 
-					lg:w-[110px] lg:h-[110px] 
-					xl:w-[120px] xl:h-[120px]"
-				width={120}
-				height={120}
+					w-[65px] h-[65px] 
+					sm:w-[70px] sm:h-[70px] 
+					md:w-[80px] md:h-[80px] 
+					lg:w-[90px] lg:h-[90px] 
+					xl:w-[100px] xl:h-[100px]"
+				width={100}
+				height={100}
 				priority
 			/>
 		</div>
