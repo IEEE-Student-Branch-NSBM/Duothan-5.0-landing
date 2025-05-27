@@ -1,7 +1,7 @@
-import getConfig from "next/config";
+// import getConfig from "next/config";
 
 // Function to determine if we're running on the client
-const isClient = typeof window !== "undefined";
+// const isClient = typeof window !== "undefined";
 
 // Get the base path from environment variable or default to ""
 function getBasePath(): string {
