@@ -1,5 +1,5 @@
 "use client";
-import { getBgImagePath, getImagePath } from "@/lib/imagePath";
+import { getImagePath } from "@/lib/imagePath";
 import { motion } from "framer-motion";
 import type React from "react";
 // import { useEffect, useState } from "react";
