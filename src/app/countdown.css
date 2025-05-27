@@ -58,6 +58,63 @@ body {
 	transform: scale(1.05);
 }
 
+/* Mechanical digit roller styles */
+.counter-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	overflow: hidden;
+}
+
+.digit-roller {
+	position: relative;
+	width: 30px;
+	height: 50px;
+	margin: 0 2px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+}
+
+.digit-roller-container {
+	position: absolute;
+	width: 100%;
+	height: 200%;
+	top: 0;
+}
+
+/* Only apply animation to containers that have the animate class */
+.digit-roller-container.animate {
+	animation: roll-digit 0.5s ease-in-out;
+}
+
+@keyframes roll-digit {
+	0% {
+		top: 0;
+	}
+	100% {
+		top: -100%;
+	}
+}
+
+.digit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+	font-size: 2.5rem;
+	color: #66f7ff;
+	text-shadow: 0 0 10px #66f7ff;
+	overflow: hidden;
+}
+
+.digit.previous {
+	position: absolute;
+	top: 100%;
+}
+
 .hud-value {
 	font-size: 2.8rem;
 	color: #66f7ff;
@@ -79,7 +136,16 @@ body {
 		height: 90px;
 	}
 
-	.hud-value {
+	.counter-display {
+		height: 55px;
+	}
+
+	.digit-roller {
+		width: 24px;
+		height: 40px;
+	}
+
+	.digit {
 		font-size: 2rem;
 	}
 
@@ -94,12 +160,21 @@ body {
 
 @media (max-width: 480px) {
 	.hud-overlay-box {
-		width: 80px;
-		height: 80px;
+		width: 90px;
+		height: 90px;
 	}
 
-	.hud-value {
-		font-size: 1.6rem;
+	.counter-display {
+		height: 50px;
+	}
+
+	.digit-roller {
+		width: 20px;
+		height: 35px;
+	}
+
+	.digit {
+		font-size: 1.60rem;
 	}
 
 	.hud-label {

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Electrolize, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import "./countdown.css";
+import LoadingProvider from "@/components/Loading/LoadingProvider";
 
 // import Footer from "@/components/footer";
-import Header from "@/components/Header/Header";
+// import Header from "@/components/Header/Header";
 
 const electrolize = Electrolize({
 	variable: "--font-geist-sans",
@@ -38,10 +39,7 @@ export default function RootLayout({
 			<body
 				className={`${electrolize.variable} ${geistMono.variable} ${orbitron.variable} antialiased no-scrollbar `}
 			>
-				<div className="fixed top-0 left-0 right-0 z-50">
-					<Header />
-				</div>
-				{children}
+				<LoadingProvider>{children}</LoadingProvider>
 				{/* <Footer /> */}
 			</body>
 		</html>
