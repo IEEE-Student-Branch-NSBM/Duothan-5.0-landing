@@ -1,31 +1,24 @@
-// import getConfig from "next/config";
+import getConfig from "next/config";
 
-// Function to determine if we're running on the client
-// const isClient = typeof window !== "undefined";
-
-// Get the base path from environment variable or default to ""
+const isClient = typeof window !== "undefined";
 function getBasePath(): string {
-	if (typeof window !== "undefined") {
-		// On client, use env variable if set
-		return process.env.NEXT_PUBLIC_BASE_PATH || "";
+	// For client-side rendering
+	if (isClient) {
+		const config = getConfig() || { publicRuntimeConfig: { basePath: "" } };
+		return config.publicRuntimeConfig?.basePath || "";
 	}
-	// On server, use env variable if set
-	return process.env.NEXT_PUBLIC_BASE_PATH || "";
+	return "/Duothan-5.0-landing";
 }
 
-// Cache the base path value
 let cachedBasePath: string | undefined;
 
 export function getImagePath(path: string): string {
-	// Use cached value if available
 	if (cachedBasePath === undefined) {
 		cachedBasePath = getBasePath();
 	}
 
-	// Ensure path starts with a slash and doesn't have double slashes
 	const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
-	// Combine basePath with the image path
 	return `${cachedBasePath}${normalizedPath}`;
 }
 
