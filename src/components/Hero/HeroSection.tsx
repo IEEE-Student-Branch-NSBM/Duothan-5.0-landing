@@ -1,5 +1,5 @@
 "use client";
-import { getBgImagePath, getImagePath } from "@/lib/imagePath";
+import { getImagePath } from "@/lib/imagePath";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
