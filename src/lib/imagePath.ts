@@ -10,7 +10,8 @@ function getBasePath(): string {
 		const config = getConfig() || { publicRuntimeConfig: { basePath: "" } };
 		return config.publicRuntimeConfig?.basePath || "";
 	}
-	return "/Duothan-5.0-landing";
+	// For server-side rendering, use the same logic as the Next.js config
+	return process.env.NODE_ENV === "production" ? "/Duothan-5.0-landing" : "";
 }
 
 // Cache the base path value

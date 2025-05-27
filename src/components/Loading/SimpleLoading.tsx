@@ -91,6 +91,7 @@ export default function SimpleLoading({
 			.catch(() => {
 				// Don't hide loading screen on error - stay on error state
 				console.log("Image loading failed");
+				setLoading(true);
 			});
 
 		// Remove the fallback timeout or make it much longer
