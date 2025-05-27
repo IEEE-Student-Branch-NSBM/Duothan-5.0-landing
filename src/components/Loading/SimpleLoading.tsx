@@ -61,7 +61,7 @@ export default function SimpleLoading({
 				};
 
 				img.onerror = () => {
-					// console.error(`Failed to load image: ${src}`);
+					console.error(`❌ Failed to load image: ${src}`);
 					setHasError(true);
 					reject(new Error(`Failed to load image: ${src}`));
 				};
@@ -88,10 +88,16 @@ export default function SimpleLoading({
 					}, remainingTime);
 				}
 			})
-			.catch(() => {
-				// Don't hide loading screen on error - stay on error state
-				console.log("Image loading failed");
-				setLoading(true);
+			.catch((error) => {
+				console.error("❌ Image loading failed:", error);
+				// Allow users to continue even if some images fail - use a more lenient approach
+				// Since we can't access the current state reliably, just continue after timeout
+				console.log("Some images failed to load, but continuing anyway");
+				if (!loadingComplete) {
+					loadingComplete = true;
+					setLoading(false);
+					if (onComplete) onComplete();
+				}
 			});
 
 		// Remove the fallback timeout or make it much longer
@@ -150,13 +156,32 @@ export default function SimpleLoading({
 						<p className="text-red-400 text-sm mb-4">
 							An error occurred while loading assets, please refresh
 						</p>
-						<button
-							type="button"
-							onClick={() => window.location.reload()}
-							className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded text-sm transition-colors"
-						>
-							Refresh Page
-						</button>
+						<div className="flex flex-col gap-2">
+							<button
+								type="button"
+								onClick={() => window.location.reload()}
+								className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded text-sm transition-colors"
+							>
+								Refresh Page
+							</button>
+							<button
+								type="button"
+								onClick={() => {
+									console.log("🔍 Debug info:");
+									console.log("Environment:", process.env.NODE_ENV);
+									console.log("Critical images:", criticalImages);
+									console.log("Loaded images:", Array.from(loadedImages));
+									console.log(
+										"Failed images:",
+										criticalImages.filter((img) => !loadedImages.has(img)),
+									);
+									alert("Check console for debug information");
+								}}
+								className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded text-xs transition-colors"
+							>
+								Debug Info
+							</button>
+						</div>
 					</div>
 				) : (
 					// Normal Loading State

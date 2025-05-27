@@ -1,18 +1,20 @@
 import type { NextConfig } from "next";
 
+const isProduction = process.env.NODE_ENV === "production";
+const basePath =
+	process.env.PAGES_BASE_PATH || (isProduction ? "/Duothan-5.0-landing" : "");
+
 const nextConfig: NextConfig = {
 	output: "export",
-	basePath: process.env.NODE_ENV === "production" ? "/Duothan-5.0-landing" : "",
-	assetPrefix:
-		process.env.NODE_ENV === "production" ? "/Duothan-5.0-landing" : "",
+	basePath: basePath,
+	assetPrefix: basePath,
 	images: {
 		unoptimized: true,
 		remotePatterns: [],
 	},
 	trailingSlash: true,
 	publicRuntimeConfig: {
-		basePath:
-			process.env.NODE_ENV === "production" ? "/Duothan-5.0-landing" : "",
+		basePath: basePath,
 	},
 };
 
