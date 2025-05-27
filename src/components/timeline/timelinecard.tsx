@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 
 interface CardProps {
 	title: string;
@@ -13,7 +14,7 @@ export default function Card({ title, description, position }: CardProps) {
 				// Left card for desktop
 				<div className="relative hidden md:block">
 					<img
-						src="/fullcardtimeline.svg"
+						src={getImagePath("/fullcardtimeline.svg")}
 						alt="Timeline card"
 						className="w-full h-full object-contain"
 					/>
@@ -26,7 +27,7 @@ export default function Card({ title, description, position }: CardProps) {
 				// Right card for desktop/
 				<div className="relative hidden md:block">
 					<img
-						src="/fullcardright.svg"
+						src={getImagePath("/fullcardright.svg")}
 						alt="Timeline card"
 						className="w-full h-full object-contain"
 					/>
@@ -40,7 +41,7 @@ export default function Card({ title, description, position }: CardProps) {
 			{/* Mobile view card - visible only on small screens */}
 			<div className="relative md:hidden">
 				<img
-					src="/fullcardright.svg"
+					src={getImagePath("/fullcardright.svg")}
 					alt="Timeline card"
 					className="w-full h-full object-contain"
 				/>

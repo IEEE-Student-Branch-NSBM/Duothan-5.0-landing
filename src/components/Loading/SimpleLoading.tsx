@@ -1,7 +1,6 @@
 "use client";
-
-// import Image from "next/image";
-import { useEffect, useState } from "react";
+import { getImagePath } from "@/lib/imagePath";
+import { useEffect, useMemo, useState } from "react";
 
 export default function SimpleLoading({
 	onComplete,
@@ -12,30 +11,33 @@ export default function SimpleLoading({
 	const [hasError, setHasError] = useState(false);
 
 	// List of critical images that need to be loaded before showing the main content
-	const criticalImages = [
-		"/assets/header/logo.svg",
-		"/backdrop_hero.svg",
-		"/onlylogo.svg",
-		"/hero_samurai_1.svg",
-		"/hero_samurai_2.svg",
-		"/hero_samurai_3.svg",
-		"/duo 5.svg",
-		"/header_mobile_0.svg",
-		"/header_mobile_1.svg",
-		"/header_mobile_2.svg",
-		"/assets/header/layer3.svg",
-		"/assets/header/layer2.svg",
-		"/assets/header/layer1.svg",
-		"/assets/header/button.svg",
-		"/SideSkirt_0.svg",
-		"/SideSkirt_1.svg",
-		"/SideSkirt_2.svg",
-		"/SideSkirt_Decorative.svg",
-		"/SideSkirt_Time.svg",
-		"/down_tag_1.svg",
-		"/down_tag_2.svg",
-		"/down_tag_3.svg",
-	];
+	const criticalImages = useMemo(
+		() => [
+			getImagePath("/assets/header/logo.svg"),
+			getImagePath("/backdrop_hero.svg"),
+			getImagePath("/onlylogo.svg"),
+			getImagePath("/hero_samurai_1.svg"),
+			getImagePath("/hero_samurai_2.svg"),
+			getImagePath("/hero_samurai_3.svg"),
+			getImagePath("/duo 5.svg"),
+			getImagePath("/header_mobile_0.svg"),
+			getImagePath("/header_mobile_1.svg"),
+			getImagePath("/header_mobile_2.svg"),
+			getImagePath("/assets/header/layer3.svg"),
+			getImagePath("/assets/header/layer2.svg"),
+			getImagePath("/assets/header/layer1.svg"),
+			getImagePath("/assets/header/button.svg"),
+			getImagePath("/SideSkirt_0.svg"),
+			getImagePath("/SideSkirt_1.svg"),
+			getImagePath("/SideSkirt_2.svg"),
+			getImagePath("/SideSkirt_Decorative.svg"),
+			getImagePath("/SideSkirt_Time.svg"),
+			getImagePath("/down_tag_1.svg"),
+			getImagePath("/down_tag_2.svg"),
+			getImagePath("/down_tag_3.svg"),
+		],
+		[],
+	);
 
 	useEffect(() => {
 		let loadingComplete = false;
@@ -108,7 +110,7 @@ export default function SimpleLoading({
 			loadingComplete = true;
 			clearTimeout(fallbackTimer);
 		};
-	}, [onComplete]);
+	}, [onComplete, criticalImages]);
 
 	if (!loading) return null;
 
@@ -121,7 +123,7 @@ export default function SimpleLoading({
 			<div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center mx-auto">
 				{/* Background logo */}
 				<img
-					src="/onlylogo.svg"
+					src={getImagePath("/onlylogo.svg")}
 					alt="Background Logo"
 					className="absolute w-[480px] h-[480px] sm:w-[640px] sm:h-[640px] md:w-[800px] md:h-[800px]"
 					style={{
@@ -133,7 +135,7 @@ export default function SimpleLoading({
 				/>
 				{/* Foreground logo */}
 				<img
-					src="/assets/header/logo.svg"
+					src={getImagePath("/assets/header/logo.svg")}
 					alt="Duothan Logo"
 					className="absolute z-10 w-[270px] h-[270px] sm:w-[360px] sm:h-[360px] md:w-[450px] md:h-[450px]"
 				/>

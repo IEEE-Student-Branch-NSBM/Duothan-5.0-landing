@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -108,7 +109,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 					className="absolute -top-10 left-0 w-full h-full flex items-start justify-center"
 				>
 					<Image
-						src="/header_mobile_0.svg"
+						src={getImagePath("/header_mobile_0.svg")}
 						alt=""
 						width={390}
 						height={120}
@@ -122,7 +123,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 					className="absolute -top-9 left-0 w-full h-full flex items-start justify-center [filter:drop-shadow(0_0_12px_rgba(149,76,233,0.5))]"
 				>
 					<Image
-						src="/header_mobile_1.svg"
+						src={getImagePath("/header_mobile_1.svg")}
 						alt=""
 						width={390}
 						height={120}
@@ -136,7 +137,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 					className="absolute -top-6 left-0 w-full h-full flex items-start justify-center brightness-110 [filter:drop-shadow(0_0_8px_rgba(149,76,233,0.8))]"
 				>
 					<Image
-						src="/header_mobile_2.svg"
+						src={getImagePath("/header_mobile_2.svg")}
 						alt=""
 						width={390}
 						height={120}
@@ -150,7 +151,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 					className="absolute top-1 left-0 w-full flex justify-center"
 				>
 					<Image
-						src="/assets/header/logo.svg"
+						src={getImagePath("/assets/header/logo.svg")}
 						alt="Duothan Logo"
 						width={200}
 						height={60}
@@ -171,7 +172,7 @@ const MobileHeader = ({ disableScaling = false }: MobileHeaderProps = {}) => {
 					className="absolute top-12 left-0 w-full flex items-center justify-center text-cyan-400 text-xs font-mono tracking-widest transition-all duration-300 hover:text-pink-500 group cursor-pointer"
 				>
 					<Image
-						src="/assets/header/button.svg"
+						src={getImagePath("/assets/header/button.svg")}
 						alt=""
 						width={180}
 						height={20}

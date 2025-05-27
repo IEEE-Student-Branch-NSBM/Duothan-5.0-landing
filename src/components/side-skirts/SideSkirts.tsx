@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useViewportScaling } from "../viewport/useViewportScaling";
@@ -81,7 +82,7 @@ const SideSkirts = ({
 			>
 				<div className="absolute -left-3 top-0 h-full w-35">
 					<Image
-						src="/SideSkirt_0.svg"
+						src={getImagePath("/SideSkirt_0.svg")}
 						alt="Left Side Skirt Layer 0"
 						width={90}
 						height={900}
@@ -93,7 +94,7 @@ const SideSkirts = ({
 				</div>
 				<div className="absolute -left-1 top-0 h-full w-40">
 					<Image
-						src="/SideSkirt_1.svg"
+						src={getImagePath("/SideSkirt_1.svg")}
 						alt="Left Side Skirt Layer 1"
 						width={110}
 						height={900}
@@ -105,7 +106,7 @@ const SideSkirts = ({
 				</div>
 				<div className="absolute -left-1 top-0 h-full w-42">
 					<Image
-						src="/SideSkirt_2.svg"
+						src={getImagePath("/SideSkirt_2.svg")}
 						alt="Left Side Skirt Layer 2"
 						width={130}
 						height={900}
@@ -120,7 +121,7 @@ const SideSkirts = ({
 					className={`absolute left-2 top-0 h-full w-10 ${!disableScaling && scaleStyle ? "pl-2" : ""}`}
 				>
 					<Image
-						src="/SideSkirt_Decorative.svg"
+						src={getImagePath("/SideSkirt_Decorative.svg")}
 						alt="Left Side Decorative Element"
 						width={60}
 						height={900}
@@ -133,7 +134,7 @@ const SideSkirts = ({
 				{/* Time element for left side */}
 				<div className="absolute left-5 right-0 mx-auto h-full w-10 flex justify-center items-center">
 					<Image
-						src="/SideSkirt_Time.svg"
+						src={getImagePath("/SideSkirt_Time.svg")}
 						alt="Left Side Time Element"
 						width={60}
 						height={100}
@@ -165,7 +166,7 @@ const SideSkirts = ({
 			>
 				<div className="absolute -right-3 top-0 h-full w-35 transform scale-x-[-1]">
 					<Image
-						src="/SideSkirt_0.svg"
+						src={getImagePath("/SideSkirt_0.svg")}
 						alt="Right Side Skirt Layer 0"
 						width={90}
 						height={900}
@@ -177,7 +178,7 @@ const SideSkirts = ({
 				</div>
 				<div className="absolute -right-1 top-0 h-full w-40 transform scale-x-[-1]">
 					<Image
-						src="/SideSkirt_1.svg"
+						src={getImagePath("/SideSkirt_1.svg")}
 						alt="Right Side Skirt Layer 1"
 						width={110}
 						height={900}
@@ -189,7 +190,7 @@ const SideSkirts = ({
 				</div>
 				<div className="absolute -right-1 top-0 h-full w-42 transform scale-x-[-1]">
 					<Image
-						src="/SideSkirt_2.svg"
+						src={getImagePath("/SideSkirt_2.svg")}
 						alt="Right Side Skirt Layer 2"
 						width={130}
 						height={900}
@@ -202,7 +203,7 @@ const SideSkirts = ({
 				{/* Time element for right side */}
 				<div className="absolute right-5 left-0 mx-auto h-full w-10 flex justify-center items-center">
 					<Image
-						src="/SideSkirt_Time.svg"
+						src={getImagePath("/SideSkirt_Time.svg")}
 						alt="Right Side Time Element"
 						width={60}
 						height={100}

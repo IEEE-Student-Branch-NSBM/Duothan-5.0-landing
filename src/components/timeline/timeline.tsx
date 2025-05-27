@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import { useState } from "react";
 import Card from "./timelinecard";
 
@@ -33,10 +34,10 @@ export default function Timeline() {
 	return (
 		<div>
 			{/* Desktop view */}
-			<div className="hidden scale-70 lg:flex relative w-full max-w-[1170px] ">
+			<div className="hidden scale-70 lg:flex relative w-full max-w-[1170px]">
 				<div className="absolute -top-7 left-1/2 transform -translate-x-1/2">
 					<img
-						src="/timelinecompleet.svg"
+						src={getImagePath("/timelinecompleet.svg")}
 						alt="Timeline"
 						className="h-full object-contain"
 					/>
@@ -81,7 +82,7 @@ export default function Timeline() {
 			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-auto fixed mb-40">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
 					<img
-						src="/timelinecompleet.svg"
+						src={getImagePath("/timelinecompleet.svg")}
 						alt="Timeline"
 						className="h-full object-contain"
 					/>
@@ -122,7 +123,7 @@ export default function Timeline() {
 			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto fixed">
 				<div className="absolute left-6 top-0 h-full">
 					<img
-						src="/mobileTimeline.svg"
+						src={getImagePath("/mobileTimeline.svg")}
 						alt="Mobile Timeline"
 						className="h-full object-contain"
 					/>

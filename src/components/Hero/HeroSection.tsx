@@ -1,4 +1,5 @@
 "use client";
+import { getBgImagePath, getImagePath } from "@/lib/imagePath";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
@@ -203,7 +204,12 @@ const HeroSection = () => {
 				</p>
 			</div>
 
-			<div className="absolute inset-0 hero-background bg-[url('/backdrop_hero.svg')] bg-cover bg-center bg-no-repeat z-0" />
+			<div
+				className="absolute inset-0 hero-background bg-cover bg-center bg-no-repeat z-0"
+				style={{
+					backgroundImage: `url(${getImagePath("/backdrop_hero.svg")})`,
+				}}
+			/>
 
 			{/* Player Ready Text */}
 			{/* <div className="absolute top-100 z-30 player-ready-text transform translate-y-4">
@@ -253,7 +259,7 @@ const HeroSection = () => {
 				left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
 			>
 				<Image
-					src="/onlylogo.svg"
+					src={getImagePath("/onlylogo.svg")}
 					alt="Duothan Logo"
 					className="w-full h-full"
 					width={700}
@@ -269,11 +275,11 @@ const HeroSection = () => {
 					style={{
 						backgroundColor: "#E91054",
 						mixBlendMode: "screen",
-						maskImage: "url(/onlylogo.svg)",
+						maskImage: `url(${getImagePath("/onlylogo.svg")})`,
 						maskSize: "contain",
 						maskRepeat: "no-repeat",
 						maskPosition: "center",
-						WebkitMaskImage: "url(/onlylogo.svg)",
+						WebkitMaskImage: `url(${getImagePath("/onlylogo.svg")})`,
 						WebkitMaskSize: "contain",
 						WebkitMaskRepeat: "no-repeat",
 						WebkitMaskPosition: "center",
@@ -281,7 +287,7 @@ const HeroSection = () => {
 				/>
 			</div>
 			<Image
-				src="/hero_samurai_3.svg"
+				src={getImagePath("/hero_samurai_3.svg")}
 				alt="Samurai"
 				className="absolute bottom-10 z-20 samurai-4 transition-all duration-300 
 					w-[320px] h-[320px] 
@@ -294,7 +300,7 @@ const HeroSection = () => {
 				priority
 			/>
 			<Image
-				src="/hero_samurai_2.svg"
+				src={getImagePath("/hero_samurai_2.svg")}
 				alt="Samurai"
 				className="absolute bottom-25 z-20 brightness-60 scale-x-[-1] samurai-2 transition-all duration-300 
 					w-[160px] h-[160px] 
@@ -307,7 +313,7 @@ const HeroSection = () => {
 				priority
 			/>
 			<Image
-				src="/hero_samurai_1.svg"
+				src={getImagePath("/hero_samurai_1.svg")}
 				alt="Samurai"
 				className="greyscale brightness-20 absolute bottom-30 z-20 samurai-3 transition-all duration-300 
 					w-[65px] h-[65px] 

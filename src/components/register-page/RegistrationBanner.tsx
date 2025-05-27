@@ -1,5 +1,6 @@
 "use client";
 import RegisterButton from "@/components/register-page/RegisterButton";
+import { getImagePath } from "@/lib/imagePath";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/dist/TextPlugin";
@@ -391,7 +392,7 @@ export default function RegistrationBanner() {
 						className="absolute z-20 left-1 md:left-10 -top-4 md:-top-50 w-[450px] md:w-[600px] h-[520px] md:h-[720px] flex justify-start"
 					>
 						<Image
-							src="/samurai.png"
+							src={getImagePath("/samurai.png")}
 							alt="Samurai Warrior"
 							fill
 							className="object-contain"
@@ -500,7 +501,7 @@ export default function RegistrationBanner() {
 							<div ref={samuraiRef} className="w-full flex justify-center mt-4">
 								<div className="relative z-20 w-full h-[280px]">
 									<Image
-										src="/samurai-mobile.png"
+										src={getImagePath("/samurai-mobile.png")}
 										alt="Samurai Warrior"
 										fill
 										className="object-contain"

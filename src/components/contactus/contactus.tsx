@@ -7,6 +7,7 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "@/components/ui/carousel";
+import { getImagePath } from "@/lib/imagePath";
 import localFont from "next/font/local";
 import type React from "react";
 import { useEffect, useState } from "react";
@@ -19,8 +20,8 @@ const contactData = [
 	{
 		id: 1,
 		name: "Kumuditha Ranasinghe",
-		title: "‘Chairperson - Duothan 5.0",
-		image: "/profile.png",
+		title: "'Chairperson - Duothan 5.0",
+		image: getImagePath("/profile.png"),
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "kumuditharanasinghe@ieee.org",
@@ -29,7 +30,7 @@ const contactData = [
 		id: 2,
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
-		image: "/profile.png",
+		image: getImagePath("/profile.png"),
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "ravindurajapaksha@ieee.org",
@@ -38,7 +39,7 @@ const contactData = [
 		id: 3,
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
-		image: "/profile.png",
+		image: getImagePath("/profile.png"),
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "ravindurajapaksha@ieee.org",
@@ -47,7 +48,7 @@ const contactData = [
 		id: 4,
 		name: "Kumuditha Ranasinghe",
 		title: "Chairperson - Duothan 5.0",
-		image: "/profile.png",
+		image: getImagePath("/profile.png"),
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "kumuditharanasinghe@ieee.org",
@@ -56,7 +57,7 @@ const contactData = [
 		id: 5,
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
-		image: "/profile.png",
+		image: getImagePath("/profile.png"),
 		linkedin: "https://www.linkedin.com/in/-123456789/",
 		phone: "+94123456789",
 		email: "ravindurajapaksha@ieee.org",

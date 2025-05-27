@@ -6,6 +6,7 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "@/components/ui/carousel";
+import { getImagePath } from "@/lib/imagePath";
 import Autoplay from "embla-carousel-autoplay";
 import localFont from "next/font/local";
 import Image from "next/image";
@@ -27,25 +28,25 @@ interface Sponsor {
 const SPONSORS_GROUP_1: Sponsor[] = [
 	{
 		id: 1,
-		img: "/SpLogo/sponsors1.svg",
+		img: getImagePath("/SpLogo/sponsors1.svg"),
 		url: "https://sponsor1.com",
 		altText: "Sponsor 1",
 	},
 	{
 		id: 2,
-		img: "/SpLogo/sponsors2.svg",
+		img: getImagePath("/SpLogo/sponsors2.svg"),
 		url: "https://sponsor2.com",
 		altText: "Sponsor 2",
 	},
 	{
 		id: 3,
-		img: "/SpLogo/sponsors3.svg",
+		img: getImagePath("/SpLogo/sponsors3.svg"),
 		url: "https://sponsor3.com",
 		altText: "Sponsor 3",
 	},
 	{
 		id: 4,
-		img: "/SpLogo/sponsors4.svg",
+		img: getImagePath("/SpLogo/sponsors4.svg"),
 		url: "https://sponsor4.com",
 		altText: "Sponsor 4",
 	},
@@ -54,25 +55,25 @@ const SPONSORS_GROUP_1: Sponsor[] = [
 const SPONSORS_GROUP_2: Sponsor[] = [
 	{
 		id: 5,
-		img: "/SpLogo/sponsors5.svg",
+		img: getImagePath("/SpLogo/sponsors5.svg"),
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
 	},
 	{
 		id: 6,
-		img: "/SpLogo/sponsors6.svg",
+		img: getImagePath("/SpLogo/sponsors6.svg"),
 		url: "https://sponsor6.com",
 		altText: "Sponsor 6",
 	},
 	{
 		id: 7,
-		img: "/SpLogo/sponsors7.svg",
+		img: getImagePath("/SpLogo/sponsors7.svg"),
 		url: "https://sponsor7.com",
 		altText: "Sponsor 7",
 	},
 	{
 		id: 8,
-		img: "/SpLogo/sponsors8.svg",
+		img: getImagePath("/SpLogo/sponsors8.svg"),
 		url: "https://sponsor8.com",
 		altText: "Sponsor 8",
 	},
@@ -167,7 +168,7 @@ const SponsorCard = React.memo(
 				<div
 					className="absolute inset-0 bg-no-repeat bg-center"
 					style={{
-						backgroundImage: "url('/sponsors.svg')",
+						backgroundImage: `url(${getImagePath("/sponsors.svg")})`,
 						backgroundSize: bgSize,
 					}}
 					aria-hidden="true"

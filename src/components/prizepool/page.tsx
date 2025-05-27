@@ -5,6 +5,7 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "@/components/ui/carousel";
+import { getImagePath } from "@/lib/imagePath";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import localFont from "next/font/local";
@@ -32,8 +33,8 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
 	imageUrl,
 	variant,
 }) => {
-	const bgCardSrc = "/prize_pool_1.svg";
-	const borderCardSrc = "/prize_pool_0.svg";
+	const bgCardSrc = getImagePath("/prize_pool_1.svg");
+	const borderCardSrc = getImagePath("/prize_pool_0.svg");
 
 	// Format place to ensure numbers are properly displayed
 	const formatPlace = (place: string) => {
@@ -223,17 +224,17 @@ const MobileCarousel = () => {
 		{
 			place: "2nd Place",
 			amount: "LKR 30,000",
-			imageUrl: "/custom-trophy.png",
+			imageUrl: getImagePath("/custom-trophy.png"),
 		},
 		{
 			place: "1st Place",
 			amount: "LKR 50,000",
-			imageUrl: "/custom-trophy.png",
+			imageUrl: getImagePath("/custom-trophy.png"),
 		},
 		{
 			place: "3rd Place",
 			amount: "LKR 30,000",
-			imageUrl: "/custom-trophy.png",
+			imageUrl: getImagePath("/custom-trophy.png"),
 		},
 	];
 
@@ -275,7 +276,7 @@ const MobileCarousel = () => {
 								{/* Background card */}
 								<div className="relative scale-90 opacity-25">
 									<Image
-										src="/prize_pool_1.svg"
+										src={getImagePath("/prize_pool_1.svg")}
 										alt="Prize card background"
 										width={279}
 										height={381}
@@ -287,7 +288,7 @@ const MobileCarousel = () => {
 									className={`absolute inset-0 -z-10 ${prize.place === "1st Place" ? "opacity-90 animate-pulse" : "opacity-70"}`}
 								>
 									<Image
-										src="/prize_pool_0.svg"
+										src={getImagePath("/prize_pool_0.svg")}
 										alt="Prize card border"
 										width={306}
 										height={409}
@@ -356,19 +357,19 @@ export default function PrizePool() {
 				<PrizeCard
 					place="2nd Place"
 					amount="LKR 30,000"
-					imageUrl="/custom-trophy.png"
+					imageUrl={getImagePath("/custom-trophy.png")}
 					variant="second"
 				/>
 				<PrizeCard
 					place="1st Place"
 					amount="LKR 50,000"
-					imageUrl="/custom-trophy.png"
+					imageUrl={getImagePath("/custom-trophy.png")}
 					variant="first"
 				/>
 				<PrizeCard
 					place="3rd Place"
 					amount="LKR 30,000"
-					imageUrl="/custom-trophy.png"
+					imageUrl={getImagePath("/custom-trophy.png")}
 					variant="third"
 				/>
 			</div>

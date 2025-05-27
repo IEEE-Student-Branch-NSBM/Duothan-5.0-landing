@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -35,7 +36,7 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 				{/* layer 1 */}
 				<div className="absolute bottom-2 left-0 w-full h-18 flex items-end justify-center">
 					<Image
-						src="/down_tag_1.svg"
+						src={getImagePath("/down_tag_1.svg")}
 						alt=""
 						width={321}
 						height={143}
@@ -45,7 +46,7 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 
 				<div className="absolute bottom-0 left-0 w-full h-18 flex items-end justify-center">
 					<Image
-						src="/down_tag_3.svg"
+						src={getImagePath("/down_tag_3.svg")}
 						alt=""
 						width={321}
 						height={143}
@@ -56,7 +57,7 @@ const DownTag = ({ text = "View Text Goes Here" }: DownTagProps) => {
 				{/* layer 2 */}
 				<div className="absolute -bottom-1 left-0 w-full h-20 flex items-end justify-center">
 					<Image
-						src="/down_tag_2.svg"
+						src={getImagePath("/down_tag_2.svg")}
 						alt=""
 						width={221}
 						height={135}

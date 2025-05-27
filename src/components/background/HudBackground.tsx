@@ -1,4 +1,5 @@
 "use client";
+import { getBgImagePath, getImagePath } from "@/lib/imagePath";
 import { motion } from "framer-motion";
 import type React from "react";
 // import { useEffect, useState } from "react";
@@ -225,7 +226,7 @@ const HudBackground: React.FC = () => {
 
 			<div className="absolute inset-0 flex items-center justify-center">
 				<img
-					src="/onlylogo.svg"
+					src={getImagePath("/onlylogo.svg")}
 					alt="Duothan Logo"
 					className="w-1/3 h-auto opacity-2"
 				/>

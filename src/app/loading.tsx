@@ -1,3 +1,6 @@
+"use client";
+
+import { getImagePath } from "@/lib/imagePath";
 import Image from "next/image";
 
 export default function Loading() {
@@ -5,7 +8,7 @@ export default function Loading() {
 		<div className="fixed inset-0 bg-black flex items-center justify-center z-50">
 			<div className="animate-pulse">
 				<Image
-					src="/onlylogo.svg"
+					src={getImagePath("/onlylogo.svg")}
 					alt="Duothan Logo"
 					width={150}
 					height={150}

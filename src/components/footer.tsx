@@ -1,3 +1,4 @@
+import { getImagePath } from "@/lib/imagePath";
 import { Electrolize } from "next/font/google";
 import { useEffect, useState } from "react";
 import {
@@ -45,10 +46,18 @@ export default function Footer() {
 		<>
 			{/* Logos */}
 			<div className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:gap-8 mb-4">
-				<img src="/DuoMain.svg" alt="Duothan Logo" className="h-12" />
-				<img src="/sb.png" alt="NSBM Logo" className="h-8" />
-				<img src="/cs.png" alt="IEEE CS Logo" className="h-11" />
-				<img src="/wie.png" alt="WIE Logo" className="h-9" />
+				<img
+					src={getImagePath("/DuoMain.svg")}
+					alt="Duothan Logo"
+					className="h-12"
+				/>
+				<img src={getImagePath("/sb.png")} alt="NSBM Logo" className="h-8" />
+				<img
+					src={getImagePath("/cs.png")}
+					alt="IEEE CS Logo"
+					className="h-11"
+				/>
+				<img src={getImagePath("/wie.png")} alt="WIE Logo" className="h-9" />
 			</div>
 
 			{/* Social Icons - Mobile Only */}

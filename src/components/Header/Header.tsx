@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -176,7 +177,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 							className="absolute flex top-20 left-0 w-full h-25 items-start justify-center brightness-125 flickering"
 						>
 							<Image
-								src="/assets/header/layer3.svg"
+								src={getImagePath("/assets/header/layer3.svg")}
 								alt=""
 								width={561}
 								height={88}
@@ -189,7 +190,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 							className="absolute flex top-0 left-0 w-full h-40 items-start justify-center [filter:drop-shadow(0_0_18px_rgba(149,76,233,0.6))]"
 						>
 							<Image
-								src="/assets/header/layer2.svg"
+								src={getImagePath("/assets/header/layer2.svg")}
 								alt=""
 								width={1221}
 								height={135}
@@ -202,7 +203,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 							className="absolute -top-0 left-0 w-full h-38 flex items-start justify-center"
 						>
 							<Image
-								src="/assets/header/layer1.svg"
+								src={getImagePath("/assets/header/layer1.svg")}
 								alt=""
 								width={1321}
 								height={143}
@@ -212,7 +213,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 						{/* logo - Desktop */}
 						<div ref={logoRef} className="mb-4">
 							<Image
-								src="/assets/header/logo.svg"
+								src={getImagePath("/assets/header/logo.svg")}
 								alt="Duothan Logo"
 								width={320}
 								height={120}
@@ -228,7 +229,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 								className="relative group flex items-center justify-center text-white text-xs font-mono tracking-widest hover:scale-105 transition-all duration-300"
 							>
 								<Image
-									src="/assets/header/button.svg"
+									src={getImagePath("/assets/header/button.svg")}
 									alt=""
 									width={246}
 									height={23}

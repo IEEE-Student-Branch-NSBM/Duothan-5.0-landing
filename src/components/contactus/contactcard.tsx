@@ -1,4 +1,5 @@
 "use client";
+import { getImagePath } from "@/lib/imagePath";
 import localFont from "next/font/local";
 import Image from "next/image";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -29,7 +30,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
 	return (
 		<div className="relative w-[300px] h-[380.71px]">
 			<Image
-				src="/card1.svg"
+				src={getImagePath("/card1.svg")}
 				alt="card background"
 				fill
 				className="object-center rounded-lg z-0"
@@ -37,7 +38,13 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
 			<div className="absolute inset-0 flex flex-col items-center justify-center z-10 ">
 				<div className="w-[260.17px] h-[234px] rounded-[2px] z-10 mr-2 relative ">
-					<div className="absolute inset-0 overflow-hidden mask-[url('/Union.svg')]">
+					<div
+						className="absolute inset-0 overflow-hidden"
+						style={{
+							maskImage: `url(${getImagePath("/Union.svg")})`,
+							WebkitMaskImage: `url(${getImagePath("/Union.svg")})`,
+						}}
+					>
 						<Image src={image} alt="profile" fill className="object-fit" />
 					</div>
 				</div>
