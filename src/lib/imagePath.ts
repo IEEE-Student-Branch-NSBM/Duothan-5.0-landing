@@ -3,15 +3,14 @@ import getConfig from "next/config";
 // Function to determine if we're running on the client
 const isClient = typeof window !== "undefined";
 
-// Get the base path in a way that works in both client and server contexts
+// Get the base path from environment variable or default to ""
 function getBasePath(): string {
-	// For client-side rendering
-	if (isClient) {
-		const config = getConfig() || { publicRuntimeConfig: { basePath: "" } };
-		return config.publicRuntimeConfig?.basePath || "";
+	if (typeof window !== "undefined") {
+		// On client, use env variable if set
+		return process.env.NEXT_PUBLIC_BASE_PATH || "";
 	}
-	// For server-side rendering, use the same logic as the Next.js config
-	return process.env.NODE_ENV === "production" ? "/Duothan-5.0-landing" : "";
+	// On server, use env variable if set
+	return process.env.NEXT_PUBLIC_BASE_PATH || "";
 }
 
 // Cache the base path value
