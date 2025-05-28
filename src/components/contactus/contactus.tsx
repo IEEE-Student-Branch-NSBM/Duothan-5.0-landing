@@ -19,37 +19,41 @@ const readyplayerone = localFont({
 const contactData = [
 	{
 		id: 1,
-		name: "Kumuditha Ranasinghe",
-		title: "'Chairperson - Duothan 5.0",
+		name: "Geeth Induwara",
+		title: "Chairperson - IEEE Student Branch of NSBM",
 		image: getImagePath("/profile.png"),
-		linkedin: "https://www.linkedin.com/in/-123456789/",
-		phone: "+94123456789",
-		email: "kumuditharanasinghe@ieee.org",
+		linkedin:
+			"https://www.linkedin.com/in/geethinduwara?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BwO7F30K2T7mnrm9MWYV9Pg%3D%3D",
+		phone: "+94773623718",
+		email: "geethinduwara@ieee.org",
 	},
 	{
 		id: 2,
-		name: "Ravindu Rajapaksha",
-		title: "Chairperson - Duothan 5.0",
+		name: "Jayasanka Ariyaratne",
+		title: "Vice Chairperson - IEEE Student Branch of NSBM",
 		image: getImagePath("/profile.png"),
-		linkedin: "https://www.linkedin.com/in/-123456789/",
+		linkedin:
+			"https://www.linkedin.com/in/jayasanka-ariyaratne?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bvd6eSph0Q2C91JY4E6nTxQ%3D%3D",
 		phone: "+94123456789",
-		email: "ravindurajapaksha@ieee.org",
+		email: "jayasankaariyaratne@ieee.org",
 	},
 	{
 		id: 3,
-		name: "Ravindu Rajapaksha",
-		title: "Chairperson - Duothan 5.0",
+		name: "Sithum Sankajith",
+		title: "Treasurer - IEEE Student Branch of NSBM",
 		image: getImagePath("/profile.png"),
-		linkedin: "https://www.linkedin.com/in/-123456789/",
-		phone: "+94123456789",
-		email: "ravindurajapaksha@ieee.org",
+		linkedin:
+			"https://www.linkedin.com/in/sithum-sankajith?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Buw%2FoNUZzRGm%2BytPRPtf3tQ%3D%3D",
+		phone: "+94775524461",
+		email: "sithumsankajith@ieee.org",
 	},
 	{
 		id: 4,
 		name: "Kumuditha Ranasinghe",
-		title: "Chairperson - Duothan 5.0",
+		title: "webMaster - IEEE Student Branch of NSBM",
 		image: getImagePath("/profile.png"),
-		linkedin: "https://www.linkedin.com/in/-123456789/",
+		linkedin:
+			"https://www.linkedin.com/in/kumuditha-ranasinghe-078a23254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9%2FS%2BWSl8RDGVswH4%2BP5RXA%3D%3D",
 		phone: "+94123456789",
 		email: "kumuditharanasinghe@ieee.org",
 	},
@@ -58,7 +62,8 @@ const contactData = [
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
 		image: getImagePath("/profile.png"),
-		linkedin: "https://www.linkedin.com/in/-123456789/",
+		linkedin:
+			"https://www.linkedin.com/in/ravindu-rajapaksha-9b4415308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuDn5UM3GSo6zXuJdfa1GVQ%3D%3D",
 		phone: "+94123456789",
 		email: "ravindurajapaksha@ieee.org",
 	},
@@ -101,10 +106,9 @@ const ContactUs: React.FC = () => {
 						</h2>
 
 						<p className="text-white mb-6 sm:mb-8 lg:mb-10 font-[Electrolize] text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed text-center lg:text-left">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-							pellentesque, neque ut tempor vulputate, nisi purus varius elit,
-							nec molestie tellus nulla non eros. Vivamus venenatis, nisi id
-							accumsa
+							Questions, glitches, or just curious? Our squad is ready to
+							assist. Reach out, connect, and let us guide you through the
+							DUOTHON experience. The mission support is always online.
 						</p>
 					</div>
 
