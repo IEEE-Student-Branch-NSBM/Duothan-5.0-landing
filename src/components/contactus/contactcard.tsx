@@ -55,7 +55,9 @@ const ContactCard: React.FC<ContactCardProps> = ({
 					>
 						{name}
 					</h3>
-					<p className="text-white text-[15px] font-[Electrolize]">{title}</p>
+					<p className="text-white text-[15px] ml-9 font-[Electrolize]">
+						{title}
+					</p>
 					<div className="flex justify-center ml-55 mt-1 space-x-2">
 						<a
 							href={`tel:${phone}`}

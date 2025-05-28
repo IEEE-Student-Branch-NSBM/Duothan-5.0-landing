@@ -149,9 +149,13 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
 					{/* Trophy image */}
 					<div className="relative w-40 h-40 flex items-center justify-center">
 						<div className="bg-gray-700/50 w-full h-full flex items-center justify-center">
-							<p className="text-white text-xs text-center">
-								custom trophy [.png]
-							</p>
+							<Image
+								src={imageUrl}
+								alt="Custom trophy"
+								width={160}
+								height={60}
+								className="object-contain"
+							/>
 						</div>
 					</div>
 
@@ -224,17 +228,17 @@ const MobileCarousel = () => {
 		{
 			place: "2nd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/custom-trophy.png"),
+			imageUrl: getImagePath("/assets/PricePool/2nd_Place.jpg"),
 		},
 		{
 			place: "1st Place",
 			amount: "LKR 50,000",
-			imageUrl: getImagePath("/custom-trophy.png"),
+			imageUrl: getImagePath("/assets/PricePool/1st_Place.jpg"),
 		},
 		{
 			place: "3rd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/custom-trophy.png"),
+			imageUrl: getImagePath("/assets/PricePool/3rd_Place.jpg"),
 		},
 	];
 
@@ -308,11 +312,13 @@ const MobileCarousel = () => {
 										{formatPlaceMobile(prize.place)}
 									</div>
 									<div className="relative w-40 h-40 flex items-center justify-center">
-										<div className="bg-gray-700/50 w-full h-full flex items-center justify-center">
-											<p className="text-white text-xs text-center">
-												custom trophy [.png]
-											</p>
-										</div>
+										<Image
+											src={prize.imageUrl}
+											alt="Custom trophy"
+											width={140}
+											height={60}
+											className="object-contain"
+										/>
 									</div>
 									<div
 										className={`${readyplayerone.className} text-center text-lg text-white mt-4`}
@@ -357,19 +363,19 @@ export default function PrizePool() {
 				<PrizeCard
 					place="2nd Place"
 					amount="LKR 30,000"
-					imageUrl={getImagePath("/custom-trophy.png")}
+					imageUrl={getImagePath("/assets/PricePool/2nd_Place.jpg")}
 					variant="second"
 				/>
 				<PrizeCard
 					place="1st Place"
 					amount="LKR 50,000"
-					imageUrl={getImagePath("/custom-trophy.png")}
+					imageUrl={getImagePath("/assets/PricePool/1st_Place.jpg")}
 					variant="first"
 				/>
 				<PrizeCard
 					place="3rd Place"
-					amount="LKR 30,000"
-					imageUrl={getImagePath("/custom-trophy.png")}
+					amount="LKR 20,000"
+					imageUrl={getImagePath("/assets/PricePool/3rd_Place.jpg")}
 					variant="third"
 				/>
 			</div>

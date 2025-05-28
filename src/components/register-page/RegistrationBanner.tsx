@@ -484,11 +484,11 @@ export default function RegistrationBanner() {
 							ref={descRef}
 							className="text-gray-200 text-center md:text-right mb-6 md:mb-8 text-xs max-w-3xl mx-auto md:ml-auto md:mr-0 w-full leading-relaxed px-2 sm:px-0"
 						>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-							pellentesque, neque ut tempor vulputate, nisi purus varius elit.{" "}
-							<span className="text-cyan-400 font-bold">Join us</span> for an
-							unforgettable experience with cutting-edge technology and
-							innovative challenges.
+							The portal is live and the arena awaits. Get ready to take on
+							thrilling quests, unlock challenges, and rise through the
+							leaderboard. This is your chance to step into{" "}
+							<span className="text-cyan-400 font-bold">DUOTHON 5.0 </span>{" "}
+							where every move matters. Ready to play?
 						</p>
 
 						{/* Enhanced button container */}
