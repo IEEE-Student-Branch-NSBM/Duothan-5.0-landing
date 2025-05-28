@@ -10,7 +10,7 @@ type CardProps = {
 
 export default function Card({ title, image, description }: CardProps) {
 	return (
-		<div className="relative w-[300px] h-[388.7px]">
+		<div className="relative w-[300px] h-[388.7px] mx-auto">
 			<Image
 				src={getImagePath("/eventcard.svg")}
 				alt="card background"

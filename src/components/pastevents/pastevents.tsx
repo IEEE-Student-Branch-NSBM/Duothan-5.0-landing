@@ -89,12 +89,12 @@ export default function PastEvents() {
 	};
 
 	return (
-		<div className="h-full px-4 lg:px-0 flex flex-col items-center w-full max-w-[1070px] my-20 mx-auto">
-			<div className="w-full max-w-7xl">
+		<div className="h-full px-0 flex flex-col items-center w-full max-w-[1070px] my-20 mx-auto">
+			<div className="w-full max-w-7xl flex justify-center">
 				<Carousel
 					opts={{
 						loop: true,
-						align: "start",
+						align: "center",
 						slidesToScroll: 1,
 						containScroll: "trimSnaps",
 					}}
@@ -112,16 +112,18 @@ export default function PastEvents() {
 					className="w-full relative"
 					setApi={setApi}
 				>
-					<CarouselContent className="ml-0">
+					<CarouselContent
+						className={`${viewportSize === "sm" ? "mx-auto" : "ml-0"}`}
+					>
 						{events.map((event) => (
 							<CarouselItem
 								key={event.key}
-								className={`pl-0 ${
+								className={`${
 									viewportSize === "sm"
-										? "basis-full"
+										? "basis-full px-0 flex justify-center"
 										: viewportSize === "md"
-											? "basis-1/2"
-											: "basis-1/3"
+											? "basis-1/2 pl-0"
+											: "basis-1/3 pl-0"
 								}`}
 							>
 								<div className="mb-6 relative flex items-center justify-center">
