@@ -20,7 +20,7 @@ const events = [
 	{
 		key: 1,
 		title: "Duothon 1.0",
-		image: "/assets/pastEvent/duathon2.png",
+		image: "/assets/pastEvent/Duothan1.jpg",
 		description:
 			"Duothan 1.0 was our very first step into the world of competitive coding at NSBM, held back in 2021. Since the world was still adjusting to the COVID-19 pandemic, we organized it as a fully virtual event. But even with the challenges, the energy and enthusiasm were unreal.",
 	},

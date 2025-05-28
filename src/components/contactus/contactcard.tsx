@@ -28,7 +28,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
 	email,
 }) => {
 	return (
-		<div className="relative w-[300px] h-[380.71px]">
+		<div className="relative w-[320px] h-[450.71px]">
 			<Image
 				src={getImagePath("/card1.svg")}
 				alt="card background"
@@ -36,8 +36,8 @@ const ContactCard: React.FC<ContactCardProps> = ({
 				className="object-center rounded-lg z-0"
 			/>
 
-			<div className="absolute inset-0 flex flex-col items-center justify-center z-10 ">
-				<div className="w-[260.17px] h-[234px] rounded-[2px] z-10 mr-2 relative ">
+			<div className="absolute inset-0 flex flex-col z-10 p-4">
+				<div className="w-[260.17px] h-[200px] rounded-[2px] z-10 relative mx-auto mt-8">
 					<div
 						className="absolute inset-0 overflow-hidden"
 						style={{
@@ -45,37 +45,37 @@ const ContactCard: React.FC<ContactCardProps> = ({
 							WebkitMaskImage: `url(${getImagePath("/Union.svg")})`,
 						}}
 					>
-						<Image src={image} alt="profile" fill className="object-fit" />
+						<Image src={image} alt="profile" fill className="object-cover" />
 					</div>
 				</div>
 
-				<div className="mt-3 text-right pr-13">
+				<div className="mt-auto text-center pb-8">
 					<h3
-						className={`text-[#A2EBFF] font-normal text-[17px] leading-[100%] tracking-[0.04em] text-right ${readyplayerone.className}`}
+						className={`text-[#A2EBFF] font-normal text-[20px] leading-[120%] tracking-[0.04em] text-center mb-2 ${readyplayerone.className}`}
 					>
 						{name}
 					</h3>
-					<p className="text-white text-[15px] ml-9 font-[Electrolize]">
+					<p className="text-white text-[14px] text-center font-[Electrolize] mb-4">
 						{title}
 					</p>
-					<div className="flex justify-center ml-55 mt-1 space-x-2">
+					<div className="flex justify-center mt-2 space-x-4">
 						<a
 							href={`tel:${phone}`}
-							className="text-[#A2EBFF] mt-1 w-6 h-6 border border-[#A2EBFF] rounded-md flex items-center justify-center"
+							className="text-[#A2EBFF] w-7 h-7 border border-[#A2EBFF] rounded-md flex items-center justify-center hover:bg-[#A2EBFF20] transition-colors"
 						>
-							<FaPhoneAlt size={13} className="text-[#A2EBFF]" />
+							<FaPhoneAlt size={14} className="text-[#A2EBFF]" />
 						</a>
 						<a
 							href={linkedin}
-							className="text-[#A2EBFF] mt-1 w-6 h-6 border border-[#A2EBFF] rounded-md flex items-center justify-center"
+							className="text-[#A2EBFF] w-7 h-7 border border-[#A2EBFF] rounded-md flex items-center justify-center hover:bg-[#A2EBFF20] transition-colors"
 						>
-							<FaLinkedinIn size={15} />
+							<FaLinkedinIn size={16} />
 						</a>
 						<a
 							href={`mailto:${email}`}
-							className="text-[#A2EBFF] mt-1 w-6 h-6 border border-[#A2EBFF] rounded-md flex items-center justify-center"
+							className="text-[#A2EBFF] w-7 h-7 border border-[#A2EBFF] rounded-md flex items-center justify-center hover:bg-[#A2EBFF20] transition-colors"
 						>
-							<MdEmail size={17} />
+							<MdEmail size={18} />
 						</a>
 					</div>
 				</div>
