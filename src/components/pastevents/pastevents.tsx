@@ -36,7 +36,7 @@ const events = [
 		title: "Duothon 3.0",
 		image: "/assets/pastEvent/duathon3.png",
 		description:
-			"Duothan 3.0 was successfully held as a physical event in the year 2023, and it is also open for all the universities. Duothan 3.0 was arranged as a Buildathon. Participants had to rebuild a half-built application according to the given guidelines. They could use any programming language they prefer.",
+			"Duothon 3.0 took place as a physical event in 2023, open to all universities. This buildathon challenged participants to complete a half-built application following specific guidelines, using their preferred programming language.",
 	},
 	{
 		key: 4,

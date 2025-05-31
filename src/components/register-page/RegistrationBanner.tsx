@@ -20,7 +20,6 @@ export default function RegistrationBanner() {
 	const samuraiRef = useRef<HTMLDivElement>(null);
 	const scanlineRef = useRef<HTMLDivElement>(null);
 	const gridRef = useRef<HTMLDivElement>(null);
-	const particlesRef = useRef<HTMLDivElement>(null);
 	const terminalRef = useRef<HTMLDivElement>(null);
 
 	// Flag to track if animations are initialized
@@ -83,16 +82,9 @@ export default function RegistrationBanner() {
 			terminalRef.current,
 		]);
 
-		// Create grid background
-		createGridBackground();
-
-		// Scanline animation
-		animateScanlines();
-
 		// Terminal text effect
 		animateTerminalText();
 
-		// Only play entrance animations if not already initialized or after significant time
 		if (!animationsInitialized) {
 			// Animation timeline that runs when section becomes visible
 			const tl = gsap.timeline({
@@ -214,114 +206,6 @@ export default function RegistrationBanner() {
 		};
 	}, []);
 
-	// Create animated grid background
-	const createGridBackground = () => {
-		if (!gridRef.current) return;
-
-		const grid = gridRef.current;
-
-		// First clear any existing animations on the grid
-		gsap.killTweensOf(grid);
-		gsap.killTweensOf(grid.children);
-
-		// Clear existing grid elements
-		grid.innerHTML = "";
-
-		// Ensure grid is properly sized and visible
-		const gridSize = window.innerWidth < 768 ? 20 : 30; // Smaller grid for mobile
-		const cols = Math.ceil(window.innerWidth / gridSize);
-		const rows = Math.ceil(window.innerHeight / gridSize);
-
-		// Create vertical lines
-		for (let i = 0; i <= cols; i++) {
-			const line = document.createElement("div");
-			line.className = "absolute top-0 bottom-0 w-[1px] bg-cyan-500/10";
-			line.style.left = `${i * gridSize}px`;
-			grid.appendChild(line);
-
-			// Random pulse animation
-			if (Math.random() > 0.7) {
-				// Use a unique id for each animation for better tracking/cleanup
-				const animId = `grid-v-${i}-${Date.now()}`;
-				gsap.to(line, {
-					opacity: 0.3,
-					duration: Math.random() * 2 + 1,
-					repeat: -1,
-					yoyo: true,
-					id: animId,
-				});
-			}
-		}
-
-		// Create horizontal lines
-		for (let i = 0; i <= rows; i++) {
-			const line = document.createElement("div");
-			line.className = "absolute left-0 right-0 h-[1px] bg-cyan-500/10";
-			line.style.top = `${i * gridSize}px`;
-			grid.appendChild(line);
-
-			// Random pulse animation
-			if (Math.random() > 0.7) {
-				// Use a unique id for each animation for better tracking/cleanup
-				const animId = `grid-h-${i}-${Date.now()}`;
-				gsap.to(line, {
-					opacity: 0.3,
-					duration: Math.random() * 2 + 1,
-					repeat: -1,
-					yoyo: true,
-					id: animId,
-				});
-			}
-		}
-
-		// Reset and add perspective effect
-		gsap.set(grid, { clearProps: "all" });
-		gsap.to(grid, {
-			rotateX: 50,
-			duration: 0,
-			id: "grid-perspective",
-		});
-
-		// Create wave animation
-		gsap.to(grid, {
-			z: 30,
-			duration: 10,
-			repeat: -1,
-			yoyo: true,
-			ease: "sine.inOut",
-			id: "grid-wave",
-		});
-	};
-
-	// Animate scanlines
-	const animateScanlines = () => {
-		if (!scanlineRef.current) return;
-
-		// Kill any existing animations on the scanline
-		gsap.killTweensOf(scanlineRef.current);
-
-		// Reset properties
-		gsap.set(scanlineRef.current, { clearProps: "all" });
-
-		// Create new animation
-		gsap.fromTo(
-			scanlineRef.current,
-			{
-				y: -100,
-				opacity: 0.15,
-			},
-			{
-				y: "100vh",
-				opacity: 0.15,
-				duration: 1.5,
-				ease: "none",
-				repeat: -1,
-				id: "scanline-animation",
-			},
-		);
-	};
-
-	// Animate terminal text
 	const animateTerminalText = () => {
 		if (!terminalRef.current) return;
 
@@ -362,31 +246,12 @@ export default function RegistrationBanner() {
 		<div
 			className={`${readyplayerone.className} flex justify-center items-center min-h-screen bg-transparent p-4 sm:p-6 overflow-hidden opacity-100 animate-in`}
 		>
-			{/* Background elements */}
-			<div className="fixed inset-0 overflow-hidden pointer-events-none">
-				{/* Grid background */}
-				<div
-					ref={gridRef}
-					className="absolute inset-0 transform-gpu perspective-1000 opacity-30"
-				/>
-
-				{/* Particles effect */}
-				<div ref={particlesRef} className="absolute inset-0 overflow-hidden" />
-
-				{/* Scanline effect */}
-				<div
-					ref={scanlineRef}
-					className="fixed w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"
-				/>
-			</div>
-
 			<div
 				ref={bannerRef}
 				className="relative w-full max-w-7xl mx-auto rounded-xl overflow-visible z-10"
 			>
 				{/* Samurai image - Position based on device size */}
 				{!isMobile ? (
-					/* On larger screens, position samurai as absolute element */
 					<div
 						ref={samuraiRef}
 						className="absolute z-20 left-1 md:left-10 -top-4 md:-top-50 w-[450px] md:w-[600px] h-[520px] md:h-[720px] flex justify-start"
@@ -422,13 +287,13 @@ export default function RegistrationBanner() {
 					</div>
 				) : null}
 
-				<div className="flex flex-col md:flex-row items-center p-4 sm:p-6 md:p-12 pt-8 md:pt-28 pb-10 sm:pb-14 border-2 border-[#E957DD] bg-transparent shadow-2xl relative overflow-visible backdrop-blur-[2px]">
+				<div className="flex flex-col h-[600px] lg:h-[360px] md:flex-row items-center p-4 sm:p-6 md:p-12 pt-8 md:pt-28 pb-10 sm:pb-14 border-2 border-[#E957DD] bg-transparent shadow-2xl relative overflow-visible backdrop-blur-[2px]">
 					{/* Enhanced border effects */}
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-60 blur-md" />
 					<div className="absolute inset-0 rounded-xl border-2 border-[#E957DD] opacity-30 blur-lg" />
 
 					{/* Digital circuit pattern overlay */}
-					<div className="absolute inset-0 overflow-hidden opacity-20">
+					<div className="absolute inset-0 overflow-hidden opacity-20 md:block hidden">
 						<svg
 							width="100%"
 							height="100%"
@@ -499,12 +364,12 @@ export default function RegistrationBanner() {
 						{/* Samurai image in mobile view */}
 						{isMobile && (
 							<div ref={samuraiRef} className="w-full flex justify-center mt-4">
-								<div className="relative z-20 w-full h-[280px]">
+								<div className="relative z-20 w-full h-[280px] bottom-9">
 									<Image
 										src={getImagePath("/samurai-mobile.png")}
 										alt="Samurai Warrior"
 										fill
-										className="object-contain"
+										className="object-contain scale-100"
 										sizes="(max-width: 640px) 90vw"
 										priority
 									/>
@@ -531,29 +396,6 @@ export default function RegistrationBanner() {
 								</div>
 							</div>
 						)}
-					</div>
-				</div>
-
-				{/* Digital data stream - smaller dots */}
-				<div className="absolute h-24 sm:h-36 w-[1px] top-[30%] right-[10%] overflow-hidden">
-					<div className="h-full w-full relative">
-						{Array.from({ length: 8 }).map((_, i) => (
-							<motion.div
-								key={`data-stream-${i}-${Math.random()}`}
-								className="absolute w-[2px] h-[2px] bg-cyan-400 left-0"
-								style={{ top: `${i * 12}%` }}
-								animate={{
-									top: ["0%", "100%"],
-									opacity: [0, 1, 0],
-								}}
-								transition={{
-									duration: 2,
-									delay: i * 0.2,
-									repeat: Number.POSITIVE_INFINITY,
-									ease: "linear",
-								}}
-							/>
-						))}
 					</div>
 				</div>
 			</div>
