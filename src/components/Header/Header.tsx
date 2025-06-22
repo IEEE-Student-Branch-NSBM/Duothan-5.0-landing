@@ -236,7 +236,7 @@ const Header = ({ disableScaling = false }: HeaderProps = {}) => {
 									className="w-auto h-6 group-hover:drop-shadow-[0_0_25px_rgba(0,255,247,0.6)] transition-all duration-300"
 								/>
 								<span className="absolute inset-0 flex items-center justify-center text-white text-xs tracking-widest pointer-events-none">
-									{">> REGISTER <<"}
+									{"Powered by IEEE NSBM"}
 								</span>
 							</button>
 						</div>
