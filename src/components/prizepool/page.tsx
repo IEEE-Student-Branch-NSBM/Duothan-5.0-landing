@@ -228,17 +228,17 @@ const MobileCarousel = () => {
 		{
 			place: "2nd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/assets/PricePool/2nd_Place.jpg"),
+			imageUrl: getImagePath("/assets/PricePool/2nd_Place."),
 		},
 		{
 			place: "1st Place",
 			amount: "LKR 50,000",
-			imageUrl: getImagePath("/assets/PricePool/1st_Place.jpg"),
+			imageUrl: getImagePath("/assets/PricePool/1stplace.png"),
 		},
 		{
 			place: "3rd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/assets/PricePool/3rd_Place.jpg"),
+			imageUrl: getImagePath("/assets/PricePool/3rd_Place."),
 		},
 	];
 
@@ -369,7 +369,7 @@ export default function PrizePool() {
 				<PrizeCard
 					place="1st Place"
 					amount="LKR 50,000"
-					imageUrl={getImagePath("/assets/PricePool/1st_Place.jpg")}
+					imageUrl={getImagePath("/assets/PricePool/1stplace.png")}
 					variant="first"
 				/>
 				<PrizeCard
