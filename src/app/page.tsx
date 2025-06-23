@@ -11,7 +11,7 @@ import DownTag from "@/components/down-tag/page";
 import Footer from "@/components/footer";
 import PastEvents from "@/components/pastevents/pastevents";
 import PrizePool from "@/components/prizepool/page";
-import RegistrationBanner from "@/components/register-page/RegistrationBanner";
+// import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
 import Sponsors from "@/components/sponsors/sponsors";
 import Timeline from "@/components/timeline/timeline";
