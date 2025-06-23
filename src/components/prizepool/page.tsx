@@ -28,8 +28,6 @@ interface PrizeCardProps {
 const PrizeCard: React.FC<PrizeCardProps> = ({
 	place,
 	amount,
-	// imageUrl parameter is defined but not used in the component
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	imageUrl,
 	variant,
 }) => {
@@ -228,7 +226,7 @@ const MobileCarousel = () => {
 		{
 			place: "2nd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/assets/PricePool/2nd_Place."),
+			imageUrl: getImagePath("/assets/PricePool/2nd_Place.jpg"),
 		},
 		{
 			place: "1st Place",
@@ -238,7 +236,7 @@ const MobileCarousel = () => {
 		{
 			place: "3rd Place",
 			amount: "LKR 30,000",
-			imageUrl: getImagePath("/assets/PricePool/3rd_Place."),
+			imageUrl: getImagePath("/assets/PricePool/3rd_Place.jpg"),
 		},
 	];
 

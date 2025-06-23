@@ -50,7 +50,6 @@ const events = [
 export default function PastEvents() {
 	const [api, setApi] = useState<CarouselApi>();
 	const [isAnimating, setIsAnimating] = useState(false);
-	const [isMobile, setIsMobile] = useState(false);
 	const [viewportSize, setViewportSize] = useState("sm");
 
 	// Detect screen size
@@ -58,13 +57,10 @@ export default function PastEvents() {
 		const checkScreenSize = () => {
 			const width = window.innerWidth;
 			if (width < 768) {
-				setIsMobile(true);
 				setViewportSize("sm");
 			} else if (width >= 768 && width < 1024) {
-				setIsMobile(false);
 				setViewportSize("md");
 			} else {
-				setIsMobile(false);
 				setViewportSize("lg");
 			}
 		};
