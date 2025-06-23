@@ -49,15 +49,19 @@ export default function Footer() {
 				<img
 					src={getImagePath("/DuoMain.svg")}
 					alt="Duothan Logo"
-					className="h-12"
+					className="h-13"
 				/>
-				<img src={getImagePath("/sb.png")} alt="NSBM Logo" className="h-8" />
+				<img
+					src={getImagePath("/sb.png")}
+					alt="NSBM Logo"
+					className="h-[25px]"
+				/>
 				<img
 					src={getImagePath("/cs.png")}
 					alt="IEEE CS Logo"
-					className="h-11"
+					className="h-10"
 				/>
-				<img src={getImagePath("/wie.png")} alt="WIE Logo" className="h-9" />
+				<img src={getImagePath("/wie.png")} alt="WIE Logo" className="h-7" />
 			</div>
 
 			{/* Social Icons - Mobile Only */}
@@ -146,7 +150,7 @@ export default function Footer() {
 				</div>
 
 				{/* Bottom Section - Always visible */}
-				<div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 gap-4">
+				<div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300 gap-4">
 					<p className={electrolize.className}>
 						All rights reserved, Developed by IEEE Computer Society of NSBM
 					</p>
