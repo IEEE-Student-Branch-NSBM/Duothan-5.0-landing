@@ -97,18 +97,15 @@ export default function PastEvents() {
 						align: "center",
 						slidesToScroll: 1,
 						containScroll: "trimSnaps",
+						startIndex: 0,
 					}}
-					plugins={
-						isMobile
-							? [
-									Autoplay({
-										delay: 2000,
-										stopOnMouseEnter: true,
-										stopOnInteraction: false,
-									}),
-								]
-							: []
-					}
+					plugins={[
+						Autoplay({
+							delay: 3000,
+							stopOnMouseEnter: true,
+							stopOnInteraction: false,
+						}),
+					]}
 					className="w-full relative"
 					setApi={setApi}
 				>
