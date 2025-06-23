@@ -21,7 +21,7 @@ const contactData = [
 		id: 1,
 		name: "Geeth Induwara",
 		title: "Chairperson - IEEE Student Branch of NSBM",
-		image: getImagePath("/profile.png"),
+		image: getImagePath("/assets/ContactUS/Geeth.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/geethinduwara?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BwO7F30K2T7mnrm9MWYV9Pg%3D%3D",
 		phone: "+94773623718",
@@ -31,7 +31,7 @@ const contactData = [
 		id: 2,
 		name: "Jayasanka Ariyaratne",
 		title: "Vice Chairperson - IEEE Student Branch of NSBM",
-		image: getImagePath("/profile.png"),
+		image: getImagePath("/assets/ContactUS/Jayasanka.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/jayasanka-ariyaratne?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bvd6eSph0Q2C91JY4E6nTxQ%3D%3D",
 		phone: "+94123456789",
@@ -41,7 +41,7 @@ const contactData = [
 		id: 3,
 		name: "Sithum Sankajith",
 		title: "Treasurer - IEEE Student Branch of NSBM",
-		image: getImagePath("/profile.png"),
+		image: getImagePath("/assets/ContactUS/Sithum.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/sithum-sankajith?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Buw%2FoNUZzRGm%2BytPRPtf3tQ%3D%3D",
 		phone: "+94775524461",
@@ -50,8 +50,8 @@ const contactData = [
 	{
 		id: 4,
 		name: "Kumuditha Ranasinghe",
-		title: "webMaster - IEEE Student Branch of NSBM",
-		image: getImagePath("/profile.png"),
+		title: "WebMaster - IEEE Student Branch of NSBM",
+		image: getImagePath("/assets/ContactUS/Kumuditha"),
 		linkedin:
 			"https://www.linkedin.com/in/kumuditha-ranasinghe-078a23254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9%2FS%2BWSl8RDGVswH4%2BP5RXA%3D%3D",
 		phone: "+94123456789",
@@ -61,7 +61,7 @@ const contactData = [
 		id: 5,
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
-		image: getImagePath("/profile.png"),
+		image: getImagePath("/assets/ContactUS/Ravindu.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/ravindu-rajapaksha-9b4415308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuDn5UM3GSo6zXuJdfa1GVQ%3D%3D",
 		phone: "+94123456789",

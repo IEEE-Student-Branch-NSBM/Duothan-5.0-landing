@@ -38,14 +38,22 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
 			<div className="absolute inset-0 flex flex-col z-10 p-4">
 				<div className="w-[260.17px] h-[200px] rounded-[2px] z-10 relative mx-auto mt-8">
+					{/* Border using filter drop-shadow */}
 					<div
 						className="absolute inset-0 overflow-hidden"
 						style={{
 							maskImage: `url(${getImagePath("/Union.svg")})`,
 							WebkitMaskImage: `url(${getImagePath("/Union.svg")})`,
+							filter:
+								"drop-shadow(4px 0 0 #22d3ee) drop-shadow(-4px 0 0 #22d3ee) drop-shadow(0 4px 0 #22d3ee) drop-shadow(0 -4px 0 #22d3ee) drop-shadow(3px 3px 0 #22d3ee) drop-shadow(-3px -3px 0 #22d3ee) drop-shadow(3px -3px 0 #22d3ee) drop-shadow(-3px 3px 0 #22d3ee)",
 						}}
 					>
-						<Image src={image} alt="profile" fill className="object-cover" />
+						<Image
+							src={image}
+							alt="profile"
+							fill
+							className="object-cover object-top"
+						/>
 					</div>
 				</div>
 
