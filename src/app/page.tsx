@@ -29,7 +29,7 @@ export default function Home() {
 		{ name: "About Us", id: "about-us" },
 		{ name: "Sponsors", id: "sponsors" },
 		{ name: "Prizes", id: "prizes" },
-		{ name: "Registration", id: "registration" },
+		// { name: "Registration", id: "registration" },
 		{ name: "Past Events", id: "past-events" },
 		{ name: "Timeline", id: "timeline" },
 		{ name: "Contact", id: "contact" },
@@ -111,22 +111,22 @@ export default function Home() {
 				</ViewportSection>
 
 				{/* Registration Section */}
-				<ViewportSection id={sections[5].id}>
+				{/* <ViewportSection id={sections[5].id}>
 					<RegistrationBanner />
-				</ViewportSection>
+				</ViewportSection> */}
 
 				{/* Past Events Section */}
-				<ViewportSection id={sections[6].id}>
+				<ViewportSection id={sections[5].id}>
 					<PastEvents />
 				</ViewportSection>
 
 				{/* Timeline Section */}
-				<ViewportSection id={sections[7].id}>
+				<ViewportSection id={sections[6].id}>
 					<Timeline />
 				</ViewportSection>
 
 				{/* Contact Section */}
-				<ViewportSection id={sections[8].id} className="">
+				<ViewportSection id={sections[7].id} className="">
 					<Contactus />
 				</ViewportSection>
 			</Viewport>

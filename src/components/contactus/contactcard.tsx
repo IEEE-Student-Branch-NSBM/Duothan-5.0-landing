@@ -59,7 +59,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
 				<div className="mt-auto text-center pb-8">
 					<h3
-						className={`text-[#A2EBFF] font-normal text-[20px] leading-[120%] tracking-[0.04em] text-center mb-2 ${readyplayerone.className}`}
+						className={`text-[#A2EBFF] font-normal text-[15px] leading-[120%] tracking-[0.04em] text-center mb-2 ${readyplayerone.className}`}
 					>
 						{name}
 					</h3>

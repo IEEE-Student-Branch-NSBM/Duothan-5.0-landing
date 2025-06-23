@@ -50,8 +50,8 @@ const contactData = [
 	{
 		id: 4,
 		name: "Kumuditha Ranasinghe",
-		title: "WebMaster - IEEE Student Branch of NSBM",
-		image: getImagePath("/assets/ContactUS/Kumuditha"),
+		title: "Chairperson - Duothan 5.0",
+		image: getImagePath("/assets/ContactUS/Kumuditha.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/kumuditha-ranasinghe-078a23254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9%2FS%2BWSl8RDGVswH4%2BP5RXA%3D%3D",
 		phone: "+94123456789",
