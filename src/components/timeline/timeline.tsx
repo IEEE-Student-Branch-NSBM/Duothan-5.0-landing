@@ -8,26 +8,26 @@ export default function Timeline() {
 		{
 			id: 1,
 			position: "left",
-			title: "First Milestone",
-			description: "Description of the first milestoneDescription",
+			title: "Registration Opens",
+			description: "July 1st, 2025",
 		},
 		{
 			id: 2,
 			position: "left",
-			title: "Second Milestone",
-			description: "Description of the second milestone",
+			title: "Initial Stage",
+			description: "11th of July, 2025",
 		},
 		{
 			id: 3,
 			position: "right",
-			title: "Third Milestone",
-			description: "Description of the third milestone",
+			title: "Registration Closes",
+			description: "July 10th, 2025",
 		},
 		{
 			id: 4,
 			position: "right",
-			title: "Fourth Milestone",
-			description: "Description of the fourth milestone",
+			title: "Competition Begins",
+			description: "16th July, 2025",
 		},
 	]);
 
