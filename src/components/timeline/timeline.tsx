@@ -13,15 +13,15 @@ export default function Timeline() {
 		},
 		{
 			id: 2,
-			position: "left",
-			title: "Initial Stage",
-			description: "11th of July, 2025",
-		},
-		{
-			id: 3,
 			position: "right",
 			title: "Registration Closes",
 			description: "July 10th, 2025",
+		},
+		{
+			id: 3,
+			position: "left",
+			title: "Initial Stage",
+			description: "11th of July, 2025",
 		},
 		{
 			id: 4,
