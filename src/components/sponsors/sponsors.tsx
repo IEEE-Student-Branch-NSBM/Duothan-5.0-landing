@@ -217,7 +217,6 @@ const getAdjustedCardSizes = (viewportSize: ViewportSize, multiplier = 1) => {
 const SponsorCard = React.memo(
 	({
 		img,
-		url,
 		altText = "Sponsor logo",
 		viewportSize,
 		cardSizeMultiplier = 1,

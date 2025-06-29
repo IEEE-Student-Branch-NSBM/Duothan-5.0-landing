@@ -5,7 +5,6 @@ import {
 	FaChevronDown,
 	FaChevronUp,
 	FaFacebookF,
-	FaGlobe,
 	FaInstagram,
 	FaLinkedinIn,
 	FaWhatsapp,
