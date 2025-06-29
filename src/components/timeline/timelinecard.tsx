@@ -1,12 +1,10 @@
 "use client";
 import { getImagePath } from "@/lib/imagePath";
-
 interface CardProps {
 	title: string;
 	description: string;
 	position: "left" | "right";
 }
-
 export default function Card({ title, description, position }: CardProps) {
 	return (
 		<div className="relative w-full">
@@ -37,7 +35,6 @@ export default function Card({ title, description, position }: CardProps) {
 					</div>
 				</div>
 			)}
-
 			{/* Mobile view card - visible only on small screens */}
 			<div className="relative md:hidden">
 				<img
