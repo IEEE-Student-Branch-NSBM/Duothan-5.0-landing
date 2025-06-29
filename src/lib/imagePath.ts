@@ -24,7 +24,7 @@ function getBasePath(): string {
 	}
 
 	// Fallback to environment variable or default
-	return process.env.PAGES_BASE_PATH || "/Duothan-5.0-landing";
+	return process.env.PAGES_BASE_PATH || "/";
 }
 
 let cachedBasePath: string | undefined;
