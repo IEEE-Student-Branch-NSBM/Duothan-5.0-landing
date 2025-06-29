@@ -2,7 +2,6 @@
 import { getImagePath } from "@/lib/imagePath";
 import { useState } from "react";
 import Card from "./timelinecard";
-
 export default function Timeline() {
 	const [items] = useState([
 		{
@@ -30,7 +29,6 @@ export default function Timeline() {
 			description: "16th July, 2025",
 		},
 	]);
-
 	return (
 		<div>
 			{/* Desktop view */}
@@ -77,7 +75,6 @@ export default function Timeline() {
 					</div>
 				</div>
 			</div>
-
 			{/* Tablet view */}
 			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-auto fixed mb-40">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
@@ -118,7 +115,6 @@ export default function Timeline() {
 					</div>
 				</div>
 			</div>
-
 			{/* Mobile view */}
 			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto fixed">
 				<div className="absolute left-6 top-0 h-full">
