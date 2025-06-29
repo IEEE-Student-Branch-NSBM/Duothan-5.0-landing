@@ -45,7 +45,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: string }) => {
 	const format = (val: number) => val.toString().padStart(2, "0");
 
 	return (
-		<div className="hud-wrapper">
+		<div className="hud-wrapper scale-75 md:scale-100">
 			<div className="hud-container">
 				<div className="hud-overlay-box">
 					<div className="hud-value">{format(timeLeft.days)}</div>

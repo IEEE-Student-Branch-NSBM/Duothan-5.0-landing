@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"format": "biome format --no-errors-on-unmatched",
-		"format:fix": "biome format --write --no-errors-on-unmatched",
+		"format:fix": "biome format --write ./src",
 		"prepare": "husky"
 	},
 	"dependencies": {
