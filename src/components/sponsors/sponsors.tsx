@@ -10,7 +10,6 @@ import { getImagePath } from "@/lib/imagePath";
 import Autoplay from "embla-carousel-autoplay";
 import localFont from "next/font/local";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect, useCallback } from "react";
 
 const readyplayerone = localFont({
@@ -22,8 +21,6 @@ interface Sponsor {
 	id: number;
 	img: string;
 	url?: string;
-	width?: number;
-	height?: number;
 	altText?: string;
 	customSize?: {
 		width?: number;
@@ -38,11 +35,9 @@ const SPONSORS_GROUP_1: Sponsor[] = [
 		id: 1,
 		img: getImagePath("/assets/sponsor/NSBM-LOGO.png"),
 		url: "https://sponsor1.com",
-		width: 100,
-		height: 100,
 		altText: "Sponsor 1",
 		customSize: {
-			width: 70,
+			width: 50,
 			height: 70,
 			maxWidth: 140,
 			maxHeight: 100,
@@ -75,10 +70,10 @@ const SPONSORS_GROUP_2: Sponsor[] = [
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
 		customSize: {
-			width: 80, // Make this one a bit wider
-			height: 60,
-			maxWidth: 160,
-			maxHeight: 90,
+			width: 90, // Make this one a bit wider
+			height: 75,
+			maxWidth: 190,
+			maxHeight: 100,
 		},
 	},
 	{
@@ -87,8 +82,8 @@ const SPONSORS_GROUP_2: Sponsor[] = [
 		url: "https://sponsor6.com",
 		altText: "Sponsor 6",
 		customSize: {
-			width: 65,
-			height: 65,
+			width: 40,
+			height: 55,
 			maxWidth: 130,
 			maxHeight: 130,
 		},
@@ -114,13 +109,13 @@ const SPONSORS_GROUP_3: Sponsor[] = [
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
 		customSize: {
-			width: 90, // This one needs to be wide for horizontal logo
+			width: 45, // This one needs to be wide for horizontal logo
 			height: 50,
-			maxWidth: 180,
+			maxWidth: 200,
 			maxHeight: 80,
 		},
 	},
-	{
+	/* {
 		id: 6,
 		img: getImagePath("/SpLogo/sponsors6.svg"),
 		url: "https://sponsor6.com",
@@ -131,7 +126,7 @@ const SPONSORS_GROUP_3: Sponsor[] = [
 			maxWidth: 120,
 			maxHeight: 120,
 		},
-	},
+	}, */
 	// {
 	// 	id: 7,
 	// 	img: getImagePath("/SpLogo/sponsors7.svg"),
@@ -198,7 +193,7 @@ const BASE_CARD_SIZES: Record<
 		bgSize: "contain",
 	},
 	desktop: {
-		width: 192,
+		width: 190,
 		height: 96,
 		padding: "p-4",
 		imageMaxWidth: 176,
@@ -231,16 +226,18 @@ const SponsorCard = React.memo(
 		const { width, height, padding, imageMaxWidth, imageMaxHeight, bgSize } =
 			getAdjustedCardSizes(viewportSize, cardSizeMultiplier);
 
-		const cardContent = (
+		// Return the card content directly without any link wrapping
+		return (
 			<div
 				className="relative mx-auto transition-all duration-300 hover:scale-105 flex items-center justify-center"
 				style={{
 					width: `${width}px`,
 					height: `${height}px`,
+					margin: "0 auto", // Ensure horizontal centering
 				}}
 			>
 				<div
-					className="absolute inset-0 bg-no-repeat bg-center"
+					className="absolute inset-0 bg-no-repeat bg-center flex items-center justify-center"
 					style={{
 						backgroundImage: `url(${getImagePath("/sponsors.svg")})`,
 						backgroundSize: bgSize,
@@ -262,6 +259,7 @@ const SponsorCard = React.memo(
 								width: customSize?.width ? `${customSize.width}%` : "50%",
 								height: customSize?.height ? `${customSize.height}%` : "50%",
 								position: "relative",
+								margin: "0 auto",
 							}}
 						>
 							<Image
@@ -279,22 +277,6 @@ const SponsorCard = React.memo(
 					</div>
 				</div>
 			</div>
-		);
-
-		return url ? (
-			<Link
-				href={url}
-				target="_blank"
-				rel="noopener noreferrer nofollow"
-				className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a2ebff] focus-visible:ring-offset-2 rounded-md"
-				aria-label={
-					altText ? `Visit ${altText} website` : "Visit sponsor website"
-				}
-			>
-				{cardContent}
-			</Link>
-		) : (
-			cardContent
 		);
 	},
 );
@@ -347,10 +329,15 @@ const CarouselWithProgress = React.memo(
 
 		const getCardSizeMultiplier = () => {
 			if (viewportSize === "desktop") {
+				if (sponsors.length === 1) return 1.5; // Reduced from 2x to 1.5x
 				if (sponsors.length === 2) return 1.5;
 				if (sponsors.length === 3) return 1.2;
 			} else if (viewportSize === "tablet") {
 				if (sponsors.length === 2) return 1.3;
+				if (sponsors.length === 1) return 1.4; // Reduced from 1.8x to 1.4x
+			} else if (viewportSize === "mobile") {
+				if (sponsors.length === 1) return 1.25; // Reduced from 1.5x to 1.25x
+				if (sponsors.length === 2) return 1.2;
 			}
 			return 1;
 		};
@@ -376,7 +363,7 @@ const CarouselWithProgress = React.memo(
 					]}
 					opts={{
 						loop: true,
-						align: "start",
+						align: "center",
 						slidesToScroll:
 							viewportSize === "small-mobile"
 								? 1
@@ -384,7 +371,11 @@ const CarouselWithProgress = React.memo(
 									? sponsors.length <= 2
 										? 1
 										: 2
-									: 1,
+									: viewportSize === "tablet"
+										? sponsors.length <= 2
+											? 1
+											: 1
+										: 1,
 					}}
 					className="w-full relative"
 				>
@@ -394,11 +385,13 @@ const CarouselWithProgress = React.memo(
 								key={`sponsor-${sponsor.id}`}
 								className={
 									viewportSize === "small-mobile"
-										? "basis-full pl-1"
+										? sponsors.length <= 2
+											? "basis-full pl-1" // Show one at a time on small mobile
+											: "basis-full pl-1"
 										: viewportSize === "mobile"
 											? sponsors.length <= 2
-												? "basis-1/2 pl-1"
-												: "basis-1/2 pl-1"
+												? "basis-full pl-1" // Show one at a time for 1-2 sponsors on mobile
+												: "basis-1/2 pl-1" // Show two at a time for 3+ sponsors
 											: viewportSize === "tablet"
 												? sponsors.length <= 2
 													? "basis-1/2 pl-1"
@@ -406,7 +399,7 @@ const CarouselWithProgress = React.memo(
 												: "basis-full"
 								}
 							>
-								<div className="p-1 flex justify-center">
+								<div className="p-1 flex items-center justify-center w-full">
 									<SponsorCard
 										img={sponsor.img}
 										url={sponsor.url}
@@ -508,18 +501,28 @@ const Sponsors = () => {
 			if (viewportSize === "desktop") {
 				return (
 					<div
-						className={`grid ${
-							sponsors.length === 2
-								? "grid-cols-2"
-								: sponsors.length === 3
-									? "grid-cols-3"
-									: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-						} gap-4 mx-auto max-w-6xl`}
+						className={`${
+							sponsors.length === 1
+								? "flex justify-center max-w-md" // For single sponsor, use flex with max-width
+								: `grid ${
+										sponsors.length === 2
+											? "grid-cols-2 gap-8 md:gap-12 max-w-4xl" // Increased gap for 2 sponsors and limited width
+											: sponsors.length === 3
+												? "grid-cols-3 gap-6"
+												: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+									}`
+						} mx-auto max-w-6xl w-full place-items-center`}
 					>
 						{sponsors.map((sponsor) => (
 							<div
 								key={`desktop-sponsor-${sponsor.id}`}
-								className="flex justify-center"
+								className={`flex justify-center items-center ${
+									sponsors.length === 1
+										? "w-full"
+										: sponsors.length === 2
+											? "w-full px-8"
+											: "w-full"
+								}`}
 							>
 								<SponsorCard
 									img={sponsor.img}
@@ -528,11 +531,13 @@ const Sponsors = () => {
 									viewportSize={viewportSize}
 									customSize={sponsor.customSize}
 									cardSizeMultiplier={
-										sponsors.length === 2
-											? 1.5
-											: sponsors.length === 3
-												? 1.2
-												: 1
+										sponsors.length === 1
+											? 1.5 // Reduced size for single sponsor
+											: sponsors.length === 2
+												? 1.5
+												: sponsors.length === 3
+													? 1.2
+													: 1
 									}
 								/>
 							</div>
@@ -542,7 +547,7 @@ const Sponsors = () => {
 			}
 
 			return (
-				<div className="px-4">
+				<div className="px-4 flex justify-center items-center w-full">
 					<CarouselWithProgress
 						sponsors={sponsors}
 						delay={isFirstRow ? 3.5 : 3}
@@ -555,33 +560,39 @@ const Sponsors = () => {
 	);
 
 	return (
-		<section className="py-6 sm:py-8 md:py-20 px-4 w-full max-w-7xl mx-auto">
+		<section className="py-6 sm:py-8 md:py-20 px-4 w-full mt-10 scale-90 max-w-7xl mx-auto">
 			{/* <div className="mb-4 sm:mb-8 md:mb-12"> */}
-			<div>
+			<div className="flex flex-col items-center w-full">
 				<h3
 					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
 				>
 					TITLE SPONSORS
 				</h3>
-				{renderSponsors(SPONSORS_GROUP_1, true)}
+				<div className="w-full flex justify-center">
+					{renderSponsors(SPONSORS_GROUP_1, true)}
+				</div>
 			</div>
 
-			<div>
+			<div className="flex flex-col items-center mt-8 w-full">
 				<h3
 					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
 				>
 					BRONZE PARTNER
 				</h3>
-				{renderSponsors(SPONSORS_GROUP_2, true)}
+				<div className="w-full flex justify-center">
+					{renderSponsors(SPONSORS_GROUP_2, true)}
+				</div>
 			</div>
 
-			<div>
+			<div className="flex flex-col items-center mt-8 w-full">
 				<h3
 					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
 				>
 					BEVERAGES PARTNER
 				</h3>
-				{renderSponsors(SPONSORS_GROUP_3, true)}
+				<div className="w-full flex justify-center">
+					{renderSponsors(SPONSORS_GROUP_3, true)}
+				</div>
 			</div>
 			{/* <div className="text-center text-xs text-gray-400 mt-2">
 				Subaru Company is our official knowledge partner

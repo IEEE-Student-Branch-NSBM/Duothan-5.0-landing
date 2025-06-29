@@ -30,7 +30,7 @@ const contactData = [
 	{
 		id: 2,
 		name: "Jayasanka Ariyaratne",
-		title: "Vice Chairperson - IEEE Student Branch of NSBM",
+		title: "Vice Chair - IEEE Student Branch of NSBM",
 		image: getImagePath("/assets/ContactUS/Jayasanka.PNG"),
 		linkedin:
 			"https://www.linkedin.com/in/jayasanka-ariyaratne?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bvd6eSph0Q2C91JY4E6nTxQ%3D%3D",
@@ -49,6 +49,16 @@ const contactData = [
 	},
 	{
 		id: 4,
+		name: "Dasun Sri Nethmal",
+		title: "Advisor - Duothan 5.0",
+		image: getImagePath("/assets/ContactUS/dasun.PNG"),
+		linkedin:
+			"https://www.linkedin.com/in/sithum-sankajith?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Buw%2FoNUZzRGm%2BytPRPtf3tQ%3D%3D",
+		phone: "+94775524461",
+		email: "sithumsankajith@ieee.org",
+	},
+	{
+		id: 5,
 		name: "Kumuditha Ranasinghe",
 		title: "Chairperson - Duothan 5.0",
 		image: getImagePath("/assets/ContactUS/Kumuditha.PNG"),
@@ -58,7 +68,7 @@ const contactData = [
 		email: "kumuditharanasinghe@ieee.org",
 	},
 	{
-		id: 5,
+		id: 6,
 		name: "Ravindu Rajapaksha",
 		title: "Chairperson - Duothan 5.0",
 		image: getImagePath("/assets/ContactUS/Ravindu.PNG"),
