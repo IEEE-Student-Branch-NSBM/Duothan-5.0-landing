@@ -22,7 +22,15 @@ interface Sponsor {
 	id: number;
 	img: string;
 	url?: string;
+	width?: number;
+	height?: number;
 	altText?: string;
+	customSize?: {
+		width?: number;
+		height?: number;
+		maxWidth?: number;
+		maxHeight?: number;
+	};
 }
 
 const SPONSORS_GROUP_1: Sponsor[] = [
@@ -30,14 +38,22 @@ const SPONSORS_GROUP_1: Sponsor[] = [
 		id: 1,
 		img: getImagePath("/assets/sponsor/NSBM-LOGO.png"),
 		url: "https://sponsor1.com",
+		width: 100,
+		height: 100,
 		altText: "Sponsor 1",
+		customSize: {
+			width: 70,
+			height: 70,
+			maxWidth: 140,
+			maxHeight: 100,
+		},
 	},
-	{
+	/* {
 		id: 2,
 		img: getImagePath("/SpLogo/sponsors2.svg"),
 		url: "https://sponsor2.com",
 		altText: "Sponsor 2",
-	},
+	}, */
 	// {
 	// 	id: 3,
 	// 	img: getImagePath("/SpLogo/sponsors3.svg"),
@@ -58,12 +74,24 @@ const SPONSORS_GROUP_2: Sponsor[] = [
 		img: getImagePath("assets/sponsor/Logo Official.png"),
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
+		customSize: {
+			width: 80, // Make this one a bit wider
+			height: 60,
+			maxWidth: 160,
+			maxHeight: 90,
+		},
 	},
 	{
 		id: 6,
 		img: getImagePath("assets/sponsor/ogoLogo.jpg"),
 		url: "https://sponsor6.com",
 		altText: "Sponsor 6",
+		customSize: {
+			width: 65,
+			height: 65,
+			maxWidth: 130,
+			maxHeight: 130,
+		},
 	},
 	// {
 	// 	id: 7,
@@ -85,12 +113,24 @@ const SPONSORS_GROUP_3: Sponsor[] = [
 		img: getImagePath("assets/sponsor/INTERNATIONAL HORIZONTAL CMYK.png"),
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
+		customSize: {
+			width: 90, // This one needs to be wide for horizontal logo
+			height: 50,
+			maxWidth: 180,
+			maxHeight: 80,
+		},
 	},
 	{
 		id: 6,
 		img: getImagePath("/SpLogo/sponsors6.svg"),
 		url: "https://sponsor6.com",
 		altText: "Sponsor 6",
+		customSize: {
+			width: 60,
+			height: 60,
+			maxWidth: 120,
+			maxHeight: 120,
+		},
 	},
 	// {
 	// 	id: 7,
@@ -114,6 +154,12 @@ interface SponsorCardProps {
 	altText?: string;
 	viewportSize: ViewportSize;
 	cardSizeMultiplier?: number;
+	customSize?: {
+		width?: number;
+		height?: number;
+		maxWidth?: number;
+		maxHeight?: number;
+	};
 }
 
 const BASE_CARD_SIZES: Record<
@@ -180,6 +226,7 @@ const SponsorCard = React.memo(
 		altText = "Sponsor logo",
 		viewportSize,
 		cardSizeMultiplier = 1,
+		customSize,
 	}: SponsorCardProps) => {
 		const { width, height, padding, imageMaxWidth, imageMaxHeight, bgSize } =
 			getAdjustedCardSizes(viewportSize, cardSizeMultiplier);
@@ -206,10 +253,14 @@ const SponsorCard = React.memo(
 					>
 						<div
 							style={{
-								maxWidth: `${imageMaxWidth}px`,
-								maxHeight: `${imageMaxHeight}px`,
-								width: "50%",
-								height: "50%",
+								maxWidth: customSize?.maxWidth
+									? `${customSize.maxWidth}px`
+									: `${imageMaxWidth}px`,
+								maxHeight: customSize?.maxHeight
+									? `${customSize.maxHeight}px`
+									: `${imageMaxHeight}px`,
+								width: customSize?.width ? `${customSize.width}%` : "50%",
+								height: customSize?.height ? `${customSize.height}%` : "50%",
 								position: "relative",
 							}}
 						>
@@ -217,10 +268,10 @@ const SponsorCard = React.memo(
 								src={img}
 								alt={altText || "Sponsor logo"}
 								fill
-								className="object-contain"
-								sizes={`(max-width: 380px) ${imageMaxWidth}px, 
-                       (max-width: 768px) ${imageMaxWidth}px,
-                       ${imageMaxWidth}px`}
+								className="object-cover"
+								sizes={`(max-width: 380px) ${customSize?.maxWidth || imageMaxWidth}px, 
+                       (max-width: 768px) ${customSize?.maxWidth || imageMaxWidth}px,
+                       ${customSize?.maxWidth || imageMaxWidth}px`}
 								priority={false}
 								loading="lazy"
 							/>
@@ -362,6 +413,7 @@ const CarouselWithProgress = React.memo(
 										altText={sponsor.altText}
 										viewportSize={viewportSize}
 										cardSizeMultiplier={getCardSizeMultiplier()}
+										customSize={sponsor.customSize}
 									/>
 								</div>
 							</CarouselItem>
@@ -474,6 +526,7 @@ const Sponsors = () => {
 									url={sponsor.url}
 									altText={sponsor.altText}
 									viewportSize={viewportSize}
+									customSize={sponsor.customSize}
 									cardSizeMultiplier={
 										sponsors.length === 2
 											? 1.5
