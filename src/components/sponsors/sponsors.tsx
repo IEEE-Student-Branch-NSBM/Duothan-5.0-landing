@@ -28,7 +28,7 @@ interface Sponsor {
 const SPONSORS_GROUP_1: Sponsor[] = [
 	{
 		id: 1,
-		img: getImagePath("/SpLogo/sponsors1.svg"),
+		img: getImagePath("/assets/sponsor/NSBM-LOGO.png"),
 		url: "https://sponsor1.com",
 		altText: "Sponsor 1",
 	},
@@ -38,24 +38,51 @@ const SPONSORS_GROUP_1: Sponsor[] = [
 		url: "https://sponsor2.com",
 		altText: "Sponsor 2",
 	},
-	{
-		id: 3,
-		img: getImagePath("/SpLogo/sponsors3.svg"),
-		url: "https://sponsor3.com",
-		altText: "Sponsor 3",
-	},
-	{
-		id: 4,
-		img: getImagePath("/SpLogo/sponsors4.svg"),
-		url: "https://sponsor4.com",
-		altText: "Sponsor 4",
-	},
+	// {
+	// 	id: 3,
+	// 	img: getImagePath("/SpLogo/sponsors3.svg"),
+	// 	url: "https://sponsor3.com",
+	// 	altText: "Sponsor 3",
+	// },
+	// {
+	// 	id: 4,
+	// 	img: getImagePath("/SpLogo/sponsors4.svg"),
+	// 	url: "https://sponsor4.com",
+	// 	altText: "Sponsor 4",
+	// },
 ];
 
 const SPONSORS_GROUP_2: Sponsor[] = [
 	{
 		id: 5,
-		img: getImagePath("/SpLogo/sponsors5.svg"),
+		img: getImagePath("assets/sponsor/Logo Official.png"),
+		url: "https://sponsor5.com",
+		altText: "Sponsor 5",
+	},
+	{
+		id: 6,
+		img: getImagePath("assets/sponsor/ogoLogo.jpg"),
+		url: "https://sponsor6.com",
+		altText: "Sponsor 6",
+	},
+	// {
+	// 	id: 7,
+	// 	img: getImagePath("/SpLogo/sponsors7.svg"),
+	// 	url: "https://sponsor7.com",
+	// 	altText: "Sponsor 7",
+	// },
+	// {
+	// 	id: 8,
+	// 	img: getImagePath("/SpLogo/sponsors8.svg"),
+	// 	url: "https://sponsor8.com",
+	// 	altText: "Sponsor 8",
+	// },
+];
+
+const SPONSORS_GROUP_3: Sponsor[] = [
+	{
+		id: 5,
+		img: getImagePath("assets/sponsor/INTERNATIONAL HORIZONTAL CMYK.png"),
 		url: "https://sponsor5.com",
 		altText: "Sponsor 5",
 	},
@@ -65,18 +92,18 @@ const SPONSORS_GROUP_2: Sponsor[] = [
 		url: "https://sponsor6.com",
 		altText: "Sponsor 6",
 	},
-	{
-		id: 7,
-		img: getImagePath("/SpLogo/sponsors7.svg"),
-		url: "https://sponsor7.com",
-		altText: "Sponsor 7",
-	},
-	{
-		id: 8,
-		img: getImagePath("/SpLogo/sponsors8.svg"),
-		url: "https://sponsor8.com",
-		altText: "Sponsor 8",
-	},
+	// {
+	// 	id: 7,
+	// 	img: getImagePath("/SpLogo/sponsors7.svg"),
+	// 	url: "https://sponsor7.com",
+	// 	altText: "Sponsor 7",
+	// },
+	// {
+	// 	id: 8,
+	// 	img: getImagePath("/SpLogo/sponsors8.svg"),
+	// 	url: "https://sponsor8.com",
+	// 	altText: "Sponsor 8",
+	// },
 ];
 
 type ViewportSize = "small-mobile" | "mobile" | "tablet" | "desktop";
@@ -101,35 +128,35 @@ const BASE_CARD_SIZES: Record<
 	}
 > = {
 	"small-mobile": {
-		width: 140,
-		height: 70,
+		width: 112,
+		height: 56,
 		padding: "p-1",
-		imageMaxWidth: 120,
-		imageMaxHeight: 50,
+		imageMaxWidth: 96,
+		imageMaxHeight: 40,
 		bgSize: "contain",
 	},
 	mobile: {
-		width: 160,
-		height: 80,
+		width: 128,
+		height: 64,
 		padding: "p-2",
-		imageMaxWidth: 140,
-		imageMaxHeight: 60,
+		imageMaxWidth: 112,
+		imageMaxHeight: 48,
 		bgSize: "contain",
 	},
 	tablet: {
-		width: 200,
-		height: 100,
+		width: 160,
+		height: 80,
 		padding: "p-3",
-		imageMaxWidth: 180,
-		imageMaxHeight: 80,
+		imageMaxWidth: 144,
+		imageMaxHeight: 64,
 		bgSize: "contain",
 	},
 	desktop: {
-		width: 240,
-		height: 120,
+		width: 192,
+		height: 96,
 		padding: "p-4",
-		imageMaxWidth: 220,
-		imageMaxHeight: 100,
+		imageMaxWidth: 176,
+		imageMaxHeight: 80,
 		bgSize: "contain",
 	},
 };
@@ -475,10 +502,11 @@ const Sponsors = () => {
 	);
 
 	return (
-		<section className="py-6 sm:py-8 md:py-12 px-4 w-full max-w-7xl mx-auto">
-			<div className="mb-8 sm:mb-12 md:mb-16">
+		<section className="py-6 sm:py-8 md:py-20 px-4 w-full max-w-7xl mx-auto">
+			{/* <div className="mb-4 sm:mb-8 md:mb-12"> */}
+			<div>
 				<h3
-					className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-center text-[#e957dd] mb-4 sm:mb-6 md:mb-8 ${readyplayerone.className}`}
+					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
 				>
 					TITLE SPONSORS
 				</h3>
@@ -487,15 +515,24 @@ const Sponsors = () => {
 
 			<div>
 				<h3
-					className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-center text-[#e957dd] mb-4 sm:mb-6 md:mb-8 ${readyplayerone.className}`}
+					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
 				>
-					ASSOCIATE SPONSORS
+					BRONZE PARTNER
 				</h3>
-				{renderSponsors(SPONSORS_GROUP_2, false)}
+				{renderSponsors(SPONSORS_GROUP_2, true)}
 			</div>
-			<div className="text-center text-xs text-gray-400 mt-2">
+
+			<div>
+				<h3
+					className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-center text-[#e957dd] mb-4 sm:mb-2 md:mb-4 ${readyplayerone.className}`}
+				>
+					BEVERAGES PARTNER
+				</h3>
+				{renderSponsors(SPONSORS_GROUP_3, true)}
+			</div>
+			{/* <div className="text-center text-xs text-gray-400 mt-2">
 				Subaru Company is our official knowledge partner
-			</div>
+			</div> */}
 		</section>
 	);
 };
