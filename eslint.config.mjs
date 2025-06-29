@@ -10,12 +10,11 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-	//Disable the rule that requires a specific version of React
-	{
-		rules: {
-			"@next/next/no-img-element": "off",
-		},
-	},
+{
+    rules: {
+        "@next/next/no-img-element": "off",
+    },
+},
 	...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 

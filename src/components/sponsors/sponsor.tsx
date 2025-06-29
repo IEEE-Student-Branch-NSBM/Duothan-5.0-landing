@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Image from "next/image";
-import Link from "next/link";
 
 // Import custom font
 const readyplayerone = localFont({
