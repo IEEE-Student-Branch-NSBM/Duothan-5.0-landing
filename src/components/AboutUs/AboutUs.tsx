@@ -51,11 +51,11 @@ export default function AboutUs() {
 			id: 1,
 			title: "IEEE STUDENT BRANCH OF NSBM",
 			content:
-				"The IEEE Student Branch of NSBM Green University was established in 2015 to foster undergraduate and graduate student interest in electrical and computing specializations. We are handling IEEE service events in and out of thecampus, coordinating and facilitating opportunities to meet corporate representatives, and establishing relationships with other student branches in Sri Lanka and all over the entire globe.",
+				"The IEEE Student Branch of NSBM Green University, established in 2015, unites passionate IEEE members from the Faculties of Computing and Engineering to foster innovation, collaboration, and professional growth.",
 		},
 		{
 			id: 2,
-			title: "DUOTHON 5.0",
+			title: "DUOTHAN 5.0",
 			content:
 				"After four successful editions, we're back and bigger, bolder, and more inspiring than ever,The IEEE Student Branch of NSBM, in collaboration with the IEEE Computer Society of NSBM and the IEEE Women in Engineering Affinity Group of NSBM, proudly presents Duothan 5.0, a national-level hackathon designed to challenge and empower undergraduates from across Sri Lanka.",
 		},
@@ -123,13 +123,9 @@ export default function AboutUs() {
 								IEEE STUDENT BRANCH OF NSBM
 							</p>
 							<p className="text-base md:text-lg text-white text-center w-full pt-3 px-5 md:px-20">
-								The IEEE Student Branch of NSBM Green University was established
-								in 2015 to foster undergraduate and graduate student interest in
-								electrical and computing specializations. We are handling IEEE
-								service events in and out of thecampus, coordinating and
-								facilitating opportunities to meet corporate representatives,
-								and establishing relationships with other student branches in
-								Sri Lanka and all over the entire globe.
+								The IEEE Student Branch of NSBM Green University, established in 2015, unites passionate 
+								IEEE members from the Faculties of Computing and Engineering to foster innovation, collaboration, 
+								and professional growth.
 							</p>
 						</div>
 

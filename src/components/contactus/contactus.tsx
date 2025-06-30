@@ -118,7 +118,7 @@ const ContactUs: React.FC = () => {
 						<p className="text-white mb-6 sm:mb-8 lg:mb-10 font-[Electrolize] text-base sm:text-lg lg:text-xl xl:text-[22px] leading-relaxed text-center lg:text-left">
 							Questions, glitches, or just curious? Our squad is ready to
 							assist. Reach out, connect, and let us guide you through the
-							DUOTHON experience. The mission support is always online.
+							DUOTHAN experience. The mission support is always online.
 						</p>
 					</div>
 

@@ -352,7 +352,7 @@ export default function RegistrationBanner() {
 							The portal is live and the arena awaits. Get ready to take on
 							thrilling quests, unlock challenges, and rise through the
 							leaderboard. This is your chance to step into{" "}
-							<span className="text-cyan-400 font-bold">DUOTHON 5.0 </span>{" "}
+							<span className="text-cyan-400 font-bold">DUOTHAN 5.0 </span>{" "}
 							where every move matters. Ready to play?
 						</p>
 
