@@ -19,7 +19,7 @@ import {
 const events = [
 	{
 		key: 1,
-		title: "Duothon 1.0",
+		title: "Duothan 1.0",
 		image: "/assets/pastEvent/Duothan1.jpg",
 		priority: true,
 		description:
@@ -27,21 +27,21 @@ const events = [
 	},
 	{
 		key: 2,
-		title: "Duothon 2.0",
+		title: "Duothan 2.0",
 		image: "/assets/pastEvent/duathon2.png",
 		description:
 			"By 2022, we were finally able to bring Duothan to life on campus, and it was such an exciting shift. After having our very first edition virtually, Duothan 2.0 took place physically at NSBM, following all the health and safety guidelines from local authorities.",
 	},
 	{
 		key: 3,
-		title: "Duothon 3.0",
+		title: "Duothan 3.0",
 		image: "/assets/pastEvent/duathon3.png",
 		description:
-			"Duothon 3.0 took place as a physical event in 2023, open to all universities. This buildathon challenged participants to complete a half-built application following specific guidelines, using their preferred programming language.",
+			"Duothan 3.0 took place as a physical event in 2023, open to all universities. This buildathon challenged participants to complete a half-built application following specific guidelines, using their preferred programming language.",
 	},
 	{
 		key: 4,
-		title: "Duothon 4.0",
+		title: "Duothan 4.0",
 		image: "/assets/pastEvent/duathon4.png",
 		description:
 			"Duothan 4.0, organized by the IEEE Student Branch of NSBM, was successfully held as an exciting and competitive buildathon that brought together undergraduates from across Sri Lanka.",

@@ -14,9 +14,9 @@ export default function Card({ title, description, position }: CardProps) {
 					<img
 						src={getImagePath("/fullcardtimeline.svg")}
 						alt="Timeline card"
-						className="w-full h-full object-contain"
+						className="w-full h-full scale-75 object-contain"
 					/>
-					<div className="absolute top-5 left-3 w-full h-full flex flex-col justify-center ">
+					<div className="absolute top-5 left-28 w-full h-full flex flex-col justify-center ">
 						<h3 className="text-white text-lg font-bold mb-1">{title}</h3>
 						<p className="text-gray-300 text-sm">{description}</p>
 					</div>
@@ -27,9 +27,9 @@ export default function Card({ title, description, position }: CardProps) {
 					<img
 						src={getImagePath("/fullcardright.svg")}
 						alt="Timeline card"
-						className="w-full h-full object-contain"
+						className="w-full h-full scale-75 object-contain"
 					/>
-					<div className="absolute top-5 left-16 w-full h-full flex flex-col justify-center">
+					<div className="absolute top-5 left-36 w-full h-full flex flex-col justify-center">
 						<h3 className="text-white text-lg font-bold mb-1">{title}</h3>
 						<p className="text-gray-300 text-sm">{description}</p>
 					</div>
