@@ -134,7 +134,7 @@ export default function AboutUs() {
 						</div>
 
 						<div className="flex flex-col items-center justify-center pt-5 md:pt-8 max-w-7xl">
-							<p className="text-l md:text-3xl text-[#e957dd]">DUOTHON</p>
+							<p className="text-l md:text-3xl text-[#e957dd]">DUOTHAN</p>
 							<p className="text-base md:text-lg text-white text-center w-full pt-3 px-5 md:px-20">
 								After four successful editions, we&apos;re back and bigger,
 								bolder, and more inspiring than ever,The IEEE Student Branch of

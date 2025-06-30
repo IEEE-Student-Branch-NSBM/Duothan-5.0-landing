@@ -32,22 +32,22 @@ export default function Timeline() {
 	return (
 		<div>
 			{/* Desktop view */}
-			<div className="hidden scale-70 lg:flex relative w-full max-w-[1170px]">
-				<div className="absolute -top-7 left-1/2 transform -translate-x-1/2">
+			<div className="hidden lg:flex relative w-full max-w-[1170px] h-[550px]">
+				<div className="absolute left-1/2 transform -translate-x-1/2 h-full">
 					<img
 						src={getImagePath("/timelinecompleet.svg")}
 						alt="Timeline"
-						className="h-full object-contain"
+						className="h-full object-contain z-0"
 					/>
 				</div>
 				<div className="flex flex-row w-full">
-					<div className="flex flex-col w-full">
+					<div className="flex flex-col w-full ml-4">
 						{items
 							.filter((_, i) => i % 2 === 1)
 							.map((item, index) => (
 								<div
 									key={item.id}
-									className={`flex justify-start w-full ml-5 ${index === 0 ? "mt-43" : "mt-20"}`}
+									className={`flex justify-start w-full ${index === 0 ? "mt-[110px] -mb-[70px]" : "mt-16"}`}
 								>
 									<Card
 										title={item.title}
@@ -57,13 +57,13 @@ export default function Timeline() {
 								</div>
 							))}
 					</div>
-					<div className="flex flex-col w-full">
+					<div className="flex flex-col w-full -ml-40">
 						{items
 							.filter((_, i) => i % 2 === 0)
 							.map((item, index) => (
 								<div
 									key={item.id}
-									className={`flex justify-start w-full ml-auto ${index === 0 ? "mt-10 mb-4" : "mt-12"}`}
+									className={`flex justify-start w-full ${index === 0 ? "-mb-[56px] mt-[12px]" : "mt-12"}`}
 								>
 									<Card
 										title={item.title}
@@ -76,7 +76,7 @@ export default function Timeline() {
 				</div>
 			</div>
 			{/* Tablet view */}
-			<div className="hidden md:flex lg:hidden relative max-w-[768px] mx-auto fixed mb-40">
+			<div className="hidden md:flex lg:hidden max-w-[768px] mx-auto fixed mb-40">
 				<div className="absolute left-1/2 transform -translate-x-1/2">
 					<img
 						src={getImagePath("/timelinecompleet.svg")}
@@ -116,7 +116,7 @@ export default function Timeline() {
 				</div>
 			</div>
 			{/* Mobile view */}
-			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto fixed">
+			<div className="md:hidden flex relative w-[370px] h-[584px] mx-auto">
 				<div className="absolute left-6 top-0 h-full">
 					<img
 						src={getImagePath("/mobileTimeline.svg")}
