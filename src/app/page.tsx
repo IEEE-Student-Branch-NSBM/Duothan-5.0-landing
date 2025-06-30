@@ -13,7 +13,7 @@ import PastEvents from "@/components/pastevents/pastevents";
 import PrizePool from "@/components/prizepool/page";
 // import RegistrationBanner from "@/components/register-page/RegistrationBanner";
 import SideSkirts from "@/components/side-skirts/SideSkirts";
-import Sponsors from "@/components/sponsors/sponsors";
+import Sponsor from "@/components/sponsors/sponsor";
 import Timeline from "@/components/timeline/timeline";
 import Viewport from "@/components/viewport/Viewport";
 import ViewportSection from "@/components/viewport/ViewportSection";
@@ -103,7 +103,8 @@ export default function Home() {
 
 				{/* Sponsors Section */}
 				<ViewportSection id={sections[3].id}>
-					<Sponsors />
+					{/* <Sponsors /> */}
+					<Sponsor />
 				</ViewportSection>
 
 				<ViewportSection id={sections[4].id}>

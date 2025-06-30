@@ -5,9 +5,9 @@ import {
 	FaChevronDown,
 	FaChevronUp,
 	FaFacebookF,
-	FaGlobe,
 	FaInstagram,
 	FaLinkedinIn,
+	FaWhatsapp,
 } from "react-icons/fa";
 
 const electrolize = Electrolize({ subsets: ["latin"], weight: "400" });
@@ -94,13 +94,13 @@ export default function Footer() {
 					</div>
 				</a>
 				<a
-					href="https://yourwebsite.com"
+					href="https://whatsapp.com/channel/0029VabVvsmBvvsZZQGk0X0a"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<FaGlobe
+					<FaWhatsapp
 						size={23}
-						className="text-white hover:text-green-400 cursor-pointer"
+						className="text-black bg-white rounded-full p-0.5 hover:text-green-400 cursor-pointer"
 					/>
 				</a>
 			</div>
@@ -185,13 +185,13 @@ export default function Footer() {
 							</div>
 						</a>
 						<a
-							href="https://yourwebsite.com"
+							href="https://whatsapp.com/channel/0029VabVvsmBvvsZZQGk0X0a"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<FaGlobe
+							<FaWhatsapp
 								size={20}
-								className="text-white hover:text-green-400 cursor-pointer"
+								className="text-black bg-white rounded-full p-0.5 hover:text-green-400 cursor-pointer"
 							/>
 						</a>
 					</div>
