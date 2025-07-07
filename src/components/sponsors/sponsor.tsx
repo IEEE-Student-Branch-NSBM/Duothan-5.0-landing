@@ -55,8 +55,8 @@ const BEVERAGE_PARTNERS: Sponsor[] = [
 	},
 	{
 		id: 4,
-		img: "./assets/sponsor/elephantHouse.jpg",
-		altText: "sunquick",
+		img: "./assets/sponsor/elephantHouse.png",
+		altText: "elephantHouse",
 	},
 ];
 
