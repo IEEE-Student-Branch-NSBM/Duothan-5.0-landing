@@ -1,9 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import localFont from "next/font/local";
-import Image from "next/image";
-import { useState, useEffect } from "react";
 import {
 	Carousel,
 	CarouselContent,
@@ -11,6 +7,10 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
+import localFont from "next/font/local";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // Import custom font
 const readyplayerone = localFont({
@@ -52,6 +52,11 @@ const BEVERAGE_PARTNERS: Sponsor[] = [
 		id: 4,
 		img: "/assets/sponsor/sunquick-logo.png",
 		altText: "sunquick",
+	},
+	{
+		id: 4,
+		img: "./assets/sponsor/elephantHouse.png",
+		altText: "elephantHouse",
 	},
 ];
 
@@ -154,10 +159,7 @@ const SponsorSection = ({
 				// Single sponsor centered view
 				<div className="flex justify-center">
 					{sponsors.map((sponsor) => (
-						<div
-							key={`single-${sponsor.id}`}
-							className="w-full max-w-md"
-						>
+						<div key={`single-${sponsor.id}`} className="w-full max-w-md">
 							<SponsorCard img={sponsor.img} altText={sponsor.altText} />
 						</div>
 					))}
